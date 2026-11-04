@@ -239,30 +239,48 @@ code {
 	text-decoration: underline;
 	text-decoration-thickness: 2px;
 }
-.lang {
-	display: inline-grid;
-	place-items: center;
-	min-width: 44px;
-	min-height: 44px;
-	padding: 0 8px;
+/* Il selettore della lingua: due tasti attaccati, con la bandierina; quello della pagina è pieno. */
+.lang-switch {
+	display: inline-flex;
+	border: 2px solid var(--control);
+}
+.lang-switch a {
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	min-height: 40px;
+	padding: 0 10px;
+	background: var(--surface);
 	color: var(--text);
 	font-size: 14px;
 	font-weight: 700;
 	letter-spacing: 0.06em;
 	text-decoration: none;
-	border: 1px solid var(--border);
 }
-.lang:hover {
+.lang-switch a + a {
+	border-left: 1px solid var(--border);
+}
+.lang-switch a:hover {
 	background: var(--surface2);
-	text-decoration: none;
+}
+.lang-switch a[aria-current='page'] {
+	background: var(--primary);
+	color: var(--on-primary);
+}
+.lang-switch img {
+	display: block;
+	width: 21px;
+	height: 14px;
+	box-shadow: 0 0 0 1px rgb(0 0 0 / 0.2);
 }
 @media (max-width: 880px) {
 	.nav {
 		display: none;
 	}
 }
-@media (max-width: 420px) {
-	.btn-github span {
+/* Sul telefono restano marchio e lingua: GitHub è anche nel piè di pagina. */
+@media (max-width: 480px) {
+	.btn-github {
 		display: none;
 	}
 }
