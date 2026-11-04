@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crooked Shelf — the wiki for your role-playing campaigns</title>
+<meta name="description" content="Crooked Shelf is a self-hosted wiki to build, maintain and chronicle tabletop role-playing campaigns: pages, maps, timelines, player sheets and the Master's secrets. Free software, AGPL-3.0.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="it" href="../">
+<link rel="alternate" hreflang="en" href="./">
+<meta property="og:title" content="Crooked Shelf">
+<meta property="og:description" content="The self-hosted wiki for your role-playing campaigns.">
+<meta property="og:image" content="../assets/img/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..800&amp;family=Inter:wght@400..700&amp;display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+
+<header class="site-header">
+<div class="wrap">
+<a class="brand" href="./">
+<svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" fill="#7a2e1c"/><g fill="#fff"><rect x="6" y="7" width="4" height="18"/><rect x="11" y="9" width="4" height="16"/><rect x="16.5" y="8" width="4" height="17" transform="rotate(12 18.5 16.5)"/><rect x="5" y="25" width="22" height="2.5" transform="rotate(-4 16 26)"/></g></svg>
+Crooked Shelf</a>
+<div class="header-end">
+<nav class="nav" aria-label="Sections">
+<a href="#features">Features</a>
+<a href="#secrets">Secrets</a>
+<a href="#plugins">Plugins</a>
+<a href="#themes">Themes</a>
+<a href="#install">Install</a>
+<a href="https://github.com/yanez86/crooked-shelf#crooked-shelf">Documentation</a>
+</nav>
+<a class="lang" href="../" hreflang="it" lang="it" aria-label="Versione italiana">IT</a>
+<a class="btn btn-github" href="https://github.com/yanez86/crooked-shelf">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><path d="M14 4l-4 16"/></svg>
+<span>GitHub</span></a>
+</div>
+</div>
+</header>
+
+<main id="content">
+
+<!-- Hero -->
+<section class="hero">
+<div class="wrap">
+<div class="hero-text">
+<p class="eyebrow">Self-hosted wiki for tabletop role-playing games</p>
+<h1>Your whole campaign on one shelf.</h1>
+<div class="shelf" aria-hidden="true"></div>
+<p class="lead">World, characters, maps, timelines and session reports in a wiki you host yourself. The Master's secrets stay secret; players find everything else. Works with any role-playing game.</p>
+<div class="cta">
+<a class="btn btn--primary btn--big" href="#install">Install with Docker
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+<a class="btn btn--big" href="#example">See an example</a>
+</div>
+<p class="cmd"><span aria-hidden="true">$</span> docker compose up -d</p>
+<ul class="chips">
+<li>Free software, AGPL-3.0</li>
+<li>English and Italian</li>
+<li>WCAG 2.2 AA</li>
+<li>Runs on a Raspberry Pi too</li>
+</ul>
+</div>
+<figure class="poster">
+<div class="poster-frame">
+<img src="../assets/img/hero.jpg" width="848" height="1264" alt="A girl with a cybernetic arm, in the rain, in front of a wall of glowing sleep pods wired to a black tower.">
+</div>
+<figcaption>From the example adventure <a href="#example">La Notte in Affitto</a></figcaption>
+</figure>
+</div>
+</section>
+
+<!-- The wiki -->
+<section class="section section--alt" id="example">
+<div class="wrap">
+<p class="eyebrow">The wiki</p>
+<h2 class="h2">Every page in its place, every secret in its drawer.</h2>
+<p class="lead">The folder tree on the left, the text in the middle, the details on the right. This is L'Alveare, the Hive, a page from the example adventure, as the Master sees it.</p>
+
+<div class="mock">
+<div class="mock-bar">
+<svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" fill="#7a2e1c"/><g fill="#fff"><rect x="6" y="7" width="4" height="18"/><rect x="11" y="9" width="4" height="16"/><rect x="16.5" y="8" width="4" height="17" transform="rotate(12 18.5 16.5)"/><rect x="5" y="25" width="22" height="2.5" transform="rotate(-4 16 26)"/></g></svg>
+<strong>La Notte in Affitto</strong>
+<label class="sr-only" for="mock-search">Search the wiki</label>
+<input id="mock-search" type="search" placeholder="Search the wiki">
+<span class="avatar" aria-hidden="true">M</span>
+</div>
+<div class="mock-body">
+<nav class="mock-tree box" aria-label="Campaign pages (example)">
+<div class="tabs" aria-hidden="true"><span class="on">Pages</span><span>Resources</span><span>Templates</span></div>
+<ul class="tree">
+<li><a href="#secrets">Master's Guide <svg class="lock" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" role="img" aria-label="Master only"><rect x="4" y="11" width="16" height="10"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></a></li>
+<li class="folder">▾ Places</li>
+<li><a class="in" href="#example" aria-current="page">L'Alveare</a></li>
+<li><a class="in" href="#secrets">Torre Lethe <svg class="lock" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" role="img" aria-label="Master only"><rect x="4" y="11" width="16" height="10"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></a></li>
+<li><a class="in" href="#maps">Vespera</a></li>
+<li class="folder">▾ NPCs</li>
+<li><a class="in" href="#secrets">Aurelio Venn <svg class="lock" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" role="img" aria-label="Master only"><rect x="4" y="11" width="16" height="10"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></a></li>
+<li><a class="in" href="#plugins">Livia Sander</a></li>
+<li><a class="in" href="#secrets">Mara Iezzi</a></li>
+<li class="trash"><a href="#features"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16"/><path d="M9 7V4h6v3"/><path d="M6 7l1 13h10l1-13"/></svg>Trash</a></li>
+</ul>
+</nav>
+<article class="mock-page box">
+<p class="crumbs"><a href="#example">Places</a> » L'Alveare</p>
+<img class="cover" src="../assets/img/alveare.jpg" width="1584" height="672" alt="Inside a grain silo turned into a dormitory: white sleep pods in a honeycomb, spiral catwalks, a control room behind glass.">
+<div class="title-row">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+<h3>L'Alveare</h3>
+<a class="btn icon-btn" href="#secrets" aria-label="Edit the page"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></a>
+</div>
+<p class="tags"><span class="tag"><i style="background: #2a9d9a"></i>Vespera</span><span class="tag"><i style="background: #8a55c9"></i>Lethe Neurodinamica</span></p>
+<h4>Description</h4>
+<p>An old grain silo in the harbour, emptied out and lined with cradles: white capsules stacked into a hive thirty floors high, wired to the ceiling by cables as thin as hair. You come in at night with your badge, lie down, close the capsule. Next morning there are twelve credits in your account, and a slight headache.</p>
+<h4>Characters</h4>
+<ul>
+<li>Teo, the brother of <a href="#secrets">Mara Iezzi</a>, slept in cradle 3-117.</li>
+<li><a href="#plugins">Livia Sander</a> drops by now and then, unannounced.</li>
+</ul>
+<div class="secret">
+<p class="secret-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="4" y="11" width="16" height="10"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Master's secret</p>
+<p>Floor zero is no storeroom: it is a relay that sends the Tower, every night, whatever the sleepers have computed. Touch it with a deck and an old man's voice asks, kindly: “Who is it?”</p>
+</div>
+</article>
+<aside class="mock-side" aria-label="Page details (example)">
+<div class="box">
+<h4>Details</h4>
+<dl class="facts">
+<dt>Type</dt><dd>Capsule dormitory</dd>
+<dt>District</dt><dd>La Darsena, <a href="#maps">Vespera</a></dd>
+<dt>Operator</dt><dd>Lethe Neurodinamica</dd>
+<dt>Capacity</dt><dd>Four thousand cradles</dd>
+</dl>
+</div>
+<div class="box">
+<h4>Linked from</h4>
+<ul class="plain">
+<li><a href="#secrets">Master's Guide</a></li>
+<li><a href="#maps">Vespera</a></li>
+<li><a href="#secrets">Mara Iezzi</a></li>
+<li><a href="#plugins">Livia Sander</a></li>
+</ul>
+</div>
+</aside>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Features -->
+<section class="section" id="features">
+<div class="wrap">
+<p class="eyebrow">Features</p>
+<h2 class="h2">What's on the shelf.</h2>
+<p class="lead">Everything a gaming group needs, in a single installation. No subscriptions, no external services.</p>
+<div class="features">
+<div class="feature">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M14 3H5v18h14V8z"/><path d="M14 3v5h5"/><path d="M8 13h8"/><path d="M8 17h8"/></svg>
+<h3>Block pages</h3>
+<p>Block editor with Markdown, [[Page]] links, cover, icon, categories and tags.</p>
+</div>
+<div class="feature">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+<h3>Player sheets</h3>
+<p>Every player gets a page in the PCs folder when they join. The Master can hide blocks in it, and the player keeps writing.</p>
+</div>
+<div class="feature">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="3" width="13" height="16"/><path d="M8 21h13V8"/></svg>
+<h3>Templates</h3>
+<p>Every page starts blank or as a copy of a template: you decide the basic structure.</p>
+</div>
+<div class="feature feature--secret">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="4" y="11" width="16" height="10"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+<h3>Master's secrets</h3>
+<p>The Master hides a single block with the eye: players never receive it, not even in search, versions or exports.</p>
+</div>
+<div class="feature">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15"/><path d="M15 6v15"/></svg>
+<h3>Maps</h3>
+<p>From an image: pins linked to pages and other maps, layers, secret pins and a ruler.</p>
+</div>
+<div class="feature">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="5" width="18" height="16"/><path d="M3 10h18"/><path d="M8 3v4"/><path d="M16 3v4"/></svg>
+<h3>Timelines</h3>
+<p>For the world or the campaign. Session reports land there on their own.</p>
+</div>
+<div class="feature">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.5-4.5"/></svg>
+<h3>Search</h3>
+<p>Titles and text across the whole campaign, with no external services. Everyone finds only what they are allowed to see.</p>
+</div>
+<div class="feature">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="4" width="5" height="16"/><rect x="10" y="4" width="5" height="11"/><rect x="17" y="4" width="4" height="7"/></svg>
+<h3>Boards</h3>
+<p>Cards in columns for notes, personal or shared: clues, suspicions, things to do.</p>
+</div>
+<div class="feature">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="4" width="18" height="16"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="16" cy="9" r="1.5"/></svg>
+<h3>Resources and gallery</h3>
+<p>The campaign's images, audio and files in one place, with a full-screen viewer.</p>
+</div>
+<div class="feature">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/></svg>
+<h3>Versions and trash</h3>
+<p>Every edit leaves a version to compare and restore. Whatever you delete goes to the trash.</p>
+</div>
+<div class="feature">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg>
+<h3>Many campaigns</h3>
+<p>In the same installation, each with its own Master, its own players and a wiki of its own.</p>
+</div>
+<div class="feature">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="5" width="18" height="16"/><path d="M3 10h18"/><path d="M8 3v4"/><path d="M16 3v4"/><path d="M9 15l2 2 4-4"/></svg>
+<h3>Sessions</h3>
+<p>The game calendar: everyone answers in person, remote or absent, and below the minimum the session is off.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Visibility and secrets -->
+<section class="section section--white" id="secrets">
+<div class="wrap" data-demo data-view="master">
+<p class="eyebrow">Visibility and secrets</p>
+<h2 class="h2">The Master hides a block. Players never get it.</h2>
+<p class="lead">Every page has its audience, and inside a page the Master hides single blocks with the eye. A hidden block never reaches the players: not on the page, not in search, versions or exports. And they can still edit the page. Try it: hide a block with the eye, then switch to the player view.</p>
+
+<div class="views" role="group" aria-label="Choose the view">
+<button type="button" class="btn" data-view-btn="master" aria-pressed="true">Master view</button>
+<button type="button" class="btn" data-view-btn="player" aria-pressed="false">Player view</button>
+</div>
+
+<div class="demo-layout">
+<div class="pages-panel">
+<h3>Campaign pages</h3>
+<p class="count"><span data-only="master">The Master sees 7 pages: three are Master only. The player's personal board stays out of sight.</span><span data-only="player">The player sees 5: the four for players and their own personal board.</span></p>
+<ul class="page-list">
+<li data-vis="master">Master's Guide <span class="kind">Page</span> <span class="vis vis--master"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 3l18 18"/><path d="M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-2.6 3.4"/><path d="M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.6 9.6 0 0 0 4.4-1.1"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg>Master only</span></li>
+<li data-vis="gioc">Vespera <span class="kind">Place</span> <span class="vis"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Players</span></li>
+<li data-vis="gioc">L'Alveare <span class="kind">Place</span> <span class="vis"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Players</span></li>
+<li data-vis="master">Torre Lethe <span class="kind">Place</span> <span class="vis vis--master"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 3l18 18"/><path d="M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-2.6 3.4"/><path d="M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.6 9.6 0 0 0 4.4-1.1"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg>Master only</span></li>
+<li data-vis="gioc">Mara Iezzi <span class="kind">NPC</span> <span class="vis"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Players</span></li>
+<li data-vis="gioc">Livia Sander <span class="kind">NPC</span> <span class="vis"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Players</span></li>
+<li data-vis="master">Aurelio Venn <span class="kind">NPC</span> <span class="vis vis--master"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 3l18 18"/><path d="M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-2.6 3.4"/><path d="M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.6 9.6 0 0 0 4.4-1.1"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg>Master only</span></li>
+<li data-vis="pers">My suspicions <span class="kind">Board</span> <span class="vis vis--pers"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="4" y="11" width="16" height="10"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Personal</span></li>
+</ul>
+<p class="legend">Every page is Public, Players, Master only or Personal. Personal means only whoever wrote it: not even the Master sees it.</p>
+<dl class="roles">
+<dt>Admin</dt><dd>Runs the site: campaigns, users, themes, plugins, backups. Sees secrets only in the campaigns they run.</dd>
+<dt>Master</dt><dd>In their campaign, writes every page and hides the blocks that must stay secret.</dd>
+<dt>Player</dt><dd>Reads, creates pages, edits their own and those open to players, secrets inside or not. Has their own sheet.</dd>
+<dt>Visitor</dt><dd>Public pages only, if the Admin has turned visitor access on.</dd>
+</dl>
+</div>
+
+<div class="npc">
+<article class="npc-card">
+<img src="../assets/img/mara-iezzi.jpg" width="896" height="1200" alt="Mara Iezzi: metal left arm, hair shaved on one side, stained apron, ladling broth behind the counter.">
+<div class="npc-text">
+<p class="crumbs"><a href="#example">NPCs</a> » Mara Iezzi</p>
+<h3>Mara Iezzi</h3>
+<dl class="facts">
+<dt>Role</dt><dd>Fixer and cook at the Brodo Fermo</dd>
+<dt>District</dt><dd>La Darsena, <a href="#maps">Vespera</a></dd>
+</dl>
+<div class="blocks">
+<div class="block">
+<div class="block-body"><p class="secret-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="4" y="11" width="16" height="10"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Master's secret</p><p>Practical, loud, loyal to those who pay their debts. She asks no questions of the people eating at her counter, but she remembers the answers.</p></div>
+<button type="button" class="btn eye" data-hide="Hide the block from players" data-show="Show the block to players again" aria-pressed="false" aria-label="Hide the block from players"><svg class="on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><svg class="off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3l18 18"/><path d="M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-2.6 3.4"/><path d="M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.6 9.6 0 0 0 4.4-1.1"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg></button>
+</div>
+<div class="block block--quote">
+<div class="block-body"><p class="secret-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="4" y="11" width="16" height="10"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Master's secret</p><p>“The broth is free. Everything else is negotiable.”</p></div>
+<button type="button" class="btn eye" data-hide="Hide the block from players" data-show="Show the block to players again" aria-pressed="false" aria-label="Hide the block from players"><svg class="on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><svg class="off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3l18 18"/><path d="M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-2.6 3.4"/><path d="M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.6 9.6 0 0 0 4.4-1.1"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg></button>
+</div>
+<div class="block is-secret">
+<div class="block-body"><p class="secret-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="4" y="11" width="16" height="10"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Master's secret</p><p>She talked Teo into signing with Lethe, to pay off the bar's debt. She won't admit it until Teo is safe.</p></div>
+<button type="button" class="btn eye" data-hide="Hide the block from players" data-show="Show the block to players again" aria-pressed="true" aria-label="Show the block to players again"><svg class="on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><svg class="off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3l18 18"/><path d="M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-2.6 3.4"/><path d="M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.6 9.6 0 0 0 4.4-1.1"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg></button>
+</div>
+<div class="block is-secret">
+<div class="block-body"><p class="secret-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="4" y="11" width="16" height="10"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Master's secret</p><p>Before he was taken away, Teo wrote a row of numbers on a napkin: it is the service code for the Torre Lethe elevator.</p></div>
+<button type="button" class="btn eye" data-hide="Hide the block from players" data-show="Show the block to players again" aria-pressed="true" aria-label="Show the block to players again"><svg class="on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><svg class="off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3l18 18"/><path d="M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-2.6 3.4"/><path d="M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.6 9.6 0 0 0 4.4-1.1"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg></button>
+</div>
+<div class="block">
+<div class="block-body"><p class="secret-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="4" y="11" width="16" height="10"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Master's secret</p><p>She knows half of lower Vespera: smugglers, unlicensed doctors, guards who look the other way.</p></div>
+<button type="button" class="btn eye" data-hide="Hide the block from players" data-show="Show the block to players again" aria-pressed="false" aria-label="Hide the block from players"><svg class="on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><svg class="off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3l18 18"/><path d="M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-2.6 3.4"/><path d="M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.6 9.6 0 0 0 4.4-1.1"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg></button>
+</div>
+</div>
+</div>
+</article>
+<p class="note" data-note aria-live="polite" data-zero="No hidden blocks: players see the whole page." data-one="1 hidden block. On the page, consecutive ones share a single box." data-many="{n} hidden blocks. On the page, consecutive ones share a single box." data-player="The player can edit this page too: hidden blocks never reach them, not even in the editor, and when they save, the blocks go back where they were.">2 hidden blocks. On the page, consecutive ones share a single box.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Maps and timelines -->
+<section class="section section--alt" id="maps">
+<div class="wrap">
+<p class="eyebrow">Maps and timelines</p>
+<h2 class="h2">Where it happens, and when.</h2>
+<p class="lead">Upload an image and it becomes a map: every pin leads to a page or to another map. Timelines keep track of it all, with your world's calendar.</p>
+<div class="map-layout">
+<figure class="map-figure">
+<div class="map">
+<img src="../assets/img/vespera-mappa.jpg" width="1376" height="768" alt="Illustrated map of Vespera in the rain: the towers of the Heights above the clouds with Torre Lethe in the middle, the Hive's silo, the stilt houses of the Docks and the market under the collapsed bridge.">
+<span class="pin pin--main" style="left: 65.8%; top: 11.1%"><span class="pin-dot" aria-hidden="true"></span><span class="pin-label">Torre Lethe</span></span>
+<span class="pin pin--left" style="left: 21.9%; top: 52.7%"><span class="pin-dot" aria-hidden="true"></span><span class="pin-label">L'Alveare</span></span>
+<span class="pin" style="left: 40.7%; top: 73%"><span class="pin-dot" aria-hidden="true"></span><span class="pin-label">Il Brodo Fermo</span></span>
+<span class="pin" style="left: 67.4%; top: 69%"><span class="pin-dot" aria-hidden="true"></span><span class="pin-label">Mercato dei Morti</span></span>
+<span class="pin pin--left pin--secret" style="left: 84%; top: 60%"><span class="pin-dot" aria-hidden="true"></span><span class="pin-label">Gufo, the fence</span></span>
+<div class="map-tools">
+<div class="zoom"><button type="button" class="btn" aria-label="Zoom in">+</button><button type="button" class="btn" aria-label="Zoom out">−</button></div>
+<button type="button" class="btn">+ Add pin</button>
+<button type="button" class="btn">Layers · 2</button>
+</div>
+</div>
+<figcaption class="map-legend">
+<span>● Pin linked to a page</span>
+<span class="s">◆ Secret pin, on the Master's layer</span>
+</figcaption>
+</figure>
+<div class="timeline box">
+<h3>Vespera timeline</h3>
+<ol>
+<li><span class="when">Fifty years ago</span>The lagoon dries up. Vespera grows upwards.</li>
+<li class="secret-event"><span class="when">Twenty years ago · <span>secret</span></span>Elena, Aurelio Venn's wife, dies.</li>
+<li><span class="when">Three years ago</span>Aurelio Venn, founder of Lethe Neurodinamica, dies.</li>
+<li><span class="when">A year ago</span>Teo, Mara's brother, starts sleeping for Lethe.</li>
+<li><span class="when">Three days ago</span>Teo wakes up calling his sister “miss”.</li>
+<li class="session"><span class="when">Session 1 · report</span><span class="muted">[The first session's report lands here on its own]</span></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Plugins -->
+<section class="section" id="plugins">
+<div class="wrap">
+<p class="eyebrow">Plugins</p>
+<h2 class="h2">Turn on only what you need.</h2>
+<p class="lead">Wiki plugins are data only: themes, templates, calendars, languages, rules and links to external sites. They stay off until the Admin turns them on in Administration › Plugins. And the Master can connect Claude to their campaign.</p>
+<div class="plugins">
+<article class="plugin box">
+<div class="plugin-head"><h3>D&amp;D Beyond</h3><span class="badge">Included · off by default</span></div>
+<p>Links rule references to D&amp;D Beyond, so you can look up on the site what the wiki doesn't have, and adds the “D&amp;D Sheet” template for player sheets, with a link to the character sheet on the site. Links only: nothing is copied from the site.</p>
+<ol class="steps">
+<li><span>The Admin turns it on once, and it works in every campaign.</span></li>
+<li><span>In a page, type <code>@</code> and the rule's English name: when you save, it becomes a link that opens a D&amp;D Beyond search in a new tab.</span></li>
+<li><span>The preview and the rule's page get an “Open on D&amp;D Beyond” button.</span></li>
+</ol>
+<div class="example">
+<div><span class="label">You write</span>The wizard casts @spell[Fireball].</div>
+<div><span class="label">On the page</span><p>The wizard casts <a href="https://www.dndbeyond.com/search?q=Fireball">Fireball</a>.</p>
+<a class="btn" href="https://www.dndbeyond.com/search?q=Fireball">Open on D&amp;D Beyond
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v6H4V6h6"/></svg></a></div>
+</div>
+<p class="foot muted">Turn it off and the references stay where they are, leading back to the rule's page. Opening the site needs an Internet connection.</p>
+</article>
+<article class="plugin box">
+<div class="plugin-head"><h3>Claude Code</h3><span class="badge">Master only</span></div>
+<p>The Master connects Claude to their campaign, with the Claude Code plugin or as a connector on claude.ai. Claude searches and reads the pages, secrets included, and if you allow it, writes them, hidden blocks too. Every edit leaves a version.</p>
+<div class="terminal">
+<p class="muted">token: Master · read only</p>
+<p><span class="prompt">&gt;</span> What do the players know about Livia Sander, and what don't they?</p>
+<p class="muted">Reads: Livia Sander</p>
+<p class="answer">They know she is the clinical director of Lethe Neurodinamica, with her office on floor 88 of Torre Lethe, and that she was Aurelio Venn's closest collaborator. They don't know, because it sits in a hidden block, that she designed Aurelio's copy and split it among the sleepers.</p>
+</div>
+<p class="foot muted">Tokens and connectors live in Campaign › Claude: each works for one campaign only, and only while you are its Master. Players can't connect it.</p>
+</article>
+</div>
+</div>
+</section>
+
+<!-- Themes and accessibility -->
+<section class="section section--white" id="themes">
+<div class="wrap">
+<p class="eyebrow">Themes and accessibility</p>
+<h2 class="h2">An outfit for every campaign. Readable for everyone.</h2>
+<p class="lead">Light, Dark, Lake, Neon, or one you make. Even the logo and the browser tab icon take on the theme's colours. This page uses Light.</p>
+<div class="themes-scroll">
+<ul class="themes">
+<li class="theme is-current"><figure><div class="theme-shot"><img src="../assets/img/themes/en-light.jpg" width="780" height="1440" loading="lazy" alt="The L'Alveare page on a phone, with the Light theme"></div><figcaption><strong>Light</strong><span>this page</span></figcaption></figure></li>
+<li class="theme"><figure><div class="theme-shot"><img src="../assets/img/themes/en-dark.jpg" width="780" height="1440" loading="lazy" alt="The L'Alveare page on a phone, with the Dark theme"></div><figcaption><strong>Dark</strong></figcaption></figure></li>
+<li class="theme"><figure><div class="theme-shot"><img src="../assets/img/themes/en-lake.jpg" width="780" height="1440" loading="lazy" alt="The L'Alveare page on a phone, with the Lake theme"></div><figcaption><strong>Lake</strong></figcaption></figure></li>
+<li class="theme"><figure><div class="theme-shot"><img src="../assets/img/themes/en-lake-at-night.jpg" width="780" height="1440" loading="lazy" alt="The L'Alveare page on a phone, with the Lake at night theme"></div><figcaption><strong>Lake at night</strong></figcaption></figure></li>
+<li class="theme"><figure><div class="theme-shot"><img src="../assets/img/themes/en-neon.jpg" width="780" height="1440" loading="lazy" alt="The L'Alveare page on a phone, with the Neon theme"></div><figcaption><strong>Neon</strong></figcaption></figure></li>
+<li class="theme"><figure><div class="theme-shot"><img src="../assets/img/themes/en-gotico.jpg" width="780" height="1440" loading="lazy" alt="The L'Alveare page on a phone, with the Gothic theme"></div><figcaption><strong>Yours</strong><span>By the Admin or a plugin: here, Gothic</span></figcaption></figure></li>
+</ul>
+</div>
+<ul class="a11y">
+<li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span><strong>WCAG 2.2 AA</strong><span>Contrast measured in every built-in theme.</span></span></li>
+<li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span><strong>Text up to 200%</strong><span>Set it in your Profile, person by person.</span></span></li>
+<li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span><strong>Dyslexia-friendly fonts</strong><span>Atkinson Hyperlegible and OpenDyslexic, included.</span></span></li>
+<li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span><strong>Keyboard only</strong><span>Including the page tree and the map pins.</span></span></li>
+</ul>
+</div>
+</section>
+
+<!-- Your data -->
+<section class="section">
+<div class="wrap">
+<p class="eyebrow">Your data</p>
+<h2 class="h2">The shelf is yours. So is everything on it.</h2>
+<div class="data">
+<div class="box"><h3>Self-hosted</h3><p>Docker on a home computer, a Raspberry Pi or a server online, with HTTPS.</p></div>
+<div class="box"><h3>Full backup</h3><p>Pages, images and settings in a single file, to restore whenever you like.</p></div>
+<div class="box"><h3>Markdown</h3><p>Export the whole wiki as text files that Obsidian opens just as they are.</p></div>
+<div class="box"><h3>World pack</h3><p>A <code>.shelf</code> file carries maps and house rules into another campaign.</p></div>
+</div>
+</div>
+</section>
+
+<!-- Install -->
+<section class="section section--alt install" id="install">
+<div class="wrap">
+<div class="install-text">
+<p class="eyebrow">Install</p>
+<h2>Three lines, and you're playing.</h2>
+<p class="lead">Open <code>http://localhost:3000</code>: the first time, you create the wiki and the admin account, with the code you find in the server logs (<code>docker compose logs</code>). Then invite your group.</p>
+<p><a href="https://github.com/yanez86/crooked-shelf/blob/main/docs/installazione.md">Without Docker, on a Raspberry Pi, online with HTTPS: the installation guide (in Italian)</a></p>
+</div>
+<div class="install-term box">
+<div class="title">Terminal</div>
+<pre><span class="prompt">$</span> git clone https://github.com/yanez86/crooked-shelf.git
+<span class="prompt">$</span> cd crooked-shelf
+<span class="prompt">$</span> docker compose up -d</pre>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+<div class="wrap top">
+<div class="about">
+<a class="brand" href="./">
+<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" fill="#7a2e1c"/><g fill="#fff"><rect x="6" y="7" width="4" height="18"/><rect x="11" y="9" width="4" height="16"/><rect x="16.5" y="8" width="4" height="17" transform="rotate(12 18.5 16.5)"/><rect x="5" y="25" width="22" height="2.5" transform="rotate(-4 16 26)"/></g></svg>
+Crooked Shelf</a>
+<p>A self-hosted wiki to build, maintain and chronicle tabletop role-playing campaigns.</p>
+</div>
+<nav aria-labelledby="f-doc">
+<h2 id="f-doc">Documentation <span class="muted">(in Italian)</span></h2>
+<ul>
+<li><a href="https://github.com/yanez86/crooked-shelf/blob/main/docs/installazione.md">Installation</a></li>
+<li><a href="https://github.com/yanez86/crooked-shelf/blob/main/docs/guida.md">User guide</a></li>
+<li><a href="https://github.com/yanez86/crooked-shelf/blob/main/docs/plugin.md">Writing a plugin</a></li>
+<li><a href="https://github.com/yanez86/crooked-shelf/blob/main/docs/claude.md">Claude plugin</a></li>
+</ul>
+</nav>
+<nav aria-labelledby="f-pro">
+<h2 id="f-pro">Project</h2>
+<ul>
+<li><a href="https://github.com/yanez86/crooked-shelf">Source on GitHub</a></li>
+<li><a href="https://github.com/yanez86/crooked-shelf/blob/main/CHANGELOG.md">Changelog · version 0.14.0</a></li>
+<li><a href="https://github.com/yanez86/crooked-shelf/blob/main/CONTRIBUTING.md">Contributing</a></li>
+<li><a href="../" hreflang="it" lang="it">Versione italiana</a></li>
+</ul>
+</nav>
+</div>
+<div class="wrap legal">
+<p>Code: GNU AGPL-3.0. Crooked Shelf is not affiliated with D&amp;D Beyond or Wizards of the Coast.</p>
+</div>
+</footer>
+</body>
+</html>
