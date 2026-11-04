@@ -1,5 +1,18 @@
-// La lingua scelta dal selettore: la pagina inglese la legge prima di decidere se mandare alla versione italiana.
-for (const link of document.querySelectorAll('.lang-switch a[hreflang]')) {
+// Il menu della lingua si chiude con Esc (il fuoco torna sul pulsante) e cliccando fuori.
+for (const menu of document.querySelectorAll('.lang-menu')) {
+	document.addEventListener('click', (e) => {
+		if (menu.open && !menu.contains(e.target)) menu.open = false;
+	});
+	menu.addEventListener('keydown', (e) => {
+		if (e.key !== 'Escape' || !menu.open) return;
+		menu.open = false;
+		menu.querySelector('summary').focus();
+	});
+}
+
+// La lingua scelta (dal menu o dal link nel piè di pagina): la pagina inglese la legge prima di decidere
+// se mandare alla versione italiana. Senza, chi ha il browser in italiano non potrebbe restare sull'inglese.
+for (const link of document.querySelectorAll('a[hreflang]')) {
 	link.addEventListener('click', () => {
 		try {
 			localStorage.setItem('cs-lang', link.hreflang);

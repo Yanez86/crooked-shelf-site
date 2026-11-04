@@ -1,6 +1,6 @@
 # Crooked Shelf — site
 
-The presentation site of [Crooked Shelf](https://github.com/yanez86/crooked-shelf), the self-hosted wiki for tabletop RPG campaigns: https://crookedshelf.quest. English at the root (`index.html`), Italian in `it/index.html`, with the language switch in the header.
+The presentation site of [Crooked Shelf](https://github.com/yanez86/crooked-shelf), the self-hosted wiki for tabletop RPG campaigns: https://crookedshelf.quest. English at the root (`index.html`), Italian in `it/index.html`, with the language menu in the header.
 
 *Il sito di presentazione di Crooked Shelf, la wiki self-hosted per le campagne di giochi di ruolo da tavolo. In inglese alla radice (`index.html`), in italiano in `it/index.html`, con il selettore della lingua nell'intestazione.*
 

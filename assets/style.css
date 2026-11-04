@@ -239,49 +239,98 @@ code {
 	text-decoration: underline;
 	text-decoration-thickness: 2px;
 }
-/* Il selettore della lingua: due tasti attaccati, con la bandierina; quello della pagina è pieno. */
-.lang-switch {
-	display: inline-flex;
-	border: 2px solid var(--control);
+/* La lingua: un pulsante con la bandierina che apre un menu (<details>, così va anche senza JavaScript). */
+.lang-menu {
+	position: relative;
 }
-.lang-switch a {
+.lang-menu summary {
 	display: inline-flex;
 	align-items: center;
 	gap: 7px;
-	min-height: 40px;
-	padding: 0 10px;
+	min-height: 44px;
+	padding: 0 10px 0 12px;
+	border: 2px solid var(--control);
 	background: var(--surface);
 	color: var(--text);
 	font-size: 14px;
 	font-weight: 700;
 	letter-spacing: 0.06em;
-	text-decoration: none;
+	cursor: pointer;
+	list-style: none;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
 }
-.lang-switch a + a {
-	border-left: 1px solid var(--border);
+.lang-menu summary::-webkit-details-marker {
+	display: none;
 }
-.lang-switch a:hover {
+.lang-menu summary:hover,
+.lang-menu[open] summary {
 	background: var(--surface2);
 }
-.lang-switch a[aria-current='page'] {
-	background: var(--primary);
-	color: var(--on-primary);
+.lang-menu .chev {
+	transition: transform 0.15s ease-out;
 }
-.lang-switch img {
+.lang-menu[open] .chev {
+	transform: rotate(180deg);
+}
+.lang-menu img {
 	display: block;
 	width: 21px;
 	height: 14px;
 	box-shadow: 0 0 0 1px rgb(0 0 0 / 0.2);
+}
+.lang-menu ul {
+	position: absolute;
+	top: calc(100% + 6px);
+	right: 0;
+	z-index: 20;
+	min-width: 180px;
+	margin: 0;
+	padding: 6px 0;
+	list-style: none;
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-top: 4px solid var(--primary);
+	box-shadow: 0 16px 32px -16px rgb(29 27 24 / 0.45);
+}
+.lang-menu li a {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	min-height: 44px;
+	padding: 0 16px;
+	color: var(--text);
+	font-size: 15px;
+	text-decoration: none;
+}
+.lang-menu li a:hover {
+	background: var(--surface2);
+}
+.lang-menu li a[aria-current='page'] {
+	font-weight: 700;
+}
+.lang-menu li a[aria-current='page']::after {
+	content: '✓' / '';
+	margin-left: auto;
+	color: var(--primary);
+}
+@media (prefers-reduced-motion: reduce) {
+	.lang-menu .chev {
+		transition: none;
+	}
 }
 @media (max-width: 880px) {
 	.nav {
 		display: none;
 	}
 }
-/* Sul telefono restano marchio e lingua: GitHub è anche nel piè di pagina. */
-@media (max-width: 480px) {
-	.btn-github {
+/* Sugli schermi più stretti il pulsante GitHub resta, ma solo con l'icona. */
+@media (max-width: 420px) {
+	.btn-github span {
 		display: none;
+	}
+	.btn-github {
+		padding: 0 12px;
 	}
 }
 
@@ -1390,6 +1439,10 @@ code {
 	font-size: 15px;
 }
 .site-footer .legal {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 8px 24px;
 	padding-block: 20px 40px;
 	border-top: 1px solid var(--border);
 	font-size: 13px;
