@@ -3,6 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+// Chi ha il browser in italiano finisce sulla versione italiana, finché non sceglie una lingua dal selettore
+// (assets/site.js la ricorda). Senza localStorage non si sposta nessuno: non potrebbe più tornare all'inglese.
+(function () {
+	try {
+		var chosen = localStorage.getItem('cs-lang');
+		if (chosen === 'en') return;
+		var first = String((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+		if (chosen !== 'it' && first.indexOf('it') !== 0) return;
+		// Le sezioni hanno ancore diverse nelle due lingue: #secrets diventa #segreti.
+		var anchors = { content: 'contenuto', example: 'esempio', features: 'funzioni', secrets: 'segreti', maps: 'mappe', plugins: 'plugin', themes: 'temi', install: 'installa' };
+		var hash = location.hash.slice(1);
+		location.replace('it/' + (hash ? '#' + (anchors[hash] || hash) : ''));
+	} catch (e) {}
+})();
+</script>
 <title>Crooked Shelf — the wiki for your role-playing campaigns</title>
 <meta name="description" content="Crooked Shelf is a self-hosted wiki to build, maintain and chronicle tabletop role-playing campaigns: pages, maps, timelines, player sheets and the Master's secrets. Free software, AGPL-3.0.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">

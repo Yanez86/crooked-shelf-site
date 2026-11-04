@@ -1,3 +1,14 @@
+// La lingua scelta dal selettore: la pagina inglese la legge prima di decidere se mandare alla versione italiana.
+for (const link of document.querySelectorAll('.lang-switch a[hreflang]')) {
+	link.addEventListener('click', () => {
+		try {
+			localStorage.setItem('cs-lang', link.hreflang);
+		} catch {
+			// Senza localStorage la scelta non si ricorda, e la pagina inglese non sposta nessuno.
+		}
+	});
+}
+
 // La prova dei segreti: vista Master o giocatore, e l'occhio che oscura un blocco.
 // I testi stanno nell'HTML (data-*), così lo stesso script vale per ogni lingua.
 (() => {

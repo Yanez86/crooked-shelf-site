@@ -12,6 +12,7 @@ Static files only: HTML, one stylesheet (`assets/style.css`) and a small script 
 - The theme screenshots in `assets/img/themes/` come from the wiki 0.14 on a phone, with the example adventure «La Notte in Affitto» (`en-*` with the English interface, `it-*` with the Italian one).
 - The adventure's illustrations are in `assets/img/`; the flags of the language switch are `assets/img/flag-*.svg`.
 - `en/index.html` only sends the old `/en/` address to the root.
+- Visitors whose browser prefers Italian are sent from the root to `it/` until they pick a language with the switch; the choice is kept in `localStorage` (`cs-lang`).
 
 ## Viewing it
 
