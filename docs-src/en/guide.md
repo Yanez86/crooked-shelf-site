@@ -4,22 +4,24 @@
 
 | Role | What they can do |
 |---|---|
-| **Admin** | Runs the site: creates campaigns and chooses their Master, settings, users, invites, themes, plugins, backups, world packages. In campaigns they have no extra powers: they are Master in the ones they run and a player in the ones they're invited to |
+| **Admin** | Runs the site: creates campaigns for anyone and chooses their Master, settings, users (including how many campaigns each one can create), invites, themes, plugins, backups, world packages. In campaigns they have no extra powers: they are Master in the ones they run and a player in the ones they're invited to |
 | **Game Master** | In their campaign: creates and edits all pages, writes and sees secrets, manages categories, tags, maps, resources, calendar, world timeline and players |
 | **Player** | Reads, creates pages, edits their own and those open to players, has their own player sheet, adds events to the campaign timeline, uses boards |
 | **Visitor** | Public pages only, and only if the Admin has turned on visitor access |
 
 People join with an **invite**: the Master creates it in Campaign › Players, the Admin in Administration › Invites. Each link works only once.
 
+Anyone with an account, a player too, can **create their own campaigns** and be their Master (see below).
+
 ## Campaigns
 
 An installation can hold several campaigns. Each one is a wiki of its own: pages, folders, tags, maps, timelines, boards, resources, home page and calendar can't be seen from the others, and the same page can have the same address in two campaigns.
 
-- **Creating one**: Administration › Campaigns › “New campaign”, with the name and the Master. Each campaign has only one Master; the same account can run more than one. It starts with the home page, the templates, the two timelines and the PCs folder.
+- **Creating one**: from the profile menu, **New campaign**: you choose the name and you're its Master, whatever your role in the others. Everyone can run up to **3** (the ones given by the Admin count too): the page tells you how many you have and your limit, which the Admin changes person by person in Administration › Users. The Admin can also create them for others from Administration › Campaigns › “New campaign”, with the name and the Master, even beyond the limit. Each campaign has only one Master; the same account can run more than one. It starts with the home page, the templates, the two timelines and the PCs folder.
 - **The Campaign page**: the Master opens it from the profile menu. It has four tabs: **General** (name, options, deletion), **Players** (invites, removal, sheet template), **Sessions** (remote link, minimum rule, Stars & Wishes; only with the schedule turned on) and **Claude** (tokens and connectors).
 - **Inviting players**: in Campaign › Players the Master creates an invite link. People without an account create one; people who already have one sign in and join the campaign with it.
 - **Switching campaigns**: if you have more than one, you'll find them at the top of the profile menu. The choice is kept on the device. A link to a page opens in the campaign you're in.
-- **Deleting one**: the Master deletes their own from the Campaign page, the Admin any of them from Administration › Campaigns, even the last one; to confirm, you type the name again. Pages, maps, timelines, boards, resources and images disappear for everyone, and they come back only by restoring a backup. Anyone left without campaigns can still sign in and waits for an invite.
+- **Deleting one**: the Master deletes their own from the Campaign page, the Admin any of them from Administration › Campaigns, even the last one; to confirm, you type the name again. Pages, maps, timelines, boards, resources and images disappear for everyone, and they come back only by restoring a backup. Anyone left without campaigns can still sign in: they wait for an invite or create one of their own.
 - You are Master only in your own campaign: in the others you're a player, if you've been invited. This applies to the Admin too: they only enter the campaigns they run or are invited to, and see secrets only in their own. They manage the others from Administration › Campaigns without entering them, and can't appoint themselves Master of a campaign that already exists: another Admin does that. Of a new campaign, though, they can be the Master themselves.
 - Export and world packages concern the campaign you're in; the backup covers the whole installation.
 
@@ -120,13 +122,16 @@ Everything in the wiki is a **page**, in the tree on the left, with a `/wiki/…
 
 With the toolbar buttons you insert images (with a description for people who can't see them), tables and “Note”, “Tip” and “Warning” boxes.
 
+**Image size**: on an image in the text, among the buttons at the top right, there are the two arrows: they make it **small** (a quarter of the text column), **medium** (half), **large** (three quarters), as wide as the column, or **original** (its own size, as far as it fits). Or drag the handle on the bottom right corner, with the mouse or a finger: the size changes in steps of 5%. From the keyboard, with the image selected, there's the “Image size” drop-down in the toolbar. The file stays as it is: only the way it's shown changes, on the page and in the editor.
+
 The page is made of **blocks**: a paragraph, a heading, an image, a table, a box. When you hover the mouse over a block, these appear at its top right:
 
 - the **plus**, which adds a **text** block or an **image** right after it;
+- on images, the **two arrows**, which change their size (see above);
 - the **eye**, only for the Master, which **hides** the block: it becomes a **Game Master secret**, which players don't see and can't find even by searching. The same eye shows it again;
 - the **trash can**, which deletes the whole block.
 
-In the editor a hidden block has the secrets background, and above the first of a run of hidden blocks there's the padlock with “Game Master secret”; on the page, consecutive hidden blocks sit in a single box. From the keyboard there's the padlock in the toolbar, which hides (or shows) the blocks you're writing in or have selected, and the trash can in the toolbar, which deletes the block you're writing in. A new block starts out hidden if you create it from a hidden block: by pressing Enter, with the plus, or by inserting an image or a table. When you copy and paste a hidden block, the copy is hidden too. The first toolbar button undoes the last action (like Ctrl+Z).
+In the editor a hidden block has the secrets background and the purple border on the left, and consecutive hidden blocks look like a single box; on the top left corner of the first one there's a padlock in a circle, which doesn't move the text (screen readers read “Game Master secret”). On the page, consecutive hidden blocks sit in a single box, with the “Game Master secret” heading. From the keyboard there's the eye in the toolbar, which hides (or shows) the blocks you're writing in or have selected, and the trash can in the toolbar, which deletes the block you're writing in. A new block starts out hidden if you create it from a hidden block: by pressing Enter, with the plus, or by inserting an image or a table. When you copy and paste a hidden block, the copy is hidden too. The first toolbar button undoes the last action (like Ctrl+Z).
 
 **Pages with a secret**: anyone who can edit the page can still edit it even if the Master has hidden something in it. A player doesn't receive the hidden blocks, not even in the editor; when they save, each one goes back right after the block that came before it (if they deleted that block, after the nearest earlier block that's still there). The player can't hide blocks, and restoring an old version doesn't bring its secrets out. Visibility, permissions and deletion of a page with a secret stay with the Master, even if the player wrote the page.
 
@@ -193,9 +198,9 @@ Boards are pages: **New page › New board**, with the starting columns (one per
 
 ## Profile
 
-At the top right is your profile: your icon, your name and your rank in the campaign (Game Master or Player). Clicking it opens the menu with your campaigns (if you have more than one), **Profile**, **Campaign** (for the Master), **Administration** (only for the Admin) and **Log out**; on the phone only the icon stays at the top, and your name and rank can be read in the menu.
+At the top right is your profile: your icon, your name and your rank in the campaign (Game Master or Player). Clicking it opens the menu with your campaigns (if you have more than one), **Profile**, **Campaign** (for the Master), **New campaign**, **Administration** (only for the Admin) and **Log out**; on the phone only the icon stays at the top, and your name and rank can be read in the menu.
 
-**Profile** and **Administration** open in a popup over the wiki: you close it with Esc, with the X or by clicking outside, and underneath you find the page you were reading. With Ctrl+click they open as pages, in another tab. On the phone they open directly as pages.
+**Profile** and **Administration** open in a popup over the wiki, with the sections in a bar on the left: you close it with Esc, with the X or by clicking outside, and underneath you find the page you were reading. With Ctrl+click they open as pages, in another tab. On the phone they open directly as pages.
 
 The **Profile** has three tabs:
 
@@ -209,7 +214,7 @@ If you're not signed in, you only get the reading preferences, saved in the brow
 
 In the **Profile** everyone chooses:
 
-- theme: Automatic (the default: Aria, or Aria at night if your system is dark), Light, Dark, Lake, Lake at night, Neon, Aria, Aria at night (or the ones created by the Admin). With Aria, on a large screen, the left sidebar and the page panel run from top to bottom and the page has no boxes;
+- theme: Automatic (the default: Aria, or Aria at night if your system is dark), Aria, Aria at night, Neon, Vintage light, Vintage dark (or the ones created by the Admin). With Aria and Neon, on a large screen, the left sidebar and the page panel run from top to bottom and the page has no boxes; the two Vintage themes have the classic shape, with the header at the top and the boxes;
 - text size up to 200%;
 - the Atkinson Hyperlegible or OpenDyslexic font;
 - wide spacing, reduced motion, language;
@@ -220,8 +225,8 @@ The whole wiki can be used from the keyboard and with screen readers; the colors
 ## Administration
 
 - **Settings**: site name, default language and visitors. Below them is the installed **version**, compared with the latest one on GitHub: “Up to date” or “Not up to date”, with links to what's new and to how to update.
-- **Campaigns**: create them, choose their Master, delete them.
-- **Users**: roles, disabling accounts and, for people who have forgotten their password, a reset link (valid for two days, once only).
+- **Campaigns**: create them for anyone (even beyond their limit), choose their Master, delete them.
+- **Users**: roles, how many campaigns each one can create (next to it, how many they run), disabling accounts and, for people who have forgotten their password, a reset link (valid for two days, once only).
 - **Invites**: links to join the site, one per person.
 - **Themes**: copy a theme and change its colors; it saves only if the text stays readable. A theme can have a background image, which sits behind the boxes and shows only on wide screens. Export and import as a file (colors only: the background travels with the world package).
 - **Plugins**: turn installed plugins on and off; clicking one opens a window with its purpose, instructions, author and contents (to create one, see [plugins.md](plugins.md)).
