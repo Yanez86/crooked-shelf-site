@@ -1,0 +1,12 @@
+{
+	"name": "crooked-shelf-site",
+	"private": true,
+	"type": "module",
+	"description": "The presentation site of Crooked Shelf. Static files; npm is only needed to rebuild the documentation pages.",
+	"scripts": {
+		"docs": "node tools/build-docs.mjs"
+	},
+	"devDependencies": {
+		"marked": "18.1.1"
+	}
+}
