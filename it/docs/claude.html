@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+// Il tema scelto col pulsante (assets/site.js lo ricorda): si mette subito, prima che la pagina si disegni.
+try { var cs = localStorage.getItem('cs-theme'); if (cs === 'light' || cs === 'dark') document.documentElement.setAttribute('data-theme', cs); } catch (e) {}
+</script>
+<title>Claude — documentazione di Crooked Shelf</title>
+<meta name="description" content="Collegare Claude a una campagna: il plugin per Claude Code, il connettore su claude.ai e il token.">
+<link rel="icon" href="../../favicon.ico?v=2" sizes="48x48">
+<link rel="icon" href="../../favicon.svg?v=3" type="image/svg+xml">
+<link rel="icon" href="../../favicon-32.png?v=2" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=2">
+<link rel="manifest" href="../../site.webmanifest">
+<meta name="theme-color" content="#f3f4f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#18191e" media="(prefers-color-scheme: dark)">
+<link rel="alternate" hreflang="it" href="claude.html">
+<link rel="alternate" hreflang="en" href="../../docs/claude.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&amp;display=swap">
+<link rel="stylesheet" href="../../assets/style.css?v=2026-11-05c">
+<script src="../../assets/site.js?v=2026-11-05c" defer></script>
+</head>
+<body class="docs">
+<a class="skip" href="#content">Vai al contenuto</a>
+
+<header class="site-header">
+<div class="bar">
+<a class="brand" href="../">
+<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect class="logo-bg" width="32" height="32" rx="7" fill="#3b4fd8"/><g class="logo-books" fill="#fff"><rect x="6" y="7" width="4" height="18"/><rect x="11" y="9" width="4" height="16"/><rect x="16.5" y="8" width="4" height="17" transform="rotate(12 18.5 16.5)"/><rect x="5" y="25" width="22" height="2.5" transform="rotate(-4 16 26)"/></g></svg>
+Crooked Shelf</a>
+<nav class="nav" aria-label="Documentazione">
+<ul>
+<li><a href="../"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Torna al sito</a></li>
+<li class="sep"><a href="index.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg>Documentazione</a></li>
+<li><a href="installazione.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 17v4h16v-4"/></svg>Installazione</a></li>
+<li><a href="guida.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z"/></svg>Guida all'uso</a></li>
+<li><a href="plugin.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2v6"/><path d="M15 2v6"/><path d="M6 8h12v4a6 6 0 0 1-12 0z"/><path d="M12 18v4"/></svg>Plugin</a></li>
+<li><a href="claude.html" aria-current="page"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Claude</a>
+<ul class="sub"><li><a href="#installare">Installare</a></li><li><a href="#come-connettore-su-claudeai">Come connettore, su claude.ai</a></li><li><a href="#il-token">Il token</a></li><li><a href="#cosa-legge">Cosa legge</a></li><li><a href="#cosa-scrive">Cosa scrive</a></li><li><a href="#per-chi-sviluppa">Per chi sviluppa</a></li></ul></li>
+</ul>
+</nav>
+<div class="tools">
+<details class="lang-menu">
+<summary><img src="../../assets/img/flag-it.svg" width="21" height="14" alt="">IT<span class="sr-only"> – Lingua</span><svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+<ul>
+<li><a href="../../docs/claude.html" hreflang="en" lang="en"><img src="../../assets/img/flag-gb.svg" width="21" height="14" alt="">English</a></li>
+<li><a href="claude.html" hreflang="it" lang="it" aria-current="page"><img src="../../assets/img/flag-it.svg" width="21" height="14" alt="">Italiano</a></li>
+</ul>
+</details>
+<button type="button" class="btn theme-toggle" aria-pressed="false" aria-label="Tema scuro" title="Tema scuro" hidden><svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+<a class="btn btn-github" href="https://github.com/yanez86/crooked-shelf" aria-label="GitHub">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><path d="M14 4l-4 16"/></svg>
+<span>GitHub</span></a>
+</div>
+</div>
+</header>
+
+<main id="content">
+<div class="doc">
+<details class="doc-toc">
+<summary>Indice</summary>
+<ul>
+<li><a href="../">Torna al sito</a></li>
+<li><a href="index.html">Documentazione</a></li>
+<li><a href="installazione.html">Installazione</a></li>
+<li><a href="guida.html">Guida all'uso</a></li>
+<li><a href="plugin.html">Plugin</a></li>
+<li><a href="claude.html" aria-current="page">Claude</a>
+<ul class="sub"><li><a href="#installare">Installare</a></li><li><a href="#come-connettore-su-claudeai">Come connettore, su claude.ai</a></li><li><a href="#il-token">Il token</a></li><li><a href="#cosa-legge">Cosa legge</a></li><li><a href="#cosa-scrive">Cosa scrive</a></li><li><a href="#per-chi-sviluppa">Per chi sviluppa</a></li></ul></li>
+</ul>
+</details>
+<p class="crumbs"><a href="index.html">Documentazione</a> › Claude</p>
+<h1>Claude</h1>
+<article class="prose">
+<p>Il plugin per Claude Code porta una campagna nella conversazione: chi è quel personaggio, cosa è successo nell&#39;ultima sessione, quali pagine parlano di un luogo. Claude cerca e legge le pagine da solo e, se glielo permetti, le scrive: un resoconto di sessione, un personaggio nuovo, una correzione.</p>
+<p>Claude lavora su una campagna <strong>solo col suo Master</strong>: i giocatori non possono collegarlo. Vede quello che vede il Master, segreti compresi, e fa solo quello che il Master può fare.</p>
+<h2 id="installare">Installare</h2>
+<ol>
+<li><p>Nella wiki, entra nella campagna di cui sei Master e apri Campagna › Claude. Spunta «Claude può anche scrivere» solo se ti serve, poi «Crea un token». Copia indirizzo e token: il token si vede una volta sola.</p>
+</li>
+<li><p>In Claude Code:</p>
+<pre tabindex="0" aria-label="Codice"><code class="language-bash">claude plugin marketplace add Yanez86/crooked-shelf
+claude plugin install crooked-shelf@crooked-shelf
+</code></pre>
+</li>
+<li><p>Quando Claude Code li chiede, inserisci indirizzo e token. Il token resta nel portachiavi del computer.</p>
+</li>
+</ol>
+<p>La wiki deve essere raggiungibile dal computer su cui gira Claude Code.</p>
+<h2 id="come-connettore-su-claudeai">Come connettore, su claude.ai</h2>
+<p>Da claude.ai (e dalle app di Claude) la wiki si aggiunge come connettore personalizzato, senza copiare token:</p>
+<ol>
+<li>Nella wiki, entra nella campagna di cui sei Master e copia da Campagna › Claude l&#39;«Indirizzo del connettore», per esempio <code>https://wiki.esempio.it/mcp/2</code>.</li>
+<li>In Claude apri Impostazioni › Connettori › Aggiungi connettore personalizzato, dagli il nome della campagna e incolla l&#39;indirizzo. Lascia vuoti ID e segreto del client.</li>
+<li>Claude apre la wiki: fai l&#39;accesso, scegli se Claude può anche scrivere, poi «Consenti».</li>
+</ol>
+<p><strong>Un connettore per campagna</strong>, ognuno col suo indirizzo: il token di uno non apre le altre. In ogni chat accendi solo quello della campagna su cui lavori, così Claude non porta un segreto di una campagna nelle pagine di un&#39;altra.</p>
+<p>La wiki deve essere raggiungibile da internet in HTTPS (vedi <a href="installazione.html">Installazione</a>): a collegarsi sono i server di Anthropic, non il tuo computer.</p>
+<p>Il connettore ha un token suo, che non sostituisce quello del plugin. In Campagna › Claude si vede da quali siti è collegata la campagna; «Revoca» li chiude tutti, e per tornare basta ricollegarsi da Claude.</p>
+<h2 id="il-token">Il token</h2>
+<ul>
+<li>Vale per una sola campagna, e solo finché ne sei il Master. Il token del plugin è uno per campagna: crearne un altro sostituisce il precedente.</li>
+<li>Si revoca da Campagna › Claude. Smette di valere anche cambiando la password, se l&#39;account viene disattivato o se non sei più il Master della campagna.</li>
+<li>Di base legge soltanto: per farlo scrivere va creato con la casella spuntata, e i token creati prima restano in lettura.</li>
+<li>Apre solo l&#39;indirizzo <code>/mcp</code>: non vale per accedere al resto della wiki.</li>
+<li>Fermo da 90 giorni, smette di valere da solo. In Campagna › Claude si vede quando è nato e quando è stato usato l&#39;ultima volta.</li>
+</ul>
+<p>Il testo delle pagine arriva a Claude, quindi ad Anthropic, come ogni contenuto di una conversazione. Crea il token solo se per il tuo gruppo va bene.</p>
+<h2 id="cosa-legge">Cosa legge</h2>
+<p>Le pagine, con la colonna a lato e l&#39;elenco di chi le cita. Non legge ancora i pin delle mappe, gli eventi delle cronologie e le schede delle bacheche.</p>
+<h2 id="cosa-scrive">Cosa scrive</h2>
+<p>Solo il testo delle pagine, in tre modi:</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Tabella"><table>
+<thead>
+<tr>
+<th>Strumento</th>
+<th>Cosa fa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>create_page</code></td>
+<td>crea una pagina; se non chiedi altro la vedi solo tu</td>
+</tr>
+<tr>
+<td><code>append_to_page</code></td>
+<td>aggiunge testo in fondo; se sei Master, anche in blocchi oscurati (segreti)</td>
+</tr>
+<tr>
+<td><code>replace_text</code></td>
+<td>sostituisce un pezzo di testo che compare una volta sola</td>
+</tr>
+</tbody></table></div>
+<p><strong>Non può</strong> eliminare pagine, cambiare titolo, visibilità, permessi o cartella di una pagina che c&#39;è già, toccare template, mappe, cronologie e bacheche, caricare file, né arrivare a impostazioni, utenti, plugin, temi o backup: per queste cose non esiste nessuno strumento.</p>
+<p>Il testo passa da un convertitore che riconosce un elenco chiuso di elementi (titoli, grassetto, corsivo, elenchi, citazioni, collegamenti): HTML e codice restano testo e non vengono mai eseguiti. Valgono le regole del sito: un giocatore modifica solo le pagine che può modificare nel sito.</p>
+<p>Ogni modifica lascia una versione nella cronologia della pagina, a tuo nome: da lì si torna indietro.</p>
+<h3 id="attenzione-ai-permessi-di-claude-code">Attenzione ai permessi di Claude Code</h3>
+<p>Claude Code chiede conferma prima di ogni scrittura, mostrando il testo: conviene lasciarla attiva, soprattutto col token del Master. Il testo delle pagine lo scrivono tutti i partecipanti, e una pagina potrebbe contenere istruzioni pensate per ingannare Claude, ad esempio copiare un segreto in una pagina che vedono i giocatori. Claude è istruito a non seguirle, ma la conferma è il controllo che resta nelle tue mani.</p>
+<h2 id="per-chi-sviluppa">Per chi sviluppa</h2>
+<p><code>src/routes/mcp/[[id=id]]/+server.ts</code> parla MCP su HTTP, un messaggio a richiesta e senza sessione; gli strumenti sono in <code>src/lib/server/mcp.ts</code> e passano dalle stesse funzioni del sito. Chi aggiunge uno strumento di scrittura deve restare sul testo delle pagine: Claude non manda mai JSON dell&#39;editor, solo Markdown che passa da <code>fromMarkdown</code>. Il plugin è in <code>claude-plugin/</code>. Per provarlo senza installarlo: <code>claude --plugin-dir claude-plugin</code>.</p>
+<p>Il connettore è OAuth 2.1 con PKCE: <code>/.well-known/oauth-protected-resource/mcp/&lt;id&gt;</code> e <code>/.well-known/oauth-authorization-server</code> per la scoperta, <code>/oauth/register</code>, il consenso in <code>/oauth/authorize</code> e <code>/oauth/token</code>, che dà un token di <code>api_tokens</code> col sito di ritorno in <code>client</code>. La campagna viene dall&#39;indirizzo <code>/mcp/&lt;id&gt;</code> (il parametro <code>resource</code>), e <code>/mcp/&lt;id&gt;</code> accetta solo token di quella campagna. La registrazione è aperta a chiunque, quindi non salva niente e dà a tutti lo stesso client: a proteggere è la pagina di consenso, che mostra il sito a cui va il token (<code>src/lib/server/oauth.ts</code>); per un sito che non è di Claude (<code>claude.ai</code>, <code>claude.com</code>, <code>anthropic.com</code> o il computer locale) chiede una conferma in più. I token non hanno refresh, come quelli del plugin, ma smettono di valere dopo 90 giorni senza uso. <code>/oauth/token</code> lo chiamano i server di Claude senza <code>Origin</code>: per questo il controllo dei form da altri siti è in <code>hooks.server.ts</code> e non in SvelteKit.</p>
+</article>
+<div class="doc-foot">
+<p><a href="https://github.com/yanez86/crooked-shelf/blob/main/docs/claude.md">Modifica questa pagina su GitHub</a></p>
+<nav class="pager" aria-label="Precedente / Successiva"><a class="prev" href="plugin.html"><small>Precedente</small>Plugin</a></nav>
+</div>
+</div>
+</main>
+
+<footer class="site-footer">
+<div class="wrap legal">
+<p>Codice: GNU AGPL-3.0. Crooked Shelf non è affiliato a D&amp;D Beyond né a Wizards of the Coast.</p>
+<p><a href="https://happysquid.ink">happysquid.ink</a></p>
+</div>
+</footer>
+</body>
+</html>

@@ -16,6 +16,19 @@ Static files only: HTML, one stylesheet (`assets/style.css`) and a small script 
 - `en/index.html` only sends the old `/en/` address to the root.
 - Visitors whose browser prefers Italian are sent from the root to `it/` until they pick a language with the switch; the choice is kept in `localStorage` (`cs-lang`).
 
+## Documentation
+
+The guides (installation, user guide, plugins, Claude) are pages of the site: `docs/` in English, `it/docs/` in Italian. They are generated from Markdown and committed, so the site stays static:
+
+```bash
+npm install
+npm run docs
+```
+
+- `docs-src/it/` is a copy of `docs/` in the [Crooked Shelf](https://github.com/yanez86/crooked-shelf) repository: when those guides change, copy them here again.
+- `docs-src/en/` is the English translation: update it with the Italian, using the English labels of the app's interface.
+- `tools/build-docs.mjs` builds the pages, fixes the links between the guides and fails if a link points to a page or section that doesn't exist.
+
 ## Viewing it
 
 Open `index.html` in a browser, or:

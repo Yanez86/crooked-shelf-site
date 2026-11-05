@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+// Il tema scelto col pulsante (assets/site.js lo ricorda): si mette subito, prima che la pagina si disegni.
+try { var cs = localStorage.getItem('cs-theme'); if (cs === 'light' || cs === 'dark') document.documentElement.setAttribute('data-theme', cs); } catch (e) {}
+</script>
+<title>Creating a plugin — Crooked Shelf documentation</title>
+<meta name="description" content="Data-only plugins: themes, templates, calendars, languages, rules and links. How to write and install one.">
+<link rel="icon" href="../favicon.ico?v=2" sizes="48x48">
+<link rel="icon" href="../favicon.svg?v=3" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png?v=2" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png?v=2">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#f3f4f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#18191e" media="(prefers-color-scheme: dark)">
+<link rel="alternate" hreflang="en" href="plugins.html">
+<link rel="alternate" hreflang="it" href="../it/docs/plugin.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&amp;display=swap">
+<link rel="stylesheet" href="../assets/style.css?v=2026-11-05c">
+<script src="../assets/site.js?v=2026-11-05c" defer></script>
+</head>
+<body class="docs">
+<a class="skip" href="#content">Skip to content</a>
+
+<header class="site-header">
+<div class="bar">
+<a class="brand" href="../">
+<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect class="logo-bg" width="32" height="32" rx="7" fill="#3b4fd8"/><g class="logo-books" fill="#fff"><rect x="6" y="7" width="4" height="18"/><rect x="11" y="9" width="4" height="16"/><rect x="16.5" y="8" width="4" height="17" transform="rotate(12 18.5 16.5)"/><rect x="5" y="25" width="22" height="2.5" transform="rotate(-4 16 26)"/></g></svg>
+Crooked Shelf</a>
+<nav class="nav" aria-label="Documentation">
+<ul>
+<li><a href="../"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Back to the site</a></li>
+<li class="sep"><a href="index.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg>Documentation</a></li>
+<li><a href="installation.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 17v4h16v-4"/></svg>Installation</a></li>
+<li><a href="guide.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z"/></svg>User guide</a></li>
+<li><a href="plugins.html" aria-current="page"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2v6"/><path d="M15 2v6"/><path d="M6 8h12v4a6 6 0 0 1-12 0z"/><path d="M12 18v4"/></svg>Plugins</a>
+<ul class="sub"><li><a href="#installing">Installing</a></li><li><a href="#pluginjson">plugin.json</a></li><li><a href="#theme">Theme</a></li><li><a href="#template">Template</a></li><li><a href="#calendar">Calendar</a></li><li><a href="#language">Language</a></li><li><a href="#rules">Rules</a></li><li><a href="#links">Links</a></li></ul></li>
+<li><a href="claude.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Claude</a></li>
+</ul>
+</nav>
+<div class="tools">
+<details class="lang-menu">
+<summary><img src="../assets/img/flag-gb.svg" width="21" height="14" alt="">EN<span class="sr-only"> – Language</span><svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+<ul>
+<li><a href="plugins.html" hreflang="en" lang="en" aria-current="page"><img src="../assets/img/flag-gb.svg" width="21" height="14" alt="">English</a></li>
+<li><a href="../it/docs/plugin.html" hreflang="it" lang="it"><img src="../assets/img/flag-it.svg" width="21" height="14" alt="">Italiano</a></li>
+</ul>
+</details>
+<button type="button" class="btn theme-toggle" aria-pressed="false" aria-label="Dark theme" title="Dark theme" hidden><svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+<a class="btn btn-github" href="https://github.com/yanez86/crooked-shelf" aria-label="GitHub">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><path d="M14 4l-4 16"/></svg>
+<span>GitHub</span></a>
+</div>
+</div>
+</header>
+
+<main id="content">
+<div class="doc">
+<details class="doc-toc">
+<summary>Contents</summary>
+<ul>
+<li><a href="../">Back to the site</a></li>
+<li><a href="index.html">Documentation</a></li>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="guide.html">User guide</a></li>
+<li><a href="plugins.html" aria-current="page">Plugins</a>
+<ul class="sub"><li><a href="#installing">Installing</a></li><li><a href="#pluginjson">plugin.json</a></li><li><a href="#theme">Theme</a></li><li><a href="#template">Template</a></li><li><a href="#calendar">Calendar</a></li><li><a href="#language">Language</a></li><li><a href="#rules">Rules</a></li><li><a href="#links">Links</a></li></ul></li>
+<li><a href="claude.html">Claude</a></li>
+</ul>
+</details>
+<p class="crumbs"><a href="index.html">Documentation</a> › Plugins</p>
+<h1>Creating a plugin</h1>
+<article class="prose">
+<p>A plugin is a folder with a <code>plugin.json</code> file and some JSON files. It contains <strong>only data</strong>, never code: installing it doesn&#39;t give access to the server.</p>
+<p>A plugin can add:</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Table"><table>
+<thead>
+<tr>
+<th>What</th>
+<th>Key in <code>contributes</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Themes</td>
+<td><code>themes</code></td>
+</tr>
+<tr>
+<td>Page templates</td>
+<td><code>templates</code></td>
+</tr>
+<tr>
+<td>Ready-made calendars</td>
+<td><code>calendars</code></td>
+</tr>
+<tr>
+<td>Languages or translations</td>
+<td><code>locales</code></td>
+</tr>
+<tr>
+<td>Rules you can look up with <code>@</code></td>
+<td><code>rules</code></td>
+</tr>
+<tr>
+<td>Links from rules to an external site</td>
+<td><code>links</code></td>
+</tr>
+</tbody></table></div>
+<p>The full example is in <a href="https://github.com/yanez86/crooked-shelf/tree/main/plugins/esempio-gotico"><code>plugins/esempio-gotico</code></a>: copy it and change it. <a href="https://github.com/yanez86/crooked-shelf/tree/main/plugins/dndbeyond"><code>plugins/dndbeyond</code></a> is the D&amp;D Beyond integration, made with a single <code>links</code>.</p>
+<h2 id="installing">Installing</h2>
+<ol>
+<li>Copy the plugin folder into <code>&lt;data folder&gt;/plugins/</code> (with Docker: inside the volume, <code>/data/plugins/</code>).</li>
+<li>Administration › Plugins › “Look for plugins again”.</li>
+<li>Press “Turn on”.</li>
+</ol>
+<p>Plugins stay off until the Admin turns them on. An installed plugin with the same <code>id</code> as a bundled one replaces it.</p>
+<h2 id="pluginjson">plugin.json</h2>
+<pre tabindex="0" aria-label="Code"><code class="language-json">{
+	&quot;id&quot;: &quot;il-mio-plugin&quot;,
+	&quot;name&quot;: &quot;Il mio plugin&quot;,
+	&quot;version&quot;: &quot;1.0.0&quot;,
+	&quot;description&quot;: &quot;A cosa serve.&quot;,
+	&quot;instructions&quot;: &quot;1. Premi «Accendi».\n2. Come si usa, passo per passo.&quot;,
+	&quot;author&quot;: &quot;Il tuo nome&quot;,
+	&quot;license&quot;: &quot;CC-BY-4.0&quot;,
+	&quot;contributes&quot;: {
+		&quot;themes&quot;: [&quot;themes/mio-tema.json&quot;],
+		&quot;templates&quot;: [&quot;templates/nave.json&quot;],
+		&quot;calendars&quot;: [&quot;calendars/calendario.json&quot;],
+		&quot;locales&quot;: { &quot;es&quot;: &quot;locales/es.json&quot; },
+		&quot;rules&quot;: [&quot;rules/regole.json&quot;],
+		&quot;links&quot;: [&quot;links/sito.json&quot;]
+	}
+}
+</code></pre>
+<ul>
+<li><code>id</code>: lowercase letters, numbers and hyphens.</li>
+<li><code>description</code> and <code>instructions</code>: every plugin must say what it&#39;s for and how to use it. In <code>instructions</code>, <code>\n</code> starts a new line. You read them by clicking the plugin, along with the author, license and contents; if they&#39;re missing, the Plugins page points it out.</li>
+<li>Paths are relative to the plugin folder and can&#39;t go outside it.</li>
+<li>An invalid file is ignored and reported on the Plugins page; the rest of the plugin works.</li>
+</ul>
+<h2 id="theme">Theme</h2>
+<p>The same colors as the theme editor, in <code>#rrggbb</code> format. The theme is <strong>rejected</strong> if any text isn&#39;t readable (WCAG AA contrast). The easiest way: create it in the theme editor and use “Export”. The editor&#39;s background image doesn&#39;t apply to plugin themes.</p>
+<pre tabindex="0" aria-label="Code"><code class="language-json">{ &quot;name&quot;: &quot;Gotico&quot;, &quot;scheme&quot;: &quot;dark&quot;, &quot;colors&quot;: { &quot;bg&quot;: &quot;#14111a&quot;, &quot;text&quot;: &quot;#efe9f5&quot;, &quot;…&quot;: &quot;…&quot; } }
+</code></pre>
+<h2 id="template">Template</h2>
+<pre tabindex="0" aria-label="Code"><code class="language-json">{
+	&quot;name&quot;: &quot;Nave&quot;,
+	&quot;description&quot;: &quot;Una nave e il suo equipaggio.&quot;,
+	&quot;fields&quot;: [&quot;Capitano&quot;, &quot;Porto&quot;, &quot;Bandiera&quot;],
+	&quot;session&quot;: false,
+	&quot;content&quot;: { &quot;type&quot;: &quot;doc&quot;, &quot;content&quot;: [ { &quot;type&quot;: &quot;heading&quot;, &quot;attrs&quot;: { &quot;level&quot;: 2 }, &quot;content&quot;: [ { &quot;type&quot;: &quot;text&quot;, &quot;text&quot;: &quot;Equipaggio&quot; } ] }, { &quot;type&quot;: &quot;paragraph&quot; } ] }
+}
+</code></pre>
+<p><code>content</code> is the editor&#39;s format: the easiest way to get it is to create the template in the wiki (New page › New template) and copy it from an exported world package (in <code>pages.json</code>, the page with <code>&quot;kind&quot;: &quot;template&quot;</code>). A block with <code>&quot;attrs&quot;: { &quot;visibility&quot;: &quot;master&quot; }</code> is a Master&#39;s secret: copies get it only if the Master makes them. The old box <code>{ &quot;type&quot;: &quot;secret&quot;, &quot;content&quot;: [...] }</code> still works and turns into the blocks it contains, hidden.</p>
+<p>When you turn the plugin on, its templates become wiki pages, in the Templates tab of the left sidebar (only once): from there you edit them like any other page, and they stay even if the plugin is turned off.</p>
+<h2 id="calendar">Calendar</h2>
+<p>As in the example&#39;s <code>calendars/lunargento.json</code>: <code>months</code> (name, days, <code>festival</code> for holidays outside the months), <code>weekdays</code>, <code>eras</code> (name, abbreviation, starting year), <code>leap</code> (or <code>null</code>), <code>today</code> (or <code>null</code>).</p>
+<h2 id="language">Language</h2>
+<p>A file with the same keys as <code>src/lib/i18n/locales/it.json</code>. Missing keys fall back to English. For a new language, put <code>&quot;_meta&quot;: { &quot;name&quot;: &quot;Español&quot; }</code> at the top.</p>
+<h2 id="rules">Rules</h2>
+<p>A list of entries you can look up with <code>@</code> and on the Rules page:</p>
+<pre tabindex="0" aria-label="Code"><code class="language-json">[
+	{ &quot;kind&quot;: &quot;rule&quot;, &quot;key&quot;: &quot;riposo-in-taverna&quot;, &quot;name&quot;: &quot;Riposo in taverna&quot;, &quot;summary&quot;: &quot;Regola della casa&quot;, &quot;text&quot;: &quot;Testo con **grassetto**.\nUna riga per paragrafo.&quot; }
+]
+</code></pre>
+<p><code>kind</code> is one of <code>spell</code>, <code>monster</code>, <code>condition</code>, <code>item</code>, <code>feat</code>, <code>species</code>, <code>class</code>, <code>background</code>, <code>rule</code>. An entry with the same name as one in the SRD replaces it (useful for translations or variants).</p>
+<p>Mind the licenses: include only your own texts or openly licensed ones.</p>
+<h2 id="links">Links</h2>
+<p>Sends <code>@rule</code> references to an external site. <code>{name}</code> becomes the rule&#39;s name:</p>
+<pre tabindex="0" aria-label="Code"><code class="language-json">{ &quot;site&quot;: &quot;D&amp;D Beyond&quot;, &quot;url&quot;: &quot;https://www.dndbeyond.com/search?q={name}&quot; }
+</code></pre>
+<p><code>url</code> must start with <code>https://</code> and contain <code>{name}</code>. The reference in the page uses the first link from the plugins that are on; the preview and the rule&#39;s page show them all, with the “Open on <code>site</code>” button. Without links, the reference leads to the rule&#39;s page, or stays plain text if the entry doesn&#39;t exist.</p>
+</article>
+<div class="doc-foot">
+<p><a href="https://github.com/yanez86/crooked-shelf-site/blob/main/docs-src/en/plugins.md">Edit this page on GitHub</a></p>
+<nav class="pager" aria-label="Previous / Next"><a class="prev" href="guide.html"><small>Previous</small>User guide</a><a class="next" href="claude.html"><small>Next</small>Claude</a></nav>
+</div>
+</div>
+</main>
+
+<footer class="site-footer">
+<div class="wrap legal">
+<p>Code: GNU AGPL-3.0. Crooked Shelf is not affiliated with D&amp;D Beyond or Wizards of the Coast.</p>
+<p><a href="https://happysquid.ink">happysquid.ink</a></p>
+</div>
+</footer>
+</body>
+</html>

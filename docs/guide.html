@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+// Il tema scelto col pulsante (assets/site.js lo ricorda): si mette subito, prima che la pagina si disegni.
+try { var cs = localStorage.getItem('cs-theme'); if (cs === 'light' || cs === 'dark') document.documentElement.setAttribute('data-theme', cs); } catch (e) {}
+</script>
+<title>User guide — Crooked Shelf documentation</title>
+<meta name="description" content="Roles and campaigns, pages and secrets, maps, timelines, roll tables, sessions, profile and administration.">
+<link rel="icon" href="../favicon.ico?v=2" sizes="48x48">
+<link rel="icon" href="../favicon.svg?v=3" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png?v=2" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png?v=2">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#f3f4f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#18191e" media="(prefers-color-scheme: dark)">
+<link rel="alternate" hreflang="en" href="guide.html">
+<link rel="alternate" hreflang="it" href="../it/docs/guida.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&amp;display=swap">
+<link rel="stylesheet" href="../assets/style.css?v=2026-11-05c">
+<script src="../assets/site.js?v=2026-11-05c" defer></script>
+</head>
+<body class="docs">
+<a class="skip" href="#content">Skip to content</a>
+
+<header class="site-header">
+<div class="bar">
+<a class="brand" href="../">
+<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect class="logo-bg" width="32" height="32" rx="7" fill="#3b4fd8"/><g class="logo-books" fill="#fff"><rect x="6" y="7" width="4" height="18"/><rect x="11" y="9" width="4" height="16"/><rect x="16.5" y="8" width="4" height="17" transform="rotate(12 18.5 16.5)"/><rect x="5" y="25" width="22" height="2.5" transform="rotate(-4 16 26)"/></g></svg>
+Crooked Shelf</a>
+<nav class="nav" aria-label="Documentation">
+<ul>
+<li><a href="../"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Back to the site</a></li>
+<li class="sep"><a href="index.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg>Documentation</a></li>
+<li><a href="installation.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 17v4h16v-4"/></svg>Installation</a></li>
+<li><a href="guide.html" aria-current="page"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z"/></svg>User guide</a>
+<ul class="sub"><li><a href="#who-can-do-what">Who can do what</a></li><li><a href="#campaigns">Campaigns</a></li><li><a href="#player-sheets">Player sheets</a></li><li><a href="#schedule">Schedule</a></li><li><a href="#the-left-sidebar">The left sidebar</a></li><li><a href="#pages">Pages</a></li><li><a href="#maps">Maps</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#resources">Resources</a></li><li><a href="#timelines-and-calendar">Timelines and calendar</a></li><li><a href="#rules">Rules</a></li><li><a href="#boards">Boards</a></li><li><a href="#profile">Profile</a></li><li><a href="#reading-and-accessibility">Reading and accessibility</a></li><li><a href="#administration">Administration</a></li></ul></li>
+<li><a href="plugins.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2v6"/><path d="M15 2v6"/><path d="M6 8h12v4a6 6 0 0 1-12 0z"/><path d="M12 18v4"/></svg>Plugins</a></li>
+<li><a href="claude.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Claude</a></li>
+</ul>
+</nav>
+<div class="tools">
+<details class="lang-menu">
+<summary><img src="../assets/img/flag-gb.svg" width="21" height="14" alt="">EN<span class="sr-only"> – Language</span><svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+<ul>
+<li><a href="guide.html" hreflang="en" lang="en" aria-current="page"><img src="../assets/img/flag-gb.svg" width="21" height="14" alt="">English</a></li>
+<li><a href="../it/docs/guida.html" hreflang="it" lang="it"><img src="../assets/img/flag-it.svg" width="21" height="14" alt="">Italiano</a></li>
+</ul>
+</details>
+<button type="button" class="btn theme-toggle" aria-pressed="false" aria-label="Dark theme" title="Dark theme" hidden><svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+<a class="btn btn-github" href="https://github.com/yanez86/crooked-shelf" aria-label="GitHub">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><path d="M14 4l-4 16"/></svg>
+<span>GitHub</span></a>
+</div>
+</div>
+</header>
+
+<main id="content">
+<div class="doc">
+<details class="doc-toc">
+<summary>Contents</summary>
+<ul>
+<li><a href="../">Back to the site</a></li>
+<li><a href="index.html">Documentation</a></li>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="guide.html" aria-current="page">User guide</a>
+<ul class="sub"><li><a href="#who-can-do-what">Who can do what</a></li><li><a href="#campaigns">Campaigns</a></li><li><a href="#player-sheets">Player sheets</a></li><li><a href="#schedule">Schedule</a></li><li><a href="#the-left-sidebar">The left sidebar</a></li><li><a href="#pages">Pages</a></li><li><a href="#maps">Maps</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#resources">Resources</a></li><li><a href="#timelines-and-calendar">Timelines and calendar</a></li><li><a href="#rules">Rules</a></li><li><a href="#boards">Boards</a></li><li><a href="#profile">Profile</a></li><li><a href="#reading-and-accessibility">Reading and accessibility</a></li><li><a href="#administration">Administration</a></li></ul></li>
+<li><a href="plugins.html">Plugins</a></li>
+<li><a href="claude.html">Claude</a></li>
+</ul>
+</details>
+<p class="crumbs"><a href="index.html">Documentation</a> › User guide</p>
+<h1>User guide</h1>
+<article class="prose">
+<h2 id="who-can-do-what">Who can do what</h2>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Table"><table>
+<thead>
+<tr>
+<th>Role</th>
+<th>What they can do</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Admin</strong></td>
+<td>Runs the site: creates campaigns and chooses their Master, settings, users, invites, themes, plugins, backups, world packages. In campaigns they have no extra powers: they are Master in the ones they run and a player in the ones they&#39;re invited to</td>
+</tr>
+<tr>
+<td><strong>Game Master</strong></td>
+<td>In their campaign: creates and edits all pages, writes and sees secrets, manages categories, tags, maps, resources, calendar, world timeline and players</td>
+</tr>
+<tr>
+<td><strong>Player</strong></td>
+<td>Reads, creates pages, edits their own and those open to players, has their own player sheet, adds events to the campaign timeline, uses boards</td>
+</tr>
+<tr>
+<td><strong>Visitor</strong></td>
+<td>Public pages only, and only if the Admin has turned on visitor access</td>
+</tr>
+</tbody></table></div>
+<p>People join with an <strong>invite</strong>: the Master creates it in Campaign › Players, the Admin in Administration › Invites. Each link works only once.</p>
+<h2 id="campaigns">Campaigns</h2>
+<p>An installation can hold several campaigns. Each one is a wiki of its own: pages, folders, tags, maps, timelines, boards, resources, home page and calendar can&#39;t be seen from the others, and the same page can have the same address in two campaigns.</p>
+<ul>
+<li><strong>Creating one</strong>: Administration › Campaigns › “New campaign”, with the name and the Master. Each campaign has only one Master; the same account can run more than one. It starts with the home page, the templates, the two timelines and the PCs folder.</li>
+<li><strong>The Campaign page</strong>: the Master opens it from the profile menu. It has four tabs: <strong>General</strong> (name, options, deletion), <strong>Players</strong> (invites, removal, sheet template), <strong>Sessions</strong> (remote link, minimum rule, Stars &amp; Wishes; only with the schedule turned on) and <strong>Claude</strong> (tokens and connectors).</li>
+<li><strong>Inviting players</strong>: in Campaign › Players the Master creates an invite link. People without an account create one; people who already have one sign in and join the campaign with it.</li>
+<li><strong>Switching campaigns</strong>: if you have more than one, you&#39;ll find them at the top of the profile menu. The choice is kept on the device. A link to a page opens in the campaign you&#39;re in.</li>
+<li><strong>Deleting one</strong>: the Master deletes their own from the Campaign page, the Admin any of them from Administration › Campaigns, even the last one; to confirm, you type the name again. Pages, maps, timelines, boards, resources and images disappear for everyone, and they come back only by restoring a backup. Anyone left without campaigns can still sign in and waits for an invite.</li>
+<li>You are Master only in your own campaign: in the others you&#39;re a player, if you&#39;ve been invited. This applies to the Admin too: they only enter the campaigns they run or are invited to, and see secrets only in their own. They manage the others from Administration › Campaigns without entering them, and can&#39;t appoint themselves Master of a campaign that already exists: another Admin does that. Of a new campaign, though, they can be the Master themselves.</li>
+<li>Export and world packages concern the campaign you&#39;re in; the backup covers the whole installation.</li>
+</ul>
+<h2 id="player-sheets">Player sheets</h2>
+<p>Every campaign has the <strong>PCs</strong> folder (“PG” in Italian) and inside it a <strong>sheet</strong> for each player: the page where they keep their character, their notes, their stuff.</p>
+<ul>
+<li><strong>It&#39;s created on its own</strong> when the player joins the campaign (with an invite, or when the Master hands the campaign over to someone else and becomes a player). In campaigns created before this version, the folder and the sheets appear on the first visit; a “PCs” folder that already existed becomes the PCs folder.</li>
+<li><strong>The title</strong> is at first the player&#39;s name: they change it to their character&#39;s.</li>
+<li><strong>Who sees it and who edits it</strong>: all the players see it; the player and the Master edit it. In the page options you can only choose between <strong>Public</strong> and <strong>Players</strong>: no Game Master only or Personal, so the Master always sees it, and so do the other players.</li>
+<li><strong>The Master&#39;s secrets</strong>: in the sheet the Master can hide a block, even one the player wrote. The player no longer sees it and keeps editing their sheet: when they save, the hidden block stays where it was. As long as the sheet contains a secret, only the Master can change the sheet&#39;s visibility.</li>
+<li><strong>Pages inside the sheet</strong>: the sheet has <strong>New page inside</strong> (the player in theirs, the Master in all of them). The new page starts out <strong>Personal</strong>: it&#39;s good for notes the player keeps to themselves, which not even the Master sees. You can also make a board.</li>
+<li><strong>It stays in its place</strong>: the sheet doesn&#39;t change folder, doesn&#39;t become a template or the home page, and in the tree it can be reordered only within the PCs folder. It can&#39;t go to the trash while the player is at the table. The PCs folder can be renamed and moved, but not deleted; if the folder that contains it ends up in the trash, the PCs folder moves back up to the root.</li>
+<li><strong>Players who leave the campaign</strong> no longer appear in the “At the table” list, but their sheet stays: the Master can delete it. If the player comes back, they find their sheet again, even from the trash.</li>
+<li><strong>The sheet template</strong>: by default it&#39;s “Player sheet”, a generic one (the character and the notes), in the Templates tab. The Master edits it like any template, or picks another one in <strong>Campaign › Players</strong> (or none at all: a blank page). It applies to the sheets created from then on; the existing ones stay as they are. The D&amp;D Beyond plugin brings the “D&amp;D sheet” template, with the link to the character sheet on the site.</li>
+<li><strong>At the table</strong>: on the home page, at the top of the right-hand column, are the Master and the players, with their profile icon. A player&#39;s name leads to their sheet, with the character&#39;s name underneath. Visitors without an account don&#39;t see the list.</li>
+<li>Sheets and the pages inside them aren&#39;t included in the world package: they belong to the table, not to the world. They stay in the backup and in the Markdown export.</li>
+</ul>
+<h2 id="schedule">Schedule</h2>
+<p>At the bottom of the left sidebar, <strong>Schedule</strong> is the calendar of the campaign&#39;s game sessions: one month per page, and under the grid each date with its details. The Master and the players see it, visitors without an account don&#39;t.</p>
+<p>The schedule is a <strong>campaign option</strong>: the Master turns it on and off in <strong>Campaign › General</strong>, under “Schedule”. In new campaigns it&#39;s off. When it&#39;s off, the sidebar entry, the Sessions tab of the Campaign page, the sessions on the home page and the Stars &amp; Wishes questions disappear; the <code>/schedule</code> addresses don&#39;t open. Nothing is deleted: once it&#39;s turned back on, appointments, answers and settings come back as they were.</p>
+<ul>
+<li><strong>The Master sets up an appointment</strong> with “New appointment”: title, date, start and end (an end before the start means after midnight, e.g. 20:00–00:00). They choose whether the game is <strong>in person</strong> (and where), <strong>remote</strong> or both.</li>
+<li><strong>Repeats</strong> every week, every 2 weeks or every month, until a date or with no end. “Every month” is the same weekday in the same position: starting from the first Thursday, the first Thursday of every month. A single date is removed with <strong>Cancel this date</strong>; “Edit series” changes all the dates.</li>
+<li><strong>Players answer</strong> for each date: in person, remote (only in the ways the appointment allows) or “Can&#39;t make it”. They can change their mind. Under each date you see who&#39;s coming, how, who isn&#39;t and who hasn&#39;t answered yet.</li>
+<li><strong>The remote link</strong> (Discord or other) is set by the Master in <strong>Campaign › Sessions</strong> and applies to everyone; an appointment can have its own.</li>
+<li><strong>The minimum rule</strong>, also in Campaign › Sessions: below a certain number of confirmed players the session is <strong>off</strong>. While there are more hours to go than the number chosen (24 by default) it&#39;s <strong>tentative</strong>, then it&#39;s off; with enough players it&#39;s <strong>confirmed</strong>. The Master doesn&#39;t count. With 0 there&#39;s no rule.</li>
+<li>Dates and times are the table&#39;s, with no time zones: the time at which a session goes “off” is the server&#39;s (<code>TZ</code>, see the installation guide).</li>
+</ul>
+<h3 id="stars--wishes">Stars &amp; Wishes</h3>
+<p>After a session, two questions for those who were there: <strong>What did you enjoy about this session?</strong> and <strong>What would you like to explore in the next session?</strong> It&#39;s turned on in <strong>Campaign › Sessions</strong> and stays off until the Master turns it on.</p>
+<ul>
+<li>The questions go to those who had answered “I&#39;m in” (in person or remote), once the session is over. Sessions that were canceled, or called off by the minimum rule, don&#39;t count.</li>
+<li>The player finds them in a popup <strong>when entering the campaign</strong>: when opening the wiki or switching from another campaign. “Later” puts them off until the next time they enter; answering is optional.</li>
+<li>The answer is sent <strong>only once</strong> and can&#39;t be changed afterwards.</li>
+<li>The questions close by themselves <strong>on the day of the next session</strong>. If there&#39;s none on the calendar, they stay open.</li>
+<li>The answers are read <strong>only by the Master</strong>, in Schedule, under the session date. Turning Stars &amp; Wishes off hides them, but they stay saved.</li>
+</ul>
+<h2 id="the-left-sidebar">The left sidebar</h2>
+<p>The whole wiki is reached from the left sidebar (there&#39;s no longer a horizontal menu at the top):</p>
+<ul>
+<li>at the top, four tabs, each with its icon and its name underneath: <strong>Pages</strong> (the sheet of paper), <strong>Tags</strong> (the label: the tags in their color, with the number of pages; a click opens the pages with that tag, and the Master changes their name and color from “Tag names and colors”), <strong>Resources</strong> (the picture: images, audio and other files, see below) and <strong>Templates</strong> (the stacked sheets: all the templates, in title order);</li>
+<li>below, the icons: <strong>New page</strong>, <strong>New folder</strong> and <strong>New divider</strong> (or <strong>Upload a resource</strong>, in Resources; <strong>New template</strong>, in Templates), collapse all and expand all;</li>
+<li>the <strong>tree</strong>: categories are folders that open and close with a click (or with Enter from the keyboard); inside them are the subfolders and pages of every type (pages, maps, timelines, boards), each with its own icon. Pages without a category are at the bottom, at the root. The folder of the page you&#39;re reading opens by itself.</li>
+<li><strong>New folder</strong> (the folder icon with the “+”, for the Master): the folder appears right away at the top of the tree, with its name to type; Enter creates it, Esc drops it. Folders are renamed in <strong>Categories</strong>, at <code>/categories</code>.</li>
+<li><strong>Reordering</strong> (the Master): drag a folder or a page to put it before or after another one, or drop it in the middle of a row to nest it inside that folder or page. A page with entries inside it has an arrow to open them; the title leads to the page. From the keyboard, on the row: <strong>Alt</strong> and the up and down arrows move it, right puts it inside the entry above, left brings it back out. Entries that have never been moved stay at the bottom, in alphabetical order.</li>
+<li><strong>New divider</strong> (the icon with three lines): adds a line at the bottom of the tree, to drag between one folder and another. It&#39;s deleted with its small cross.</li>
+<li><strong>Trash</strong>: when you hover over a page or a folder, the trash can appears on the right of the row (it&#39;s shown to whoever can delete that page; for folders, only to the Master). A folder goes there with everything it contains and comes back whole from the <strong>Trash</strong>. Pages nested in a deleted page, on the other hand, stay and move up to its folder.</li>
+<li><strong>Visibility</strong> (the Master): next to the trash can is the icon showing who can see the page: the globe for Public, the eye for Players, the crossed-out eye for Game Master only, the padlock for Personal. Game Master only and Personal are always shown; the others appear when you hover over the row (on the phone they&#39;re all shown). Clicking it lets you choose another level. If the page contains other pages (even inside its folders), you&#39;re asked whether to change them all or only that one. “Personal” only applies to pages written by you: other people&#39;s stay as they are. The home page doesn&#39;t have the icon: you change it from its pencil.</li>
+</ul>
+<p>The <strong>home page</strong> is the site&#39;s start page, created along with the wiki: from its pencil you write the introduction, with blocks, boxes, cover and icon. On the right, under its boxes, are the people at the table (see Player sheets) and the recently edited and recently added pages. It always sits at the top of the left sidebar, outside the folders, and can&#39;t be moved. It can&#39;t be deleted and there&#39;s only one: to change it, the Master checks <strong>Home page</strong> while editing another page, which must be Public or Players. The previous one goes back to being a page like any other.</p>
+<p>At the bottom of the sidebar, on every tab, there are always <strong>Schedule</strong> (if the campaign has it turned on) and the <strong>Trash</strong>. The other sections of the wiki (Pages, i.e. the list with filters, Tags, Gallery, Rules, Calendar, Categories) don&#39;t have a menu entry: they open from their address (<code>/wiki</code>, <code>/tags</code>, <code>/gallery</code>, <code>/rules</code>, <code>/calendar</code>, <code>/categories</code>).</p>
+<p>On the phone the header is a single line that stays in view as you scroll: the button on the left (“Menu and pages”) opens the sidebar, which closes with Esc, with × or by tapping outside it; the magnifying glass opens search. With a finger, there are no trash cans next to the rows: a page is deleted from its edit view, a folder from Categories. On the computer, the arrow at the top of the sidebar hides it and the opposite arrow brings it back; the browser remembers your choice. An identical arrow, at the top of the pages&#39; right-hand column when there is one, does the same with that column. The central panel takes up the space the columns leave free. If you prefer a wider page, you can keep the sidebar closed on the computer too (Profile › “Left sidebar”). In the Profile the sidebar starts out hidden and opens with the arrow; in Administration it&#39;s closed and opens with the button.</p>
+<h2 id="pages">Pages</h2>
+<p>Everything in the wiki is a <strong>page</strong>, in the tree on the left, with a <code>/wiki/…</code> address, a folder, tags, who can see it, the side column and the edit history. Pages come in four types:</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Table"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>What it is</th>
+<th>Who creates it</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Page</strong></td>
+<td>Blank, or copied from a template</td>
+<td>Everyone who is signed in</td>
+</tr>
+<tr>
+<td><strong>Template</strong></td>
+<td>A page to copy: blocks, side column and icon decided by whoever writes it</td>
+<td>Master</td>
+</tr>
+<tr>
+<td><strong>Map</strong></td>
+<td>An image with pins and layers, plus the page text</td>
+<td>Master</td>
+</tr>
+<tr>
+<td><strong>Timeline</strong></td>
+<td>Events in date order, plus the page text</td>
+<td>Master</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><p><strong>New page</strong> asks where to start from: a <strong>blank page</strong> or one of the <strong>templates</strong>; below them, the Master also finds “New template”, “New map” and “New timeline”.</p>
+</li>
+<li><p><strong>Templates</strong>: when the wiki is created there are already a few (NPC, Place, Faction, Session recap…) in the <strong>Templates</strong> tab of the left sidebar. They&#39;re edited like any page: the structure (headings, boxes, secrets, side column, icon) is whatever you write. From the template&#39;s page, “Use this template” creates the copy; the Master can turn any page into a template (and vice versa) with the “It is a template” checkbox. The “Copies are session reports” checkbox turns the copies into session reports (number, date, entry in the campaign timeline). Changing a template doesn&#39;t change the pages already made from it.</p>
+</li>
+<li><p><strong>Who sees it</strong>: Public, Players, Game Master only, or Personal (only you: good for private notes).</p>
+</li>
+<li><p><strong>Page options</strong>: while you edit the page, the button next to Cancel opens the options: who sees it, “Players can edit it too”, “It is a template” and “Home page” (for those who can change them), and the link to the page versions. It closes with Esc or by clicking outside, and the choices apply even with the panel closed. If you have unsaved changes, the wiki asks you before opening the versions.</p>
+</li>
+<li><p><strong>Cover and icon</strong>: as in Notion, the top of the page can have a cover; the page icon sits to the left of the title. While you edit the page, the image icon next to Save and Cancel (“Add cover”) opens a panel: an image from the <strong>Gallery</strong>, a <strong>Solid color</strong> or a file to <strong>Upload</strong>. On the side of the cover, three small icons change it, reposition it (by dragging the image, or with the up and down arrows; Enter confirms) and remove it. The icon (the same one shown in the tree) is chosen by clicking it, to the left of the title.</p>
+</li>
+<li><p><strong>Side column</strong>: by default a page doesn&#39;t have one. While you edit the page, the “+” button on the right adds the column, which stays in view as you scroll the text; inside it you put boxes:</p>
+<ul>
+<li><strong>Text</strong>: a title and a short text (e.g. “Alignment: Chaotic good”); you can write <code>[[Page]]</code> there too;</li>
+<li><strong>Image</strong>: drag it from your computer onto the box or use “Choose an image”; if you like, write a heading (it goes above the image) and a caption (below it).</li>
+</ul>
+<p>To change the order, drag a box by the handle to the left of its title, with the mouse or a finger (near the edge of the screen the page scrolls by itself), or use the up and down arrows. The small cross removes a box; once it&#39;s empty, the column is removed with “Remove the column”. The first image is also the page&#39;s image: it appears in the gallery and in link previews. Pages made from a template start with the template&#39;s boxes.</p>
+</li>
+<li><p><strong>Edit history</strong>: from the clock icon at the bottom of the page you see the previous versions and what changed, and you can restore them.</p>
+</li>
+<li><p><strong>Trash</strong>: deleted pages (maps and timelines too, with their pins and events) can be recovered from the Trash: each row shows who created the page and when, the last edit, and the icons to restore it or delete it forever.</p>
+</li>
+</ul>
+<h3 id="writing">Writing</h3>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Table"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>You get</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>## </code> at the start of the line</td>
+<td>heading</td>
+</tr>
+<tr>
+<td><code>- </code> or <code>1. </code></td>
+<td>list</td>
+</tr>
+<tr>
+<td><code>&gt; </code></td>
+<td>quote</td>
+</tr>
+<tr>
+<td><code>**word**</code> / <code>*word*</code></td>
+<td>bold / italic</td>
+</tr>
+<tr>
+<td><code>[[</code></td>
+<td>suggestions for linking another page</td>
+</tr>
+<tr>
+<td>`[[Title</td>
+<td>text]]`</td>
+</tr>
+<tr>
+<td><code>@</code> and the name</td>
+<td>rule suggestions (spells, monsters…)</td>
+</tr>
+<tr>
+<td>`@spell[Fireball</td>
+<td>ball of fire]`</td>
+</tr>
+<tr>
+<td><code>/</code> and the name</td>
+<td>roll on a roll table (see below)</td>
+</tr>
+</tbody></table></div>
+<p>With the toolbar buttons you insert images (with a description for people who can&#39;t see them), tables and “Note”, “Tip” and “Warning” boxes.</p>
+<p>The page is made of <strong>blocks</strong>: a paragraph, a heading, an image, a table, a box. When you hover the mouse over a block, these appear at its top right:</p>
+<ul>
+<li>the <strong>plus</strong>, which adds a <strong>text</strong> block or an <strong>image</strong> right after it;</li>
+<li>the <strong>eye</strong>, only for the Master, which <strong>hides</strong> the block: it becomes a <strong>Game Master secret</strong>, which players don&#39;t see and can&#39;t find even by searching. The same eye shows it again;</li>
+<li>the <strong>trash can</strong>, which deletes the whole block.</li>
+</ul>
+<p>In the editor a hidden block has the secrets background, and above the first of a run of hidden blocks there&#39;s the padlock with “Game Master secret”; on the page, consecutive hidden blocks sit in a single box. From the keyboard there&#39;s the padlock in the toolbar, which hides (or shows) the blocks you&#39;re writing in or have selected, and the trash can in the toolbar, which deletes the block you&#39;re writing in. A new block starts out hidden if you create it from a hidden block: by pressing Enter, with the plus, or by inserting an image or a table. When you copy and paste a hidden block, the copy is hidden too. The first toolbar button undoes the last action (like Ctrl+Z).</p>
+<p><strong>Pages with a secret</strong>: anyone who can edit the page can still edit it even if the Master has hidden something in it. A player doesn&#39;t receive the hidden blocks, not even in the editor; when they save, each one goes back right after the block that came before it (if they deleted that block, after the nearest earlier block that&#39;s still there). The player can&#39;t hide blocks, and restoring an old version doesn&#39;t bring its secrets out. Visibility, permissions and deletion of a page with a secret stay with the Master, even if the player wrote the page.</p>
+<p>From the keyboard: Tab takes you into the toolbar, the arrows move between commands, Esc leaves the editor.</p>
+<p>A link to a page that doesn&#39;t exist is <strong>dashed red</strong>: clicking it creates the page.</p>
+<p>A link to an existing page opens it in a popup, with all its content, while the page you started from stays underneath. At the top right are the buttons to bring it to the main screen and to close the popup. With Ctrl (Cmd on the Mac) it opens in a new tab instead. On the phone there&#39;s no popup: the page opens, and the Back button takes you back to the previous one.</p>
+<h3 id="roll-tables">Roll tables</h3>
+<p>A roll table is a table on the page that gives you a random result, as in the rulebooks: “Shabby shop”, a d6, one shop per row.</p>
+<ul>
+<li><strong>Creating one</strong> (the Master): the die in the editor toolbar, “New roll table”, adds a ready-made table. The first row holds the die (d6) and the name, which you fill in; below it, one row per face. The first column holds the die numbers (<code>3</code>, <code>4-6</code>, <code>01–05</code>), the others the result, even with bold, <code>[[links]]</code> and <code>@rules</code>. Rows and columns are added as in any table. An existing table becomes a roll table with the “Roll table” button among the table tools.</li>
+<li><strong>The dice</strong>: d4, d6, d8, d10, d12, d20, d100 (or d%), d66 and several dice added together, like 2d6. On the d10 <code>0</code> counts as 10, on the d100 <code>00</code> counts as 100. With no numbers at all in the first column, every row has the same chance.</li>
+<li><strong>If something&#39;s wrong</strong>: under the table tools it says whether the table is ready to roll or what&#39;s missing, for example a number that&#39;s in no row, or in two.</li>
+<li><strong>Rolling on the page</strong>: under the table there&#39;s “Roll”. The result appears next to it, and the page doesn&#39;t change: every click is a new roll. It&#39;s good at the table, for improvising.</li>
+<li><strong>Rolling while you write</strong>: on any page, type <code>/</code> and the table&#39;s name (<code>/shop</code>; <code>/shabby-shop</code> works too), choose the table and press Enter: the result goes into the text. While the cursor is on the result, <strong>Reroll</strong> appears under the toolbar, which puts in another result from the same table, and <strong>Keep</strong>, which turns it into normal text. On the page the result is text like any other, and changing the table doesn&#39;t change pages already written.</li>
+<li><strong>Who uses them</strong>: the Master creates them; everyone who sees the page can roll. A hidden table (Game Master secret) can be found and rolled only by the Master. The table must be on the page itself, not inside a box.</li>
+<li>Roll tables are part of the page text: they have versions, show up in search, and end up in the Markdown export and in the world package.</li>
+</ul>
+<h2 id="maps">Maps</h2>
+<p>A map is a page: the Master creates it with New page › “New map”, uploads the image and adds the <strong>pins</strong>: with “Add pin”, below the zoom buttons, and a click on the map. From the keyboard, Enter on “Add pin” creates the pin at the center of the view. The pin is placed and a popup asks for its details: Save creates it, Esc or the X at the top right drops it. A pin can open a page or another map (kingdom › city › building). When you click a pin linked to a page (or press Enter on it), the page opens as an overlay, on top of the map: Esc, the X or a click outside closes it, and “Open the full page” takes you to the actual page.</p>
+<p><strong>Layers</strong> group pins and are turned on and off from the “Layers” button, under “Add pin”: there&#39;s always the <strong>Base layer</strong>, visible to everyone, where every pin goes unless you choose another layer for it; “New layer” in the same list creates another one, with its name and visibility; “Manage layers”, under the map, renames and deletes them; a “Game Master only” layer is invisible to players. If you enter the map&#39;s real width, a ruler appears for measuring distances.</p>
+<p>All the pins are also in the list under the map. The image, the scale and the map that contains this one are changed by editing the page; the “Description” you write there, which is the page text, appears in a box above the map.</p>
+<h2 id="gallery">Gallery</h2>
+<p>All the campaign&#39;s images in one place: page images (covers and side column), images inserted in the text, maps and resources, most recent first. Under each image it says where it appears; clicking it opens it full size (← → arrows to browse, Esc to close). You can view all of them, only page images, only maps or only resources. Everyone sees only the images of the pages, maps and resources they can see.</p>
+<h2 id="resources">Resources</h2>
+<p>Images, music and other campaign files: handouts, portraits, background music for sessions. They&#39;re in the <strong>Resources</strong> tab of the tree on the left, split into Images, Audio and Other files, and on the Resources page of the sidebar.</p>
+<p>The Master uploads them with “Upload a resource”: images (PNG, JPEG, WebP or GIF, up to 25 MB), audio (MP3, OGG, WAV, FLAC or M4A) or any other file, up to 90 MB. If they don&#39;t write a title, the file name is used. As with maps, they choose who sees them: Public, Players or Game Master only.</p>
+<p>Images also include all those used in the wiki, i.e. covers, side columns, page text and maps, without having to upload them again: everyone sees only the ones they can see. They appear with their file name; their detail page says where they appear, and with the pencil the Master can change only the name (the file extension stays); everything else is changed in the page that uses them.</p>
+<p>Images are viewed and audio is played right in the wiki, even on the phone; other files (PDFs included) are downloaded. Clicking a resource opens its detail page: with the pencil at the top right, the Master changes its title, description, visibility and file, or deletes it.</p>
+<p>Resources are included in the backup, but not yet in the world package.</p>
+<h2 id="timelines-and-calendar">Timelines and calendar</h2>
+<p>A timeline is a page, and you can make as many as you like (New page › “New timeline”). Each one is one of two types:</p>
+<ul>
+<li><strong>World</strong>: history, in order of in-world date, written by the Master (when the wiki is created there&#39;s already the “World timeline”);</li>
+<li><strong>Campaign</strong>: what happened at the table, in order of play date; players add events too, and <strong>session reports</strong> appear on their own (there&#39;s already the “Campaign timeline”).</li>
+</ul>
+<p>Events can be viewed as a list or on the timeline strip; each one belongs to its own timeline.</p>
+<ul>
+<li><strong>Calendar</strong>: Gregorian, Harptos (Forgotten Realms), simple or invented (months, festivals, leap years, eras, “Today in the world”).</li>
+</ul>
+<h2 id="rules">Rules</h2>
+<p>The <strong>Rules</strong> page: 999 entries from the SRD 5.2 (in English) to search and cite. In pages, <code>@spell[Fireball]</code> becomes a link to the rule&#39;s page, with the <strong>i</strong> button for the preview. If you turn on the <strong>D&amp;D Beyond</strong> plugin (Administration › Plugins), the link leads to the D&amp;D Beyond search instead. Each rule shows the pages that cite it: your house rules stay connected.</p>
+<h2 id="boards">Boards</h2>
+<p>Boards are pages: <strong>New page › New board</strong>, with the starting columns (one per line). They sit in the tree like the other pages and have their own visibility: <strong>Personal</strong> (only you), Players, Game Master only. Anyone who sees the board can add and move cards (with the arrows or by dragging them); in the text you can use <code>[[Page]]</code> and <code>@rules</code>. Columns are added, renamed, moved and deleted by whoever can edit the page. Boards aren&#39;t included in the world package.</p>
+<h2 id="profile">Profile</h2>
+<p>At the top right is your profile: your icon, your name and your rank in the campaign (Game Master or Player). Clicking it opens the menu with your campaigns (if you have more than one), <strong>Profile</strong>, <strong>Campaign</strong> (for the Master), <strong>Administration</strong> (only for the Admin) and <strong>Log out</strong>; on the phone only the icon stays at the top, and your name and rank can be read in the menu.</p>
+<p><strong>Profile</strong> and <strong>Administration</strong> open in a popup over the wiki: you close it with Esc, with the X or by clicking outside, and underneath you find the page you were reading. With Ctrl+click they open as pages, in another tab. On the phone they open directly as pages.</p>
+<p>The <strong>Profile</strong> has three tabs:</p>
+<ul>
+<li><strong>Icon and name</strong>: the display name and the icon, chosen from the page icons (a crown, a wizard hat, swords…) or an uploaded image (PNG, JPEG, GIF or WebP);</li>
+<li><strong>Reading and accessibility</strong>: the preferences below;</li>
+<li><strong>Password</strong>: change it, see how many sessions are open and close the ones on other devices.</li>
+</ul>
+<p>If you&#39;re not signed in, you only get the reading preferences, saved in the browser.</p>
+<h2 id="reading-and-accessibility">Reading and accessibility</h2>
+<p>In the <strong>Profile</strong> everyone chooses:</p>
+<ul>
+<li>theme: Automatic (the default: Aria, or Aria at night if your system is dark), Light, Dark, Lake, Lake at night, Neon, Aria, Aria at night (or the ones created by the Admin). With Aria, on a large screen, the left sidebar and the page panel run from top to bottom and the page has no boxes;</li>
+<li>text size up to 200%;</li>
+<li>the Atkinson Hyperlegible or OpenDyslexic font;</li>
+<li>wide spacing, reduced motion, language;</li>
+<li>left sidebar always open, or closed and opened with the button at the top.</li>
+</ul>
+<p>The whole wiki can be used from the keyboard and with screen readers; the colors meet WCAG 2.2 AA.</p>
+<h2 id="administration">Administration</h2>
+<ul>
+<li><strong>Settings</strong>: site name, default language and visitors. Below them is the installed <strong>version</strong>, compared with the latest one on GitHub: “Up to date” or “Not up to date”, with links to what&#39;s new and to how to update.</li>
+<li><strong>Campaigns</strong>: create them, choose their Master, delete them.</li>
+<li><strong>Users</strong>: roles, disabling accounts and, for people who have forgotten their password, a reset link (valid for two days, once only).</li>
+<li><strong>Invites</strong>: links to join the site, one per person.</li>
+<li><strong>Themes</strong>: copy a theme and change its colors; it saves only if the text stays readable. A theme can have a background image, which sits behind the boxes and shows only on wide screens. Export and import as a file (colors only: the background travels with the world package).</li>
+<li><strong>Plugins</strong>: turn installed plugins on and off; clicking one opens a window with its purpose, instructions, author and contents (to create one, see <a href="plugins.html">plugins.md</a>).</li>
+<li><strong>Backup</strong>: the full backup to download and the daily <strong>automatic backup</strong> into a folder (even your OneDrive, Google Drive or Dropbox folder, which takes it to the cloud), with the time, the number of copies to keep and, if you like, a <strong>password</strong> that encrypts it. The page explains what&#39;s in a backup; the password can&#39;t be recovered. See <a href="installation.html#automatic-backup">installation.md</a>.</li>
+<li><strong>World package</strong>, <strong>Export to Markdown</strong>: see <a href="installation.html#backup-and-restore">installation.md</a>.</li>
+<li><strong>Log</strong>: successful and failed sign-ins, role and password changes, invites, Claude tokens, consents, backups and exports from the last six months.</li>
+</ul>
+</article>
+<div class="doc-foot">
+<p><a href="https://github.com/yanez86/crooked-shelf-site/blob/main/docs-src/en/guide.md">Edit this page on GitHub</a></p>
+<nav class="pager" aria-label="Previous / Next"><a class="prev" href="installation.html"><small>Previous</small>Installation</a><a class="next" href="plugins.html"><small>Next</small>Plugins</a></nav>
+</div>
+</div>
+</main>
+
+<footer class="site-footer">
+<div class="wrap legal">
+<p>Code: GNU AGPL-3.0. Crooked Shelf is not affiliated with D&amp;D Beyond or Wizards of the Coast.</p>
+<p><a href="https://happysquid.ink">happysquid.ink</a></p>
+</div>
+</footer>
+</body>
+</html>

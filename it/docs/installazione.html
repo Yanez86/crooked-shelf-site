@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+// Il tema scelto col pulsante (assets/site.js lo ricorda): si mette subito, prima che la pagina si disegni.
+try { var cs = localStorage.getItem('cs-theme'); if (cs === 'light' || cs === 'dark') document.documentElement.setAttribute('data-theme', cs); } catch (e) {}
+</script>
+<title>Installare Crooked Shelf — documentazione di Crooked Shelf</title>
+<meta name="description" content="Con Docker, senza Docker, su Raspberry Pi, su internet con HTTPS; impostazioni, backup e sicurezza.">
+<link rel="icon" href="../../favicon.ico?v=2" sizes="48x48">
+<link rel="icon" href="../../favicon.svg?v=3" type="image/svg+xml">
+<link rel="icon" href="../../favicon-32.png?v=2" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=2">
+<link rel="manifest" href="../../site.webmanifest">
+<meta name="theme-color" content="#f3f4f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#18191e" media="(prefers-color-scheme: dark)">
+<link rel="alternate" hreflang="it" href="installazione.html">
+<link rel="alternate" hreflang="en" href="../../docs/installation.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&amp;display=swap">
+<link rel="stylesheet" href="../../assets/style.css?v=2026-11-05c">
+<script src="../../assets/site.js?v=2026-11-05c" defer></script>
+</head>
+<body class="docs">
+<a class="skip" href="#content">Vai al contenuto</a>
+
+<header class="site-header">
+<div class="bar">
+<a class="brand" href="../">
+<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect class="logo-bg" width="32" height="32" rx="7" fill="#3b4fd8"/><g class="logo-books" fill="#fff"><rect x="6" y="7" width="4" height="18"/><rect x="11" y="9" width="4" height="16"/><rect x="16.5" y="8" width="4" height="17" transform="rotate(12 18.5 16.5)"/><rect x="5" y="25" width="22" height="2.5" transform="rotate(-4 16 26)"/></g></svg>
+Crooked Shelf</a>
+<nav class="nav" aria-label="Documentazione">
+<ul>
+<li><a href="../"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Torna al sito</a></li>
+<li class="sep"><a href="index.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg>Documentazione</a></li>
+<li><a href="installazione.html" aria-current="page"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 17v4h16v-4"/></svg>Installazione</a>
+<ul class="sub"><li><a href="#1-con-docker-consigliato">1. Con Docker (consigliato)</a></li><li><a href="#2-senza-docker">2. Senza Docker</a></li><li><a href="#3-su-internet-con-https">3. Su internet, con HTTPS</a></li><li><a href="#4-provarla-online-gratis-con-render">4. Provarla online gratis, con Render</a></li><li><a href="#impostazioni">Impostazioni</a></li><li><a href="#backup-e-ripristino">Backup e ripristino</a></li><li><a href="#sicurezza-cosa-sapere">Sicurezza: cosa sapere</a></li></ul></li>
+<li><a href="guida.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z"/></svg>Guida all'uso</a></li>
+<li><a href="plugin.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2v6"/><path d="M15 2v6"/><path d="M6 8h12v4a6 6 0 0 1-12 0z"/><path d="M12 18v4"/></svg>Plugin</a></li>
+<li><a href="claude.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Claude</a></li>
+</ul>
+</nav>
+<div class="tools">
+<details class="lang-menu">
+<summary><img src="../../assets/img/flag-it.svg" width="21" height="14" alt="">IT<span class="sr-only"> – Lingua</span><svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+<ul>
+<li><a href="../../docs/installation.html" hreflang="en" lang="en"><img src="../../assets/img/flag-gb.svg" width="21" height="14" alt="">English</a></li>
+<li><a href="installazione.html" hreflang="it" lang="it" aria-current="page"><img src="../../assets/img/flag-it.svg" width="21" height="14" alt="">Italiano</a></li>
+</ul>
+</details>
+<button type="button" class="btn theme-toggle" aria-pressed="false" aria-label="Tema scuro" title="Tema scuro" hidden><svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+<a class="btn btn-github" href="https://github.com/yanez86/crooked-shelf" aria-label="GitHub">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><path d="M14 4l-4 16"/></svg>
+<span>GitHub</span></a>
+</div>
+</div>
+</header>
+
+<main id="content">
+<div class="doc">
+<details class="doc-toc">
+<summary>Indice</summary>
+<ul>
+<li><a href="../">Torna al sito</a></li>
+<li><a href="index.html">Documentazione</a></li>
+<li><a href="installazione.html" aria-current="page">Installazione</a>
+<ul class="sub"><li><a href="#1-con-docker-consigliato">1. Con Docker (consigliato)</a></li><li><a href="#2-senza-docker">2. Senza Docker</a></li><li><a href="#3-su-internet-con-https">3. Su internet, con HTTPS</a></li><li><a href="#4-provarla-online-gratis-con-render">4. Provarla online gratis, con Render</a></li><li><a href="#impostazioni">Impostazioni</a></li><li><a href="#backup-e-ripristino">Backup e ripristino</a></li><li><a href="#sicurezza-cosa-sapere">Sicurezza: cosa sapere</a></li></ul></li>
+<li><a href="guida.html">Guida all'uso</a></li>
+<li><a href="plugin.html">Plugin</a></li>
+<li><a href="claude.html">Claude</a></li>
+</ul>
+</details>
+<p class="crumbs"><a href="index.html">Documentazione</a> › Installazione</p>
+<h1>Installare Crooked Shelf</h1>
+<article class="prose">
+<p>Crooked Shelf è un programma che resta acceso su un computer (il &quot;server&quot;) e si usa dal browser, anche dal telefono. Il computer può essere il tuo PC, un Raspberry Pi in casa o un server affittato su internet.</p>
+<p>Tutti i dati (database, immagini, plugin installati) stanno in <strong>una sola cartella</strong>: per il backup basta quella.</p>
+<h2 id="1-con-docker-consigliato">1. Con Docker (consigliato)</h2>
+<p>Serve <a href="https://docs.docker.com/get-docker/">Docker</a> (su Windows e Mac: Docker Desktop).</p>
+<pre tabindex="0" aria-label="Codice"><code class="language-bash">git clone https://github.com/yanez86/crooked-shelf.git
+cd crooked-shelf
+docker compose up -d
+</code></pre>
+<p>Apri <strong><a href="http://localhost:3000">http://localhost:3000</a></strong>. La prima volta si crea la wiki e l&#39;account amministratore: la pagina chiede il <strong>codice di configurazione</strong>, che trovi in <code>docker compose logs</code> (serve perché la wiki la configuri tu, non chi arriva prima all&#39;indirizzo). In alternativa scegli tu il codice con la variabile <code>CS_SETUP_TOKEN</code>.</p>
+<p>Dagli altri dispositivi di casa usa l&#39;indirizzo del computer, per esempio <code>http://192.168.1.20:3000</code>.</p>
+<p>Comandi utili:</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Tabella"><table>
+<thead>
+<tr>
+<th>Cosa</th>
+<th>Comando</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Fermare</td>
+<td><code>docker compose stop</code></td>
+</tr>
+<tr>
+<td>Riavviare</td>
+<td><code>docker compose start</code></td>
+</tr>
+<tr>
+<td>Vedere i messaggi</td>
+<td><code>docker compose logs -f</code></td>
+</tr>
+<tr>
+<td>Aggiornare a una nuova versione</td>
+<td><code>git pull</code> e poi <code>docker compose up -d --build</code></td>
+</tr>
+</tbody></table></div>
+<p>I dati stanno nel volume Docker <code>crooked-shelf-data</code> e sopravvivono agli aggiornamenti.</p>
+<p>Se durante la costruzione Docker risponde <strong>&quot;Too Many Requests&quot;</strong>, usa un&#39;altra copia dell&#39;immagine di Node:</p>
+<pre tabindex="0" aria-label="Codice"><code class="language-bash">docker compose build --build-arg NODE_IMAGE=mirror.gcr.io/library/node:22-bookworm-slim
+docker compose up -d
+</code></pre>
+<h3 id="raspberry-pi">Raspberry Pi</h3>
+<p>Funziona su Raspberry Pi 4 o 5 con sistema a 64 bit (Raspberry Pi OS 64-bit): i passi sono gli stessi. La prima costruzione richiede qualche minuto.</p>
+<h2 id="2-senza-docker">2. Senza Docker</h2>
+<p>Serve <a href="https://nodejs.org/">Node.js</a> 22.17 o più recente.</p>
+<pre tabindex="0" aria-label="Codice"><code class="language-bash">git clone https://github.com/yanez86/crooked-shelf.git
+cd crooked-shelf
+npm ci
+npm run build
+npm start
+</code></pre>
+<p>I dati vanno nella cartella <code>data</code> accanto al programma (si cambia con <code>CS_DATA_DIR</code>).</p>
+<p>Per farlo ripartire da solo all&#39;accensione del computer si può usare <code>systemd</code> (Linux), <code>pm2</code> o il Task Scheduler di Windows.</p>
+<h2 id="3-su-internet-con-https">3. Su internet, con HTTPS</h2>
+<p>Per rendere la wiki raggiungibile da fuori casa servono un server sempre acceso con un IP pubblico (per esempio un piccolo VPS da pochi euro al mese) e un dominio (es. <code>wiki.esempio.it</code>). Nel repository c&#39;è già tutto il necessario: <code>docker-compose.prod.yml</code> avvia la wiki insieme a <a href="https://caddyserver.com/">Caddy</a>, che gestisce HTTPS e ottiene e rinnova da solo il certificato.</p>
+<p>Il server deve avere almeno 2 GB di RAM (per costruire l&#39;immagine) e le porte <strong>80</strong> e <strong>443</strong> aperte, sia nel firewall del fornitore sia in quello del sistema.</p>
+<ol>
+<li><p>Dal sito dove hai comprato il dominio, crea un record <strong>A</strong> (es. <code>wiki</code>) che punta all&#39;IP del server.</p>
+</li>
+<li><p>Sul server installa Docker e scarica Crooked Shelf:</p>
+<pre tabindex="0" aria-label="Codice"><code class="language-bash">curl -fsSL https://get.docker.com | sh
+git clone https://github.com/yanez86/crooked-shelf.git /opt/crooked-shelf
+cd /opt/crooked-shelf
+</code></pre>
+</li>
+<li><p>Scrivi il dominio nel file <code>.env</code>:</p>
+<pre tabindex="0" aria-label="Codice"><code class="language-bash">cp .env.example .env
+nano .env          # CS_DOMAIN=wiki.esempio.it
+</code></pre>
+</li>
+<li><p>Avvia:</p>
+<pre tabindex="0" aria-label="Codice"><code class="language-bash">docker compose -f docker-compose.prod.yml up -d --build
+</code></pre>
+</li>
+<li><p>Apri <code>https://wiki.esempio.it</code> e crea la wiki e l&#39;account amministratore col codice di configurazione che leggi in <code>docker compose -f docker-compose.prod.yml logs crooked-shelf</code>.</p>
+</li>
+</ol>
+<p>La wiki non è esposta direttamente: dall&#39;esterno si passa solo da Caddy, e <code>CS_ORIGIN</code> e <code>CS_TRUST_PROXY</code> sono già impostati.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Tabella"><table>
+<thead>
+<tr>
+<th>Cosa</th>
+<th>Comando</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Vedere i messaggi</td>
+<td><code>docker compose -f docker-compose.prod.yml logs -f</code></td>
+</tr>
+<tr>
+<td>Aggiornare a una nuova versione</td>
+<td><code>git pull</code> e poi <code>docker compose -f docker-compose.prod.yml up -d --build</code></td>
+</tr>
+<tr>
+<td>Fermare</td>
+<td><code>docker compose -f docker-compose.prod.yml stop</code></td>
+</tr>
+</tbody></table></div>
+<p>Consigli per una wiki affidabile:</p>
+<ul>
+<li>attiva i <strong>backup automatici del server</strong> offerti dal fornitore e il <a href="#backup-automatico">backup automatico</a> della wiki, magari cifrato e copiato altrove con rclone; ogni tanto scarica anche il backup su un disco tuo;</li>
+<li>accedi al server con una chiave SSH e lascia che il sistema installi da solo gli aggiornamenti di sicurezza (su Ubuntu: <code>apt install unattended-upgrades</code>).</li>
+</ul>
+<p>Se usi già un altro proxy (nginx, Caddy installato a mano…), resta valido <code>docker-compose.yml</code>: punta il proxy a <code>localhost:3000</code> e togli il <code>#</code> da queste righe:</p>
+<pre tabindex="0" aria-label="Codice"><code class="language-yaml">CS_ORIGIN: &quot;https://wiki.esempio.it&quot;
+CS_TRUST_PROXY: &quot;1&quot;
+</code></pre>
+<p>In quel caso cambia anche <code>&quot;3000:3000&quot;</code> in <code>&quot;127.0.0.1:3000:3000&quot;</code>: così la wiki risponde solo al proxy, e nessuno la raggiunge in <code>http</code> saltando l&#39;HTTPS. Con <code>CS_ORIGIN</code> in <code>https</code> la wiki manda da sola l&#39;intestazione <code>Strict-Transport-Security</code>; il proxy deve passare <code>X-Forwarded-For</code> (e <code>X-Forwarded-Proto</code>), altrimenti i limiti ai tentativi di accesso valgono per tutti i visitatori insieme: la wiki lo segnala nei log se le intestazioni non tornano.</p>
+<p>L&#39;accesso dei visitatori senza account è <strong>spento</strong> di default: finché non lo accendi, sulla wiki entra solo chi ha ricevuto un invito.</p>
+<h2 id="4-provarla-online-gratis-con-render">4. Provarla online gratis, con Render</h2>
+<p>Per dare un&#39;occhiata alla wiki da fuori casa senza un server tuo c&#39;è <a href="https://render.com/">Render</a>: il file <code>render.yaml</code> è già pronto.</p>
+<ol>
+<li>Accedi a Render con GitHub.</li>
+<li><strong>New › Blueprint</strong>, scegli il repository e conferma.</li>
+<li>Finita la costruzione, apri l&#39;indirizzo <code>https://crooked-shelf-….onrender.com</code> e crea la wiki e l&#39;account amministratore col codice di configurazione che leggi nei log di Render (o che imposti tu in <code>CS_SETUP_TOKEN</code> tra le variabili del servizio).</li>
+</ol>
+<p>A ogni modifica su <code>main</code> Render costruisce e pubblica da solo la nuova versione.</p>
+<p>Sul piano gratuito:</p>
+<ul>
+<li>dopo 15 minuti senza visite la wiki si spegne, e alla visita successiva ci mette fino a un minuto a ripartire;</li>
+<li><strong>i dati non restano</strong>: a ogni spegnimento, riavvio o nuova versione si riparte da una wiki vuota.</li>
+</ul>
+<p>Va bene per provarla, non per giocarci una campagna: per quello usa uno dei modi qui sopra.</p>
+<h2 id="impostazioni">Impostazioni</h2>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Tabella"><table>
+<thead>
+<tr>
+<th>Variabile</th>
+<th>Significato</th>
+<th>Predefinito</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>PORT</code></td>
+<td>porta</td>
+<td><code>3000</code></td>
+</tr>
+<tr>
+<td><code>HOST</code></td>
+<td>indirizzo su cui ascoltare</td>
+<td><code>0.0.0.0</code></td>
+</tr>
+<tr>
+<td><code>CS_DATA_DIR</code></td>
+<td>cartella dei dati</td>
+<td><code>./data</code> (in Docker <code>/data</code>)</td>
+</tr>
+<tr>
+<td><code>CS_ORIGIN</code></td>
+<td>indirizzo pubblico, es. <code>https://wiki.esempio.it</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>CS_TRUST_PROXY</code></td>
+<td><code>1</code> dietro un proxy che invia <code>X-Forwarded-*</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>CS_PLUGINS_BUNDLED</code></td>
+<td>cartella dei plugin inclusi</td>
+<td><code>./plugins</code></td>
+</tr>
+<tr>
+<td><code>CS_UPDATE_CHECK</code></td>
+<td><code>0</code> = non controllare su GitHub se c&#39;è una versione nuova</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>CS_SETUP_TOKEN</code></td>
+<td>il codice della prima configurazione; senza, la wiki ne genera uno e lo scrive nei log</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>CS_UPLOAD_QUOTA_MB</code></td>
+<td>spazio per le immagini di ogni account giocatore (Master e Admin non hanno limite)</td>
+<td><code>512</code></td>
+</tr>
+<tr>
+<td><code>CS_PACK_MAX_MB</code></td>
+<td>dimensione massima, decompressa, di un pacchetto mondo da importare</td>
+<td><code>200</code></td>
+</tr>
+<tr>
+<td><code>CS_BACKUP_DIR</code></td>
+<td>cartella dei backup automatici, es. quella di OneDrive (vedi <a href="#backup-automatico">Backup automatico</a>); deve esistere già</td>
+<td><code>&lt;CS_DATA_DIR&gt;/backups</code></td>
+</tr>
+<tr>
+<td><code>TZ</code></td>
+<td>fuso orario del tavolo, es. <code>Europe/Rome</code>: decide «oggi» e quando un appuntamento salta</td>
+<td>quello del sistema (<code>docker-compose.yml</code>: <code>Europe/Rome</code>)</td>
+</tr>
+</tbody></table></div>
+<p>Senza <code>CS_ORIGIN</code> la wiki usa l&#39;indirizzo con cui viene raggiunta, in <code>http</code>: così funziona subito in rete locale.</p>
+<p>In Amministrazione › Impostazioni la wiki confronta la sua versione con quella del <code>package.json</code> sul ramo <code>main</code> di GitHub. Il server lo legge solo quando un Admin apre la pagina, al massimo una volta all&#39;ora, e non manda nulla della wiki; con <code>CS_UPDATE_CHECK=0</code> non contatta GitHub.</p>
+<h2 id="backup-e-ripristino">Backup e ripristino</h2>
+<p><strong>Backup</strong>: Amministrazione › Backup › «Scarica il backup». Il file contiene database, immagini e plugin installati, in chiaro: contiene tutto, segreti di ogni campagna e password cifrate comprese. Conservalo su un altro disco, al sicuro.</p>
+<h3 id="backup-automatico">Backup automatico</h3>
+<p>In Amministrazione › Backup l&#39;Admin accende il <strong>backup automatico</strong>: una volta al giorno, all&#39;ora scelta (quella del server), la wiki salva un backup completo in una cartella e tiene solo gli ultimi (7, se non scegli altro). Se il computer è spento a quell&#39;ora, il backup parte appena si riaccende; se non riesce, la wiki riprova ogni ora e lo scrive nella pagina e nel Registro. C&#39;è anche il pulsante «Fai un backup adesso».</p>
+<p>I file si chiamano <code>crooked-shelf-backup-2026-11-05-030000.zip</code> (o <code>.zip.enc</code>, se cifrati). La wiki cancella solo i suoi backup automatici più vecchi, riconosciuti dal nome: gli altri file della cartella restano dove sono. Ogni file nasce con un nome provvisorio (<code>~crooked-shelf-backup-….tmp</code>) e prende il nome vero solo a lavoro finito.</p>
+<p><strong>Portarli in cloud.</strong> La wiki non si collega a OneDrive, Google Drive o Dropbox: scrive i backup in una cartella, e se è quella del loro programma ci pensa lui a caricarli. La cartella la sceglie chi installa la wiki, con la variabile <code>CS_BACKUP_DIR</code>; senza, i backup vanno in <code>backups</code> dentro la cartella dei dati, che protegge da un errore ma non da un disco rotto. La cartella deve esistere già: se manca (disco staccato, cartella non collegata a Docker) il backup non riesce e la pagina lo dice.</p>
+<ul>
+<li><p><strong>Windows, senza Docker</strong> (PowerShell, dalla cartella di Crooked Shelf):</p>
+<pre tabindex="0" aria-label="Codice"><code class="language-powershell">mkdir &quot;$env:USERPROFILE\OneDrive\Crooked Shelf&quot;
+$env:CS_BACKUP_DIR = &quot;$env:USERPROFILE\OneDrive\Crooked Shelf&quot;
+npm start
+</code></pre>
+<p>Con Google Drive per desktop la cartella è di solito <code>G:\Il mio Drive\Crooked Shelf</code>.</p>
+</li>
+<li><p><strong>Docker</strong> (anche Docker Desktop su Windows e Mac): in <code>docker-compose.yml</code> togli il <code>#</code> dalle righe del backup e scrivi il percorso della cartella sul tuo computer, poi <code>docker compose up -d</code>:</p>
+<pre tabindex="0" aria-label="Codice"><code class="language-yaml">volumes:
+  - crooked-shelf-data:/data
+  - &quot;C:/Users/nome/OneDrive/Crooked Shelf:/backups&quot;
+environment:
+  CS_BACKUP_DIR: &quot;/backups&quot;
+</code></pre>
+<p>Su Linux la cartella deve essere scrivibile dall&#39;utente del container: <code>sudo chown 1000:1000 /percorso/della/cartella</code>. I backup sono leggibili solo da quell&#39;utente (e da root), perché contengono tutto.</p>
+</li>
+<li><p><strong>Su un server (VPS)</strong> non c&#39;è il programma di OneDrive: collega una cartella del server come sopra (es. <code>/opt/crooked-shelf-backup:/backups</code>) e caricala con <a href="https://rclone.org/">rclone</a>, che sa parlare con Google Drive, OneDrive e molti altri. Dopo averlo configurato (<code>rclone config</code>), una riga in <code>crontab -e</code> la copia ogni mattina, senza i file ancora a metà:</p>
+<pre tabindex="0" aria-label="Codice"><code class="language-bash">30 4 * * * rclone copy /opt/crooked-shelf-backup drive:CrookedShelf --exclude &quot;~*&quot;
+</code></pre>
+</li>
+</ul>
+<p>Le copie vecchie che la wiki cancella spariscono anche dal cloud (di solito finiscono nel cestino di OneDrive o Drive); <code>rclone copy</code> invece non cancella niente.</p>
+<p><strong>Cifrare i backup automatici.</strong> Un backup contiene tutto, in chiaro: chi arriva al file, o al tuo account cloud, legge pagine e segreti di ogni campagna, account, registro con gli indirizzi IP. Per questo l&#39;Admin può scegliere una <strong>password dei backup</strong> (almeno 12 caratteri; meglio una frase di quattro o cinque parole): da quel momento i backup automatici sono file <code>.zip.enc</code> che si aprono solo con quella.</p>
+<ul>
+<li>La password <strong>non viene salvata da nessuna parte</strong>: la wiki tiene solo una chiave che serve a chiudere i file, non ad aprirli. Chi entra nella wiki, o legge un backup in chiaro, non trova niente che apra quelli cifrati.</li>
+<li><strong>Se la perdi, i backup cifrati non si aprono più</strong>, da nessuno. Scrivila in un gestore di password o su un foglio in un posto sicuro. In Amministrazione › Backup puoi controllare di ricordarla senza cambiare niente.</li>
+<li>Cambiando password, i backup già fatti restano con quella di prima. Togliendo la cifratura, i prossimi backup tornano in chiaro.</li>
+<li>Il backup scaricato con «Scarica il backup» resta sempre in chiaro.</li>
+</ul>
+<p>Tecnicamente: dalla password nasce con scrypt una coppia di chiavi X25519, di cui la wiki tiene la metà pubblica; ogni backup ha una sua chiave usa e getta ed è cifrato con AES-256-GCM, che si accorge se il file è stato cambiato o è incompleto. Il formato è descritto in <code>tools/backup-crypto.mjs</code>.</p>
+<p><strong>Ripristino senza Docker</strong> (wiki ferma):</p>
+<pre tabindex="0" aria-label="Codice"><code class="language-bash">node tools/restore.mjs crooked-shelf-backup-2026-10-29.zip ./data --force
+</code></pre>
+<p><strong>Ripristino con Docker</strong>, dalla cartella di Crooked Shelf con il file di backup copiato lì (con <code>docker-compose.prod.yml</code> aggiungi <code>-f docker-compose.prod.yml</code> dopo ogni <code>docker compose</code>):</p>
+<pre tabindex="0" aria-label="Codice"><code class="language-bash">docker compose stop
+docker compose run --rm -v &quot;$PWD:/backup&quot; crooked-shelf node tools/restore.mjs /backup/crooked-shelf-backup-2026-10-29.zip /data --force
+docker compose start
+</code></pre>
+<p>In PowerShell scrivi <code>&quot;${PWD}:/backup&quot;</code> al posto di <code>&quot;$PWD:/backup&quot;</code>.</p>
+<p>Un backup cifrato (<code>.zip.enc</code>) si ripristina con gli stessi comandi: lo strumento chiede la password senza mostrarla mentre la scrivi (oppure la legge dalla variabile <code>CS_BACKUP_PASSWORD</code>). Se la password è sbagliata o il file è danneggiato, non tocca niente. Per aprire un backup cifrato senza ripristinarlo, ad esempio per guardarci dentro:</p>
+<pre tabindex="0" aria-label="Codice"><code class="language-bash">node tools/decrypt-backup.mjs crooked-shelf-backup-2026-11-05-030000.zip.enc
+</code></pre>
+<p>Il database che c&#39;era prima non viene cancellato: viene rinominato <code>crooked-shelf.db.prima-del-ripristino-…</code>.</p>
+<p>Altri modi di portare via i dati (Amministrazione):</p>
+<ul>
+<li><strong>Esporta in Markdown</strong>: tutte le pagine come file di testo, apribili con Obsidian o qualsiasi editor.</li>
+<li><strong>Pacchetto mondo</strong> (<code>.shelf</code>): mappe, pagine, regole della casa, template, calendario e cronologia del mondo, da importare in un&#39;altra wiki: in una campagna che c&#39;è già oppure in una nuova, creata apposta, che riprende anche la home del pacchetto.</li>
+</ul>
+<h2 id="sicurezza-cosa-sapere">Sicurezza: cosa sapere</h2>
+<ul>
+<li><strong>L&#39;Admin è chi possiede i dati.</strong> Nelle campagne che non tiene l&#39;interfaccia non gli mostra i segreti del Master, ma può scaricare il backup, creare altri account Admin e nominare Master: è una cortesia tra persone che si fidano, non una barriera. Dai il ruolo Admin solo a chi affideresti il server.</li>
+<li><strong>Chi può accedere</strong> lo decidono gli inviti: senza invito non ci si registra. I visitatori senza account sono spenti finché non li accendi in Amministrazione › Impostazioni.</li>
+<li><strong>Limiti</strong>: 20 accessi falliti ogni 10 minuti per indirizzo (e 5 per nome utente), un tetto agli hash delle password in corso, 60 caricamenti di immagini ogni 10 minuti, una quota di spazio per i giocatori. Le immagini si scaricano solo da chi può vedere la pagina (o la risorsa) che le usa; quelle che nessuno usa da un giorno si eliminano da sole.</li>
+<li><strong>Sessioni</strong>: scadono dopo 30 giorni senza visite e comunque dopo 90 dall&#39;accesso; dal Profilo si chiudono quelle sugli altri dispositivi. Un token di Claude fermo da 90 giorni smette di valere.</li>
+<li><strong>Password dimenticata</strong>: l&#39;Admin crea un link di reimpostazione da Amministrazione › Utenti, che vale due giorni e una volta sola.</li>
+<li><strong>Registro</strong>: Amministrazione › Registro elenca accessi, cambi di ruolo e password, inviti, token di Claude e backup degli ultimi sei mesi.</li>
+</ul>
+</article>
+<div class="doc-foot">
+<p><a href="https://github.com/yanez86/crooked-shelf/blob/main/docs/installazione.md">Modifica questa pagina su GitHub</a></p>
+<nav class="pager" aria-label="Precedente / Successiva"><a class="next" href="guida.html"><small>Successiva</small>Guida all'uso</a></nav>
+</div>
+</div>
+</main>
+
+<footer class="site-footer">
+<div class="wrap legal">
+<p>Codice: GNU AGPL-3.0. Crooked Shelf non è affiliato a D&amp;D Beyond né a Wizards of the Coast.</p>
+<p><a href="https://happysquid.ink">happysquid.ink</a></p>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+// Il tema scelto col pulsante (assets/site.js lo ricorda): si mette subito, prima che la pagina si disegni.
+try { var cs = localStorage.getItem('cs-theme'); if (cs === 'light' || cs === 'dark') document.documentElement.setAttribute('data-theme', cs); } catch (e) {}
+</script>
+<title>Guida all'uso — documentazione di Crooked Shelf</title>
+<meta name="description" content="Ruoli e campagne, pagine e segreti, mappe, cronologie, tabelle di tiro, appuntamenti, profilo e amministrazione.">
+<link rel="icon" href="../../favicon.ico?v=2" sizes="48x48">
+<link rel="icon" href="../../favicon.svg?v=3" type="image/svg+xml">
+<link rel="icon" href="../../favicon-32.png?v=2" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=2">
+<link rel="manifest" href="../../site.webmanifest">
+<meta name="theme-color" content="#f3f4f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#18191e" media="(prefers-color-scheme: dark)">
+<link rel="alternate" hreflang="it" href="guida.html">
+<link rel="alternate" hreflang="en" href="../../docs/guide.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&amp;display=swap">
+<link rel="stylesheet" href="../../assets/style.css?v=2026-11-05c">
+<script src="../../assets/site.js?v=2026-11-05c" defer></script>
+</head>
+<body class="docs">
+<a class="skip" href="#content">Vai al contenuto</a>
+
+<header class="site-header">
+<div class="bar">
+<a class="brand" href="../">
+<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect class="logo-bg" width="32" height="32" rx="7" fill="#3b4fd8"/><g class="logo-books" fill="#fff"><rect x="6" y="7" width="4" height="18"/><rect x="11" y="9" width="4" height="16"/><rect x="16.5" y="8" width="4" height="17" transform="rotate(12 18.5 16.5)"/><rect x="5" y="25" width="22" height="2.5" transform="rotate(-4 16 26)"/></g></svg>
+Crooked Shelf</a>
+<nav class="nav" aria-label="Documentazione">
+<ul>
+<li><a href="../"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Torna al sito</a></li>
+<li class="sep"><a href="index.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg>Documentazione</a></li>
+<li><a href="installazione.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 17v4h16v-4"/></svg>Installazione</a></li>
+<li><a href="guida.html" aria-current="page"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z"/></svg>Guida all'uso</a>
+<ul class="sub"><li><a href="#chi-può-fare-cosa">Chi può fare cosa</a></li><li><a href="#campagne">Campagne</a></li><li><a href="#schede-giocatore">Schede giocatore</a></li><li><a href="#appuntamenti">Appuntamenti</a></li><li><a href="#la-barra-a-sinistra">La barra a sinistra</a></li><li><a href="#pagine">Pagine</a></li><li><a href="#mappe">Mappe</a></li><li><a href="#galleria">Galleria</a></li><li><a href="#risorse">Risorse</a></li><li><a href="#cronologie-e-calendario">Cronologie e calendario</a></li><li><a href="#regole">Regole</a></li><li><a href="#bacheche">Bacheche</a></li><li><a href="#profilo">Profilo</a></li><li><a href="#lettura-e-accessibilità">Lettura e accessibilità</a></li><li><a href="#amministrazione">Amministrazione</a></li></ul></li>
+<li><a href="plugin.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2v6"/><path d="M15 2v6"/><path d="M6 8h12v4a6 6 0 0 1-12 0z"/><path d="M12 18v4"/></svg>Plugin</a></li>
+<li><a href="claude.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Claude</a></li>
+</ul>
+</nav>
+<div class="tools">
+<details class="lang-menu">
+<summary><img src="../../assets/img/flag-it.svg" width="21" height="14" alt="">IT<span class="sr-only"> – Lingua</span><svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+<ul>
+<li><a href="../../docs/guide.html" hreflang="en" lang="en"><img src="../../assets/img/flag-gb.svg" width="21" height="14" alt="">English</a></li>
+<li><a href="guida.html" hreflang="it" lang="it" aria-current="page"><img src="../../assets/img/flag-it.svg" width="21" height="14" alt="">Italiano</a></li>
+</ul>
+</details>
+<button type="button" class="btn theme-toggle" aria-pressed="false" aria-label="Tema scuro" title="Tema scuro" hidden><svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+<a class="btn btn-github" href="https://github.com/yanez86/crooked-shelf" aria-label="GitHub">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><path d="M14 4l-4 16"/></svg>
+<span>GitHub</span></a>
+</div>
+</div>
+</header>
+
+<main id="content">
+<div class="doc">
+<details class="doc-toc">
+<summary>Indice</summary>
+<ul>
+<li><a href="../">Torna al sito</a></li>
+<li><a href="index.html">Documentazione</a></li>
+<li><a href="installazione.html">Installazione</a></li>
+<li><a href="guida.html" aria-current="page">Guida all'uso</a>
+<ul class="sub"><li><a href="#chi-può-fare-cosa">Chi può fare cosa</a></li><li><a href="#campagne">Campagne</a></li><li><a href="#schede-giocatore">Schede giocatore</a></li><li><a href="#appuntamenti">Appuntamenti</a></li><li><a href="#la-barra-a-sinistra">La barra a sinistra</a></li><li><a href="#pagine">Pagine</a></li><li><a href="#mappe">Mappe</a></li><li><a href="#galleria">Galleria</a></li><li><a href="#risorse">Risorse</a></li><li><a href="#cronologie-e-calendario">Cronologie e calendario</a></li><li><a href="#regole">Regole</a></li><li><a href="#bacheche">Bacheche</a></li><li><a href="#profilo">Profilo</a></li><li><a href="#lettura-e-accessibilità">Lettura e accessibilità</a></li><li><a href="#amministrazione">Amministrazione</a></li></ul></li>
+<li><a href="plugin.html">Plugin</a></li>
+<li><a href="claude.html">Claude</a></li>
+</ul>
+</details>
+<p class="crumbs"><a href="index.html">Documentazione</a> › Guida all'uso</p>
+<h1>Guida all'uso</h1>
+<article class="prose">
+<h2 id="chi-può-fare-cosa">Chi può fare cosa</h2>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Tabella"><table>
+<thead>
+<tr>
+<th>Ruolo</th>
+<th>Cosa può fare</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Admin</strong></td>
+<td>Gestisce il sito: crea le campagne e ne sceglie il Master, impostazioni, utenti, inviti, temi, plugin, backup, pacchetti mondo. Nelle campagne non ha poteri in più: è Master in quelle che tiene e giocatore in quelle in cui è invitato</td>
+</tr>
+<tr>
+<td><strong>Master</strong></td>
+<td>Nella sua campagna: crea e modifica tutte le pagine, scrive e vede i segreti, gestisce categorie, tag, mappe, risorse, calendario, cronologia del mondo e giocatori</td>
+</tr>
+<tr>
+<td><strong>Giocatore</strong></td>
+<td>Legge, crea pagine, modifica le sue e quelle aperte ai giocatori, ha la sua scheda giocatore, aggiunge eventi alla cronologia della campagna, usa le bacheche</td>
+</tr>
+<tr>
+<td><strong>Visitatore</strong></td>
+<td>Solo le pagine pubbliche, e solo se l&#39;Admin ha acceso l&#39;accesso dei visitatori</td>
+</tr>
+</tbody></table></div>
+<p>Le persone entrano con un <strong>invito</strong>: il Master lo crea in Campagna › Giocatori, l&#39;Admin in Amministrazione › Inviti. Ogni link funziona una volta sola.</p>
+<h2 id="campagne">Campagne</h2>
+<p>Una installazione può contenere più campagne. Ognuna è una wiki a sé: pagine, cartelle, tag, mappe, cronologie, bacheche, risorse, home e calendario non si vedono dalle altre, e la stessa pagina può avere lo stesso indirizzo in due campagne.</p>
+<ul>
+<li><strong>Crearne una</strong>: Amministrazione › Campagne › «Nuova campagna», con il nome e il Master. Ogni campagna ha un solo Master; lo stesso account può tenerne più d&#39;una. Parte con la home, i template, le due cronologie e la cartella PG.</li>
+<li><strong>La pagina Campagna</strong>: il Master la apre dal menu del profilo. Ha quattro schede: <strong>Generale</strong> (nome, opzioni, eliminazione), <strong>Giocatori</strong> (inviti, rimozione, template delle schede), <strong>Appuntamenti</strong> (link per il remoto, regola del minimo, Stars &amp; Wishes; solo con gli appuntamenti accesi) e <strong>Claude</strong> (token e connettori).</li>
+<li><strong>Invitare i giocatori</strong>: in Campagna › Giocatori il Master crea un link di invito. Chi non ha un account lo crea; chi lo ha già accede ed entra nella campagna col suo.</li>
+<li><strong>Cambiare campagna</strong>: chi ne ha più di una le trova in cima al menu del profilo. La scelta resta sul dispositivo. Un collegamento a una pagina si apre nella campagna in cui ti trovi.</li>
+<li><strong>Eliminarne una</strong>: il Master elimina la sua dalla pagina Campagna, l&#39;Admin qualsiasi da Amministrazione › Campagne, anche l&#39;ultima; per conferma si riscrive il nome. Spariscono per tutti pagine, mappe, cronologie, bacheche, risorse e immagini, e torna solo ripristinando un backup. Chi resta senza campagne può ancora accedere e aspetta un invito.</li>
+<li>Si è Master solo nella propria campagna: nelle altre si è giocatori, se si è stati invitati. Vale anche per l&#39;Admin: entra solo nelle campagne che tiene o in cui è invitato, e vede i segreti solo nelle sue. Le altre le gestisce da Amministrazione › Campagne senza entrarci, e non può nominarsi Master di una campagna che esiste già: lo fa un altro Admin. Di una campagna nuova invece può essere lui il Master.</li>
+<li>Esportazione e pacchetti mondo riguardano la campagna in cui ti trovi; il backup riguarda tutta l&#39;installazione.</li>
+</ul>
+<h2 id="schede-giocatore">Schede giocatore</h2>
+<p>Ogni campagna ha la cartella <strong>PG</strong> (in inglese «PCs») e dentro una <strong>scheda</strong> per ogni giocatore: la pagina dove tiene il suo personaggio, gli appunti, le sue cose.</p>
+<ul>
+<li><strong>Nasce da sola</strong> quando il giocatore entra nella campagna (con un invito, o quando il Master passa la campagna a un altro e diventa giocatore). Nelle campagne nate prima di questa versione cartella e schede compaiono alla prima visita; una cartella «PG» che c&#39;era già diventa la cartella PG.</li>
+<li><strong>Il titolo</strong> all&#39;inizio è il nome del giocatore: lui lo cambia con quello del personaggio.</li>
+<li><strong>Chi la vede e chi la modifica</strong>: la vedono tutti i giocatori, la modificano il giocatore e il Master. Nelle opzioni della pagina si sceglie solo tra <strong>Pubblica</strong> e <strong>Giocatori</strong>: niente Solo Master né Personale, così il Master la vede sempre e gli altri giocatori pure.</li>
+<li><strong>I segreti del Master</strong>: nella scheda il Master può oscurare un blocco, anche uno scritto dal giocatore. Il giocatore non lo vede più e continua a modificare la sua scheda: quando salva, il blocco oscurato resta dov&#39;era. Finché nella scheda c&#39;è un segreto, la visibilità della scheda la cambia solo il Master.</li>
+<li><strong>Pagine dentro la scheda</strong>: nella scheda c&#39;è <strong>Nuova pagina qui dentro</strong> (il giocatore nella sua, il Master in tutte). La pagina nuova parte <strong>Personale</strong>: va bene per gli appunti che il giocatore tiene per sé, e che non vede neanche il Master. Si può fare anche una bacheca.</li>
+<li><strong>Sta al suo posto</strong>: la scheda non cambia cartella, non diventa un template né la home, e nell&#39;albero si riordina solo dentro la cartella PG. Non va nel cestino finché il giocatore è al tavolo. La cartella PG si rinomina e si sposta, ma non si elimina; se finisce nel cestino la cartella che la contiene, lei risale alla radice.</li>
+<li><strong>Chi esce dalla campagna</strong> non compare più nell&#39;elenco «Al tavolo», ma la sua scheda resta: il Master la può eliminare. Se il giocatore rientra ritrova la sua, anche dal cestino.</li>
+<li><strong>Il template delle schede</strong>: di base è «Scheda giocatore», generico (il personaggio e gli appunti), nella linguetta Template. Il Master lo modifica come ogni template, oppure ne sceglie un altro in <strong>Campagna › Giocatori</strong> (anche nessuno: pagina bianca). Vale per le schede che nasceranno; quelle che ci sono restano come sono. Il plugin D&amp;D Beyond porta il template «Scheda D&amp;D», col link alla scheda del personaggio sul sito.</li>
+<li><strong>Al tavolo</strong>: nella home, in cima alla colonna a destra, ci sono il Master e i giocatori, con l&#39;icona del profilo. Il nome di un giocatore porta alla sua scheda, col nome del personaggio sotto. I visitatori senza account non vedono l&#39;elenco.</li>
+<li>Le schede e le pagine dentro di loro non entrano nel pacchetto mondo: sono del tavolo, non del mondo. Restano nel backup e nell&#39;esportazione in Markdown.</li>
+</ul>
+<h2 id="appuntamenti">Appuntamenti</h2>
+<p>In fondo alla barra a sinistra, <strong>Appuntamenti</strong> è il calendario delle sessioni di gioco della campagna: un mese per pagina, e sotto la griglia ogni data con i suoi dettagli. Lo vedono il Master e i giocatori, non i visitatori senza account.</p>
+<p>Gli appuntamenti sono un&#39;<strong>opzione della campagna</strong>: il Master li accende e li spegne in <strong>Campagna › Generale</strong>, alla voce «Appuntamenti». Nelle campagne nuove sono spenti. Spenti, spariscono la voce nella barra, la scheda Appuntamenti della pagina Campagna, le sessioni nella home e le domande di Stars &amp; Wishes; gli indirizzi <code>/schedule</code> non si aprono. Niente viene cancellato: riaccesi, appuntamenti, risposte e impostazioni tornano come prima.</p>
+<ul>
+<li><strong>Il Master fissa un appuntamento</strong> con «Nuovo appuntamento»: titolo, data, inizio e fine (una fine prima dell&#39;inizio vuol dire dopo mezzanotte, es. 20:00–00:00). Sceglie se si gioca <strong>in presenza</strong> (e dove), <strong>da remoto</strong> o in tutti e due i modi.</li>
+<li><strong>Si ripete</strong> ogni settimana, ogni 2 settimane od ogni mese, fino a una data o senza fine. «Ogni mese» è lo stesso giorno della settimana nella stessa posizione: dal primo giovedì, il primo giovedì di ogni mese. Una sola data si toglie con <strong>Annulla questa data</strong>; «Modifica la serie» cambia tutte le date.</li>
+<li><strong>I giocatori rispondono</strong> per ogni data: in presenza, da remoto (solo nei modi che l&#39;appuntamento ammette) o «Non ci sono». Si può cambiare idea. Sotto ogni data c&#39;è chi viene, come, chi no e chi non ha ancora risposto.</li>
+<li><strong>Il link per il remoto</strong> (Discord o altro) il Master lo mette in <strong>Campagna › Appuntamenti</strong> e vale per tutti; un appuntamento può averne uno suo.</li>
+<li><strong>La regola del minimo</strong>, sempre in Campagna › Appuntamenti: sotto un certo numero di giocatori confermati la sessione <strong>salta</strong>. Finché mancano più ore di quelle scelte (di base 24) è <strong>in forse</strong>, poi salta; con abbastanza giocatori è <strong>confermata</strong>. Il Master non conta. Con 0 non c&#39;è regola.</li>
+<li>Date e orari sono quelli del tavolo, senza fusi orari: l&#39;ora in cui una sessione «salta» è quella del server (<code>TZ</code>, vedi l&#39;installazione).</li>
+</ul>
+<h3 id="stars--wishes">Stars &amp; Wishes</h3>
+<p>Dopo una sessione, due domande a chi c&#39;era: <strong>che cosa ti è piaciuto di questa sessione?</strong> e <strong>che cosa ti piacerebbe esplorare nella prossima?</strong> Si accende in <strong>Campagna › Appuntamenti</strong> ed è spento finché il Master non lo accende.</p>
+<ul>
+<li>Le domande arrivano a chi aveva risposto «Ci sono» (in presenza o da remoto), quando la sessione è finita. Le sessioni annullate o saltate per la regola del minimo non contano.</li>
+<li>Il giocatore le trova in un popup <strong>entrando nella campagna</strong>: aprendo la wiki o passando da un&#39;altra campagna. «Più tardi» le rimanda al prossimo ingresso; rispondere non è obbligatorio.</li>
+<li>La risposta si invia <strong>una volta sola</strong> e non si cambia più.</li>
+<li>Le domande si chiudono da sole <strong>il giorno della sessione dopo</strong>. Se non ce n&#39;è una in calendario, restano aperte.</li>
+<li>Le risposte le legge <strong>solo il Master</strong>, negli Appuntamenti, sotto la data della sessione. Spegnendo Stars &amp; Wishes spariscono dalla vista ma restano salvate.</li>
+</ul>
+<h2 id="la-barra-a-sinistra">La barra a sinistra</h2>
+<p>Tutta la wiki si raggiunge dalla barra a sinistra (in alto non c&#39;è più il menu orizzontale):</p>
+<ul>
+<li>in cima quattro linguette, ognuna con l&#39;icona e il nome sotto: <strong>Pagine</strong> (il foglio), <strong>Tag</strong> (l&#39;etichetta: i tag nel loro colore, col numero di pagine; un clic apre le pagine con quel tag, e il Master ne cambia nome e colore da «Nomi e colori dei tag»), <strong>Risorse</strong> (l&#39;immagine: immagini, audio e altri file, vedi sotto) e <strong>Template</strong> (i fogli sovrapposti: tutti i template, in ordine di titolo);</li>
+<li>sotto, le icone: <strong>Nuova pagina</strong>, <strong>Nuova cartella</strong> e <strong>Nuovo divisorio</strong> (o <strong>Carica una risorsa</strong>, nelle Risorse; <strong>Nuovo template</strong>, nei Template), chiudi tutto e apri tutto;</li>
+<li>l&#39;<strong>albero</strong>: le categorie sono cartelle che si aprono e si chiudono con un clic (o con Invio da tastiera); dentro ci sono le sottocartelle e le pagine di ogni tipo (pagine, mappe, cronologie, bacheche), ognuna con la sua icona. Le pagine senza categoria stanno in fondo, alla radice. La cartella della pagina che stai leggendo si apre da sola.</li>
+<li><strong>Nuova cartella</strong> (l&#39;icona della cartella col «+», per il Master): la cartella compare subito in cima all&#39;albero col nome da scrivere; Invio la crea, Esc la lascia perdere. Rinominarle si fa in <strong>Cartelle</strong>, all&#39;indirizzo <code>/categories</code>.</li>
+<li><strong>Riordinare</strong> (il Master): trascina una cartella o una pagina per metterla prima o dopo un&#39;altra, oppure lasciala nel mezzo di una riga per annidarla dentro quella cartella o pagina. Una pagina con voci dentro ha la freccia per aprirle; il titolo porta alla pagina. Da tastiera, sulla riga: <strong>Alt</strong> e le frecce su e giù spostano, destra la mette dentro la voce sopra, sinistra la riporta fuori. Le voci mai spostate restano in fondo, in ordine alfabetico.</li>
+<li><strong>Nuovo divisorio</strong> (l&#39;icona con le tre righe): aggiunge una riga in fondo all&#39;albero, da trascinare tra una cartella e l&#39;altra. Si elimina dalla sua crocetta.</li>
+<li><strong>Cestino</strong>: passando su una pagina o una cartella, a destra nella riga compare il cestino (lo vede chi può eliminare quella pagina; le cartelle solo il Master). Una cartella ci va con tutto quello che contiene e, dal <strong>Cestino</strong>, torna intera. Le pagine annidate in una pagina eliminata invece restano e risalgono alla sua cartella.</li>
+<li><strong>Visibilità</strong> (il Master): accanto al cestino c&#39;è l&#39;icona di chi può vedere la pagina: il globo per Pubblica, l&#39;occhio per Giocatori, l&#39;occhio barrato per Solo Master, il lucchetto per Personale. Solo Master e Personale si vedono sempre; le altre compaiono passando sulla riga (sul telefono si vedono tutte). Cliccandola si sceglie un altro livello. Se la pagina ne contiene altre (anche dentro sue cartelle), si chiede se cambiarle tutte o solo lei. «Personale» vale solo per le pagine scritte da te: quelle degli altri restano come sono. La home non ha l&#39;icona: si cambia dalla sua matita.</li>
+</ul>
+<p>La <strong>home</strong> è la pagina iniziale del sito, nata con la wiki: dalla matita si scrive la presentazione, con blocchi, riquadri, copertina e icona. A destra, sotto i suoi riquadri, ci sono chi è al tavolo (vedi Schede giocatore) e le pagine modificate e aggiunte di recente. Sta sempre in cima alla barra a sinistra, fuori dalle cartelle, e non si sposta. Non si può eliminare e ce n&#39;è una sola: per cambiarla, il Master spunta <strong>Pagina home</strong> modificando un&#39;altra pagina, che deve essere Pubblica o Giocatori. Quella di prima torna una pagina come le altre.</p>
+<p>In fondo alla barra, su ogni linguetta, ci sono sempre <strong>Appuntamenti</strong> (se la campagna li ha accesi) e il <strong>Cestino</strong>. Le altre sezioni della wiki (Pagine, cioè l&#39;elenco con i filtri, Tag, Galleria, Regole, Calendario, Cartelle) non hanno una voce di menu: si aprono dal loro indirizzo (<code>/wiki</code>, <code>/tags</code>, <code>/gallery</code>, <code>/rules</code>, <code>/calendar</code>, <code>/categories</code>).</p>
+<p>Sul telefono l&#39;intestazione è una sola riga che resta in vista mentre scorri: il pulsante a sinistra («Menu e pagine») apre la barra, che si chiude con Esc, con × o toccando fuori; la lente apre la ricerca. Col dito i cestini accanto alle righe non ci sono: una pagina si elimina dalla sua modifica, una cartella da Categorie. Sul computer la freccia in cima alla barra la nasconde e la freccia opposta la riapre; il browser se lo ricorda. Una freccia uguale, in cima alla colonna a destra delle pagine quando c&#39;è, fa lo stesso con quella colonna. Il riquadro centrale occupa lo spazio che le colonne lasciano libero. Chi preferisce la pagina più larga la tiene chiusa anche sul computer (Profilo › «Barra a sinistra»). Nel Profilo la barra parte nascosta e si apre con la freccia, in Amministrazione è chiusa e si apre col pulsante.</p>
+<h2 id="pagine">Pagine</h2>
+<p>Ogni cosa della wiki è una <strong>pagina</strong>, nell&#39;albero a sinistra, con un indirizzo <code>/wiki/…</code>, una cartella, dei tag, chi la può vedere, la colonna a lato e la cronologia delle modifiche. Le pagine sono di quattro tipi:</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Tabella"><table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Cos&#39;è</th>
+<th>Chi la crea</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Pagina</strong></td>
+<td>Bianca, oppure fotocopiata da un template</td>
+<td>Tutti quelli che hanno fatto l&#39;accesso</td>
+</tr>
+<tr>
+<td><strong>Template</strong></td>
+<td>Una pagina da fotocopiare: blocchi, colonna a lato e icona decisi da chi la scrive</td>
+<td>Master</td>
+</tr>
+<tr>
+<td><strong>Mappa</strong></td>
+<td>Un&#39;immagine con pin e livelli, più il testo della pagina</td>
+<td>Master</td>
+</tr>
+<tr>
+<td><strong>Cronologia</strong></td>
+<td>Eventi in ordine di data, più il testo della pagina</td>
+<td>Master</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><p><strong>Nuova pagina</strong> chiede da dove partire: <strong>pagina bianca</strong> o uno dei <strong>template</strong>; il Master trova sotto anche «Nuovo template», «Nuova mappa» e «Nuova cronologia».</p>
+</li>
+<li><p><strong>Template</strong>: alla creazione della wiki ce ne sono già alcuni (PNG, Luogo, Fazione, Resoconto di sessione…) nella linguetta <strong>Template</strong> della barra a sinistra. Si modificano come ogni pagina: la struttura (titoli, riquadri, segreti, colonna a lato, icona) è quella che scrivi tu. Dalla pagina del template, «Usa questo template» crea la fotocopia; il Master può trasformare in template qualsiasi pagina (e viceversa) con la casella «È un template». La casella «Le copie sono resoconti di sessione» fa delle copie dei resoconti (numero, data, voce nella cronologia della campagna). Cambiare un template non cambia le pagine già fatte.</p>
+</li>
+<li><p><strong>Chi la vede</strong>: pubblica, giocatori, solo Master, oppure personale (solo tu: va bene per gli appunti privati).</p>
+</li>
+<li><p><strong>Opzioni pagina</strong>: mentre modifichi la pagina, il pulsante accanto ad Annulla apre le opzioni: chi la vede, «Anche i giocatori possono modificarla», «È un template» e «Pagina home» (per chi le può cambiare), e il link alle versioni della pagina. Si chiude con Esc o cliccando fuori, e le scelte valgono anche a pannello chiuso. Se hai modifiche non salvate, prima di aprire le versioni la wiki te lo chiede.</p>
+</li>
+<li><p><strong>Copertina e icona</strong>: come in Notion, in cima alla pagina può esserci una copertina; l&#39;icona della pagina sta a sinistra del titolo. Mentre modifichi la pagina, l&#39;icona dell&#39;immagine accanto a Salva e Annulla («Aggiungi copertina») apre un pannello: un&#39;immagine della <strong>Galleria</strong>, una <strong>Tinta unita</strong> oppure un file da <strong>Caricare</strong>. Sul lato della copertina tre piccole icone la cambiano, la riposizionano (trascinando l&#39;immagine, oppure con le frecce su e giù; Invio conferma) e la tolgono. L&#39;icona (la stessa dell&#39;albero) si sceglie cliccandola, a sinistra del titolo.</p>
+</li>
+<li><p><strong>Colonna a lato</strong>: di base la pagina non ce l&#39;ha. Mentre la modifichi, il pulsante «+» a destra aggiunge la colonna, che resta in vista mentre scorri il testo; dentro metti dei riquadri:</p>
+<ul>
+<li><strong>Testo</strong>: un titolo e un testo breve (es. «Allineamento: Caotico buono»); anche lì si può scrivere <code>[[Pagina]]</code>;</li>
+<li><strong>Immagine</strong>: trascinala dal computer sul riquadro oppure usa «Scegli un&#39;immagine»; se vuoi, scrivi un titoletto (sta sopra l&#39;immagine) e una didascalia (sotto).</li>
+</ul>
+<p>Per cambiare l&#39;ordine trascina un riquadro dalla maniglia a sinistra del titolo, col mouse o col dito (vicino al bordo dello schermo la pagina scorre da sola), oppure usa le frecce su e giù. La crocetta toglie un riquadro; vuota, la colonna si toglie con «Togli la colonna». La prima immagine è anche quella della pagina: compare nella galleria e nell&#39;anteprima dei collegamenti. Le pagine fatte con un template partono con i riquadri del template.</p>
+</li>
+<li><p><strong>Cronologia delle modifiche</strong>: dall&#39;icona dell&#39;orologio in fondo alla pagina vedi le versioni precedenti, cosa è cambiato e puoi ripristinarle.</p>
+</li>
+<li><p><strong>Cestino</strong>: le pagine eliminate (anche mappe e cronologie, con pin ed eventi) si recuperano dal Cestino: ogni riga mostra chi ha creato la pagina e quando, l&#39;ultima modifica e le icone per recuperarla o eliminarla per sempre.</p>
+</li>
+</ul>
+<h3 id="scrivere">Scrivere</h3>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Tabella"><table>
+<thead>
+<tr>
+<th>Scrivi</th>
+<th>Ottieni</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>## </code> all&#39;inizio della riga</td>
+<td>titolo</td>
+</tr>
+<tr>
+<td><code>- </code> o <code>1. </code></td>
+<td>elenco</td>
+</tr>
+<tr>
+<td><code>&gt; </code></td>
+<td>citazione</td>
+</tr>
+<tr>
+<td><code>**parola**</code> / <code>*parola*</code></td>
+<td>grassetto / corsivo</td>
+</tr>
+<tr>
+<td><code>[[</code></td>
+<td>suggerimenti per collegare un&#39;altra pagina</td>
+</tr>
+<tr>
+<td>`[[Titolo</td>
+<td>testo]]`</td>
+</tr>
+<tr>
+<td><code>@</code> e il nome</td>
+<td>suggerimenti di regole (incantesimi, mostri…)</td>
+</tr>
+<tr>
+<td>`@incantesimo[Fireball</td>
+<td>Palla di fuoco]`</td>
+</tr>
+<tr>
+<td><code>/</code> e il nome</td>
+<td>tiro su una tabella di tiro (vedi sotto)</td>
+</tr>
+</tbody></table></div>
+<p>Con i pulsanti della barra inserisci immagini (con la descrizione per chi non vede), tabelle e riquadri «Nota», «Consiglio», «Attenzione».</p>
+<p>La pagina è fatta di <strong>blocchi</strong>: un paragrafo, un titolo, un&#39;immagine, una tabella, un riquadro. Passando col mouse su un blocco compaiono in alto a destra:</p>
+<ul>
+<li>il <strong>più</strong>, che aggiunge subito dopo un blocco di <strong>testo</strong> o un&#39;<strong>immagine</strong>;</li>
+<li>l&#39;<strong>occhio</strong>, solo per il Master, che <strong>oscura</strong> il blocco: diventa un <strong>segreto del Master</strong>, che i giocatori non vedono e non trovano neanche cercando. Lo stesso occhio lo mostra di nuovo;</li>
+<li>il <strong>cestino</strong>, che elimina il blocco per intero.</li>
+</ul>
+<p>Nell&#39;editor il blocco oscurato ha lo sfondo dei segreti, e sopra il primo di quelli di fila il lucchetto con «Segreto del Master»; nella pagina i blocchi oscurati di fila stanno in un solo riquadro. Da tastiera c&#39;è il lucchetto nella barra, che oscura (o mostra) i blocchi in cui stai scrivendo o che hai selezionato, e il cestino nella barra, che elimina il blocco in cui stai scrivendo. Un blocco nuovo nasce oscurato se lo fai da un blocco oscurato: andando a capo, col più, inserendo un&#39;immagine o una tabella. Copiando e incollando un blocco oscurato, la copia è oscurata anche lei. Il primo pulsante della barra annulla l&#39;ultima azione (come Ctrl+Z).</p>
+<p><strong>Pagine con un segreto</strong>: chi può modificare la pagina la modifica anche se il Master ci ha oscurato qualcosa. Un giocatore non riceve i blocchi oscurati, nemmeno nell&#39;editor; quando salva, ognuno torna subito dopo il blocco che lo precedeva (se l&#39;ha eliminato, dopo il primo blocco prima di quello che c&#39;è ancora). Il giocatore non può oscurare blocchi, e ripristinando una versione vecchia non ne tira fuori i segreti. Visibilità, permessi ed eliminazione di una pagina con un segreto restano al Master, anche se la pagina l&#39;ha scritta il giocatore.</p>
+<p>Da tastiera: con Tab entri nella barra, con le frecce ti muovi tra i comandi, con Esc esci dall&#39;editor.</p>
+<p>Un collegamento a una pagina che non esiste è <strong>rosso tratteggiato</strong>: cliccandolo la crei.</p>
+<p>Un collegamento a una pagina che esiste la apre in un popup, con tutto il suo contenuto e la pagina di partenza che resta sotto. In alto a destra ci sono i tasti per portarla sulla schermata principale e per chiudere il popup. Con Ctrl (Cmd sul Mac) si apre invece in una nuova scheda. Sul telefono niente popup: si apre la pagina, e il tasto Indietro riporta a quella di prima.</p>
+<h3 id="tabelle-di-tiro">Tabelle di tiro</h3>
+<p>Una tabella di tiro è una tabella della pagina da cui esce un risultato a caso, come nei manuali: «Bottega povera», un d6, una bottega per riga.</p>
+<ul>
+<li><strong>Crearla</strong> (il Master): il dado nella barra dell&#39;editor, «Nuova tabella di tiro», aggiunge una tabella pronta. Nella prima riga ci sono il dado (d6) e il nome, da scrivere; sotto, una riga per faccia. Nella prima colonna vanno i numeri del dado (<code>3</code>, <code>4-6</code>, <code>01–05</code>), nelle altre il risultato, anche con grassetti, <code>[[collegamenti]]</code> e <code>@regole</code>. Righe e colonne si aggiungono come in ogni tabella. Una tabella che c&#39;è già diventa di tiro col pulsante «Tabella di tiro» tra gli strumenti della tabella.</li>
+<li><strong>I dadi</strong>: d4, d6, d8, d10, d12, d20, d100 (o d%), d66 e più dadi sommati, come 2d6. Nel d10 lo <code>0</code> vale 10, nel d100 lo <code>00</code> vale 100. Senza nessun numero nella prima colonna, ogni riga ha la stessa probabilità.</li>
+<li><strong>Se qualcosa non va</strong>: sotto gli strumenti della tabella c&#39;è scritto se è pronta da tirare o che cosa manca, per esempio un numero che non è in nessuna riga, o che è in due.</li>
+<li><strong>Tirare nella pagina</strong>: sotto la tabella c&#39;è «Tira». Il risultato compare accanto, e la pagina non cambia: ogni clic è un tiro nuovo. Va bene al tavolo, per improvvisare.</li>
+<li><strong>Tirare mentre scrivi</strong>: in qualsiasi pagina scrivi <code>/</code> e il nome della tabella (<code>/bottega</code>, va bene anche <code>/bottega-povera</code>), scegli la tabella e premi Invio: il risultato entra nel testo. Finché il cursore è sul risultato, sotto la barra compaiono <strong>Ritira</strong>, che mette un altro risultato della stessa tabella, e <strong>Fissa</strong>, che lo rende testo normale. Nella pagina il risultato è testo come un altro, e cambiare la tabella non cambia le pagine già scritte.</li>
+<li><strong>Chi le usa</strong>: le crea il Master; tirano tutti quelli che vedono la pagina. Una tabella oscurata (segreto del Master) la trova e la tira solo il Master. La tabella deve stare nella pagina, non dentro un riquadro.</li>
+<li>Le tabelle di tiro sono parte del testo della pagina: hanno le versioni, si trovano cercando, finiscono nell&#39;esportazione in Markdown e nel pacchetto mondo.</li>
+</ul>
+<h2 id="mappe">Mappe</h2>
+<p>Una mappa è una pagina: il Master la crea con Nuova pagina › «Nuova mappa», carica l&#39;immagine e aggiunge i <strong>pin</strong>: con «Aggiungi pin», sotto i tasti dello zoom, e un clic sulla mappa. Da tastiera, Invio su «Aggiungi pin» crea il pin al centro della vista. Il pin si posiziona e un popup chiede i suoi dati: Salva lo crea, Esc o la X in alto a destra lo lasciano perdere. Un pin può aprire una pagina o un&#39;altra mappa (regno › città › edificio). Cliccando su un pin collegato a una pagina (o con Invio), la pagina si apre in sovraimpressione, sopra la mappa: Esc, la X o un clic fuori la chiudono, «Apri la pagina intera» porta alla pagina vera e propria.</p>
+<p>I <strong>livelli</strong> raggruppano i pin e si accendono e spengono dal tasto «Livelli», sotto «Aggiungi pin»: c&#39;è sempre il <strong>Livello base</strong>, visibile a tutti, dove finisce ogni pin a cui non scegli un altro livello; «Nuovo livello» nello stesso elenco ne crea un altro, col nome e la visibilità; «Gestisci i livelli», sotto la mappa, li rinomina e li elimina; un livello «Solo Master» è invisibile ai giocatori. Indicando la larghezza reale della mappa compare il righello per misurare le distanze.</p>
+<p>Tutti i pin sono anche nell&#39;elenco sotto la mappa. Immagine, scala e mappa che la contiene si cambiano modificando la pagina; la «Descrizione» che scrivi lì, il testo della pagina, compare in un riquadro sopra la mappa.</p>
+<h2 id="galleria">Galleria</h2>
+<p>Tutte le immagini della campagna in un posto solo: le immagini delle pagine (copertine e colonna a lato), quelle inserite nel testo, le mappe e le risorse, le più recenti prima. Sotto ogni immagine c&#39;è dove compare; cliccandola si apre in grande (frecce ← → per scorrere, Esc per chiudere). Si possono vedere tutte, solo quelle delle pagine, solo le mappe o solo le risorse. Ognuno vede solo le immagini delle pagine, delle mappe e delle risorse che può vedere.</p>
+<h2 id="risorse">Risorse</h2>
+<p>Immagini, musica e altri file della campagna: dispense, ritratti, sottofondi per le sessioni. Stanno nella linguetta <strong>Risorse</strong> dell&#39;albero a sinistra, divise in Immagini, Audio e Altri file, e nella pagina Risorse della barra.</p>
+<p>Il Master le carica con «Carica una risorsa»: immagini (PNG, JPEG, WebP o GIF, fino a 25 MB), audio (MP3, OGG, WAV, FLAC o M4A) o qualsiasi altro file, fino a 90 MB. Se non scrive un titolo si usa il nome del file. Come per le mappe sceglie chi le vede: pubbliche, giocatori o solo Master.</p>
+<p>Tra le Immagini ci sono anche tutte quelle usate nella wiki, cioè copertine, colonna a lato, testo delle pagine e mappe, senza doverle caricare di nuovo: ognuno vede solo quelle che può vedere. Compaiono con il nome del file; la loro scheda dice dove compaiono e con la matita il Master cambia solo il nome (l&#39;estensione del file resta); il resto si cambia nella pagina che le usa.</p>
+<p>Le immagini si guardano e l&#39;audio si ascolta direttamente nella wiki, anche dal telefono; gli altri file (PDF compresi) si scaricano. Cliccando una risorsa si apre la sua scheda: con la matita in alto a destra il Master ne cambia titolo, descrizione, visibilità e file, o la elimina.</p>
+<p>Le risorse entrano nel backup, ma non ancora nel pacchetto mondo.</p>
+<h2 id="cronologie-e-calendario">Cronologie e calendario</h2>
+<p>Una cronologia è una pagina, e se ne possono fare quante se ne vogliono (Nuova pagina › «Nuova cronologia»). Ognuna è di uno di due tipi:</p>
+<ul>
+<li><strong>del mondo</strong>: la storia, in ordine di data nel mondo, scritta dal Master (alla creazione della wiki c&#39;è già la «Cronologia del mondo»);</li>
+<li><strong>della campagna</strong>: cosa è successo al tavolo, in ordine di data di gioco; anche i giocatori aggiungono eventi, e i <strong>resoconti di sessione</strong> compaiono da soli (c&#39;è già la «Cronologia della campagna»).</li>
+</ul>
+<p>Gli eventi si vedono in elenco o sulla linea del tempo; ognuno appartiene alla sua cronologia.</p>
+<ul>
+<li><strong>Calendario</strong>: gregoriano, Harptos (Forgotten Realms), semplice o inventato (mesi, feste, anni bisestili, ere, «oggi nel mondo»).</li>
+</ul>
+<h2 id="regole">Regole</h2>
+<p>Pagina <strong>Regole</strong>: 999 voci dell&#39;SRD 5.2 (in inglese) da cercare e citare. Nelle pagine, <code>@incantesimo[Fireball]</code> diventa un link alla scheda della regola con il pulsante <strong>i</strong> per l&#39;anteprima. Accendendo il plugin <strong>D&amp;D Beyond</strong> (Amministrazione › Plugin), il link porta invece alla ricerca di D&amp;D Beyond. Ogni regola mostra le pagine che la citano: le vostre regole della casa restano collegate.</p>
+<h2 id="bacheche">Bacheche</h2>
+<p>Le bacheche sono pagine: <strong>Nuova pagina › Nuova bacheca</strong>, con le colonne di partenza (una per riga). Stanno nell&#39;albero come le altre pagine e hanno la loro visibilità: <strong>Personale</strong> (solo tu), Giocatori, Solo Master. Chi vede la bacheca aggiunge e sposta le schede (con le frecce o trascinandole); nel testo vanno bene <code>[[Pagina]]</code> e <code>@regole</code>. Le colonne le aggiunge, rinomina, sposta ed elimina chi può modificare la pagina. Le bacheche non entrano nel pacchetto mondo.</p>
+<h2 id="profilo">Profilo</h2>
+<p>In alto a destra c&#39;è il tuo profilo: la tua icona, il tuo nome e il tuo grado nella campagna (Master o Giocatore). Cliccandoci si apre il menu con le tue campagne (se ne hai più d&#39;una), <strong>Profilo</strong>, <strong>Campagna</strong> (per il Master), <strong>Amministrazione</strong> (solo per l&#39;Admin) ed <strong>Esci</strong>; sul telefono in alto resta solo l&#39;icona, e nome e grado si leggono nel menu.</p>
+<p><strong>Profilo</strong> e <strong>Amministrazione</strong> si aprono in un popup sopra la wiki: lo chiudi con Esc, con la X o cliccando fuori, e sotto ritrovi la pagina che stavi leggendo. Con Ctrl+clic si aprono come pagine, in un&#39;altra scheda. Sul telefono si aprono direttamente come pagine.</p>
+<p>Il <strong>Profilo</strong> ha tre schede:</p>
+<ul>
+<li><strong>Icona e nome</strong>: il nome visualizzato e l&#39;icona, scelta tra quelle delle pagine (una corona, un cappello da mago, delle spade…) oppure un&#39;immagine caricata (PNG, JPEG, GIF o WebP);</li>
+<li><strong>Lettura e accessibilità</strong>: le preferenze qui sotto;</li>
+<li><strong>Password</strong>: cambiarla, vedere quante sessioni sono aperte e chiudere quelle sugli altri dispositivi.</li>
+</ul>
+<p>Chi non ha fatto l&#39;accesso trova solo la lettura, salvata nel browser.</p>
+<h2 id="lettura-e-accessibilità">Lettura e accessibilità</h2>
+<p>Nel <strong>Profilo</strong> ognuno sceglie:</p>
+<ul>
+<li>tema: automatico (quello di base: Aria, o Aria di notte se il sistema è scuro), chiaro, scuro, Lago, Lago di notte, Neon, Aria, Aria di notte (o quelli creati dall&#39;Admin). Con Aria, sullo schermo grande, la barra a sinistra e la scheda della pagina vanno da cima a fondo e la pagina non ha riquadri;</li>
+<li>dimensione del testo fino al 200%;</li>
+<li>carattere Atkinson Hyperlegible o OpenDyslexic;</li>
+<li>spaziatura ampia, animazioni ridotte, lingua;</li>
+<li>barra a sinistra sempre aperta, oppure chiusa e da aprire col pulsante in alto.</li>
+</ul>
+<p>Tutta la wiki si usa da tastiera e con i lettori di schermo; i colori rispettano le regole WCAG 2.2 AA.</p>
+<h2 id="amministrazione">Amministrazione</h2>
+<ul>
+<li><strong>Impostazioni</strong>: nome del sito, lingua predefinita e visitatori. Sotto c&#39;è la <strong>versione</strong> installata, confrontata con l&#39;ultima su GitHub: «Aggiornata» o «Non aggiornata», con il link alle novità e a come aggiornare.</li>
+<li><strong>Campagne</strong>: crearle, sceglierne il Master, eliminarle.</li>
+<li><strong>Utenti</strong>: ruoli, disattivazione e, per chi ha dimenticato la password, un link di reimpostazione (vale due giorni, una volta sola).</li>
+<li><strong>Inviti</strong>: link per entrare nel sito, uno per persona.</li>
+<li><strong>Temi</strong>: copia un tema e cambia i colori; si salva solo se il testo resta leggibile. Un tema può avere un&#39;immagine di sfondo, che sta dietro i riquadri e si vede solo sugli schermi larghi. Esporta e importa come file (solo i colori: lo sfondo viaggia col pacchetto mondo).</li>
+<li><strong>Plugin</strong>: accendi e spegni i plugin installati; cliccandone uno si apre una finestra con scopo, istruzioni, autore e contenuto (per crearne uno, vedi <a href="plugin.html">plugin.md</a>).</li>
+<li><strong>Backup</strong>: il backup completo da scaricare e il <strong>backup automatico</strong> di ogni giorno in una cartella (anche quella di OneDrive, Google Drive o Dropbox, che lo porta in cloud), con ora, numero di copie da tenere e, se vuoi, una <strong>password</strong> che lo cifra. La pagina spiega cosa c&#39;è in un backup; la password non si può recuperare. Vedi <a href="installazione.html#backup-automatico">installazione.md</a>.</li>
+<li><strong>Pacchetto mondo</strong>, <strong>Esporta in Markdown</strong>: vedi <a href="installazione.html#backup-e-ripristino">installazione.md</a>.</li>
+<li><strong>Registro</strong>: accessi riusciti e falliti, cambi di ruolo e password, inviti, token di Claude, consensi, backup ed esportazioni degli ultimi sei mesi.</li>
+</ul>
+</article>
+<div class="doc-foot">
+<p><a href="https://github.com/yanez86/crooked-shelf/blob/main/docs/guida.md">Modifica questa pagina su GitHub</a></p>
+<nav class="pager" aria-label="Precedente / Successiva"><a class="prev" href="installazione.html"><small>Precedente</small>Installazione</a><a class="next" href="plugin.html"><small>Successiva</small>Plugin</a></nav>
+</div>
+</div>
+</main>
+
+<footer class="site-footer">
+<div class="wrap legal">
+<p>Codice: GNU AGPL-3.0. Crooked Shelf non è affiliato a D&amp;D Beyond né a Wizards of the Coast.</p>
+<p><a href="https://happysquid.ink">happysquid.ink</a></p>
+</div>
+</footer>
+</body>
+</html>
