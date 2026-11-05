@@ -1,3 +1,33 @@
+// Nella barra a sinistra è evidenziata la sezione che si sta leggendo, come la pagina aperta nell'albero della wiki.
+(() => {
+	const links = new Map();
+	for (const a of document.querySelectorAll('.nav a[href^="#"]')) {
+		const section = document.getElementById(a.getAttribute('href').slice(1));
+		if (section) links.set(section, a);
+	}
+	if (!links.size || !('IntersectionObserver' in window)) return;
+	const visible = new Set();
+	const mark = () => {
+		// La prima sezione in ordine di pagina tra quelle che occupano la fascia centrale dello schermo.
+		const current = [...links.keys()].find((s) => visible.has(s));
+		for (const [s, a] of links) {
+			if (s === current) a.setAttribute('aria-current', 'true');
+			else a.removeAttribute('aria-current');
+		}
+	};
+	const observer = new IntersectionObserver(
+		(entries) => {
+			for (const e of entries) {
+				if (e.isIntersecting) visible.add(e.target);
+				else visible.delete(e.target);
+			}
+			mark();
+		},
+		{ rootMargin: '-35% 0px -55% 0px' }
+	);
+	for (const s of links.keys()) observer.observe(s);
+})();
+
 // Il menu della lingua si chiude con Esc (il fuoco torna sul pulsante) e cliccando fuori.
 for (const menu of document.querySelectorAll('.lang-menu')) {
 	document.addEventListener('click', (e) => {

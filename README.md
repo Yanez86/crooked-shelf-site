@@ -6,10 +6,10 @@ The presentation site of [Crooked Shelf](https://github.com/yanez86/crooked-shel
 
 ## How it's made
 
-Static files only: HTML, one stylesheet (`assets/style.css`) and a small script (`assets/site.js`) for the Master's secrets demo. No dependencies and no build step; the fonts (Archivo and Inter) come from Google Fonts.
+Static files only: HTML, one stylesheet (`assets/style.css`) and a small script (`assets/site.js`) for the Master's secrets demo, the language menu and the current section in the side bar. No dependencies and no build step; the font (Inter) comes from Google Fonts.
 
-- Colours and shapes are those of the wiki's Light theme.
-- The theme screenshots in `assets/img/themes/` come from the wiki 0.14 on a phone, with the example adventure «La Notte in Affitto» (`en-*` with the English interface, `it-*` with the Italian one).
+- Colours, type and shapes follow the wiki's Aria theme: cool greys, one indigo accent, Inter, soft corners, a full-height bar on the left on large screens.
+- The theme screenshots in `assets/img/themes/` come from the wiki 0.18 on a phone, with the example adventure «La Notte in Affitto» (`en-*` with the English interface, `it-*` with the Italian one).
 - The adventure's illustrations are in `assets/img/`; the flags of the language switch are `assets/img/flag-*.svg`.
 - `en/index.html` only sends the old `/en/` address to the root.
 - Visitors whose browser prefers Italian are sent from the root to `it/` until they pick a language with the switch; the choice is kept in `localStorage` (`cs-lang`).

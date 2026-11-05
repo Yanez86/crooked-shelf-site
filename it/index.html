@@ -13,7 +13,7 @@
 <meta property="og:image" content="../assets/img/hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..800&amp;family=Inter:wght@400..700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&amp;display=swap">
 <link rel="stylesheet" href="../assets/style.css">
 <script src="../assets/site.js" defer></script>
 </head>
@@ -21,28 +21,32 @@
 <a class="skip" href="#contenuto">Vai al contenuto</a>
 
 <header class="site-header">
-<div class="wrap">
+<div class="bar">
 <a class="brand" href="./">
-<svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" fill="#7a2e1c"/><g fill="#fff"><rect x="6" y="7" width="4" height="18"/><rect x="11" y="9" width="4" height="16"/><rect x="16.5" y="8" width="4" height="17" transform="rotate(12 18.5 16.5)"/><rect x="5" y="25" width="22" height="2.5" transform="rotate(-4 16 26)"/></g></svg>
+<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#3b4fd8"/><g fill="#fff"><rect x="6" y="7" width="4" height="18"/><rect x="11" y="9" width="4" height="16"/><rect x="16.5" y="8" width="4" height="17" transform="rotate(12 18.5 16.5)"/><rect x="5" y="25" width="22" height="2.5" transform="rotate(-4 16 26)"/></g></svg>
 Crooked Shelf</a>
-<div class="header-end">
 <nav class="nav" aria-label="Sezioni">
-<a href="#funzioni">Funzioni</a>
-<a href="#segreti">Segreti</a>
-<a href="#plugin">Plugin</a>
-<a href="#temi">Temi</a>
-<a href="#installa">Installa</a>
-<a href="https://github.com/yanez86/crooked-shelf/tree/main/docs">Documentazione</a>
+<ul>
+<li><a href="#esempio"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/></svg>La wiki</a></li>
+<li><a href="#funzioni"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Funzioni</a></li>
+<li><a href="#segreti"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18"/><path d="M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-2.6 3.4"/><path d="M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.6 9.6 0 0 0 4.4-1.1"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg>Segreti</a></li>
+<li><a href="#mappe"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15"/><path d="M15 6v15"/></svg>Mappe e cronologie</a></li>
+<li><a href="#plugin"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2v6"/><path d="M15 2v6"/><path d="M6 8h12v4a6 6 0 0 1-12 0z"/><path d="M12 18v4"/></svg>Plugin</a></li>
+<li><a href="#temi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>Temi</a></li>
+<li><a href="#installa"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 17v4h16v-4"/></svg>Installa</a></li>
+<li class="sep"><a href="https://github.com/yanez86/crooked-shelf/tree/main/docs"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg>Documentazione</a></li>
+</ul>
 </nav>
+<div class="tools">
 <details class="lang-menu">
-<summary><img src="../assets/img/flag-it.svg" width="21" height="14" alt="">IT<span class="sr-only"> – Lingua</span><svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+<summary><img src="../assets/img/flag-it.svg" width="21" height="14" alt="">IT<span class="sr-only"> – Lingua</span><svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
 <ul>
 <li><a href="../" hreflang="en" lang="en"><img src="../assets/img/flag-gb.svg" width="21" height="14" alt="">English</a></li>
 <li><a href="./" hreflang="it" lang="it" aria-current="page"><img src="../assets/img/flag-it.svg" width="21" height="14" alt="">Italiano</a></li>
 </ul>
 </details>
 <a class="btn btn-github" href="https://github.com/yanez86/crooked-shelf" aria-label="GitHub">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><path d="M14 4l-4 16"/></svg>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><path d="M14 4l-4 16"/></svg>
 <span>GitHub</span></a>
 </div>
 </div>
@@ -88,36 +92,31 @@ Crooked Shelf</a>
 <p class="lead">L'albero delle cartelle a sinistra, il testo al centro, la scheda a destra. Questa è L'Alveare, una pagina dell'avventura di esempio, come la vede il Master.</p>
 
 <div class="mock">
-<div class="mock-bar">
-<svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" fill="#7a2e1c"/><g fill="#fff"><rect x="6" y="7" width="4" height="18"/><rect x="11" y="9" width="4" height="16"/><rect x="16.5" y="8" width="4" height="17" transform="rotate(12 18.5 16.5)"/><rect x="5" y="25" width="22" height="2.5" transform="rotate(-4 16 26)"/></g></svg>
-<strong>La Notte in Affitto</strong>
-<label class="sr-only" for="mock-cerca">Cerca nella wiki</label>
-<input id="mock-cerca" type="search" placeholder="Cerca nella wiki">
-<span class="avatar" aria-hidden="true">M</span>
-</div>
-<div class="mock-body">
-<nav class="mock-tree box" aria-label="Pagine della campagna (esempio)">
-<div class="tabs" aria-hidden="true"><span class="on">Pagine</span><span>Risorse</span><span>Template</span></div>
+<nav class="m-bar" aria-label="Pagine della campagna (esempio)">
+<p class="m-brand"><svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#3b4fd8"/><g fill="#fff"><rect x="6" y="7" width="4" height="18"/><rect x="11" y="9" width="4" height="16"/><rect x="16.5" y="8" width="4" height="17" transform="rotate(12 18.5 16.5)"/><rect x="5" y="25" width="22" height="2.5" transform="rotate(-4 16 26)"/></g></svg>La Notte in Affitto</p>
+<div class="m-search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.5-4.5"/></svg><label class="sr-only" for="mock-cerca">Cerca nella wiki</label><input id="mock-cerca" type="search" placeholder="Cerca"></div>
+<div class="m-tabs" aria-hidden="true"><span class="on">Pagine</span><span>Tag</span><span>Risorse</span></div>
 <ul class="tree">
-<li><a href="#segreti">Guida del Master <svg class="lock" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" role="img" aria-label="Solo Master"><rect x="4" y="11" width="16" height="10"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></a></li>
-<li class="folder">▾ Luoghi</li>
-<li><a class="in" href="#esempio" aria-current="page">L'Alveare</a></li>
-<li><a class="in" href="#segreti">Torre Lethe <svg class="lock" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" role="img" aria-label="Solo Master"><rect x="4" y="11" width="16" height="10"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></a></li>
-<li><a class="in" href="#mappe">Vespera</a></li>
-<li class="folder">▾ PNG</li>
-<li><a class="in" href="#segreti">Aurelio Venn <svg class="lock" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" role="img" aria-label="Solo Master"><rect x="4" y="11" width="16" height="10"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></a></li>
-<li><a class="in" href="#plugin">Livia Sander</a></li>
-<li><a class="in" href="#segreti">Mara Iezzi</a></li>
-<li class="trash"><a href="#funzioni"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16"/><path d="M9 7V4h6v3"/><path d="M6 7l1 13h10l1-13"/></svg>Cestino</a></li>
+<li><a href="#segreti">Guida del Master <svg class="lock" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" role="img" aria-label="Solo Master"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></a></li>
+<li class="folder">Luoghi</li>
+<li class="in"><a href="#esempio" aria-current="page">L'Alveare</a></li>
+<li class="in"><a href="#segreti">Torre Lethe <svg class="lock" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" role="img" aria-label="Solo Master"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></a></li>
+<li class="in"><a href="#mappe">Vespera</a></li>
+<li class="folder">PNG</li>
+<li class="in"><a href="#segreti">Aurelio Venn <svg class="lock" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" role="img" aria-label="Solo Master"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></a></li>
+<li class="in"><a href="#plugin">Livia Sander</a></li>
+<li class="in"><a href="#segreti">Mara Iezzi</a></li>
 </ul>
+<p class="m-user"><span class="avatar" aria-hidden="true">M</span><span>Master<small>La Notte in Affitto</small></span></p>
 </nav>
-<article class="mock-page box">
-<p class="crumbs"><a href="#esempio">Luoghi</a> » L'Alveare</p>
+<article class="m-page">
 <img class="cover" src="../assets/img/alveare.jpg" width="1584" height="672" alt="L'interno di un silo trasformato in dormitorio: culle bianche a nido d'ape, passerelle a spirale, una sala di controllo dietro il vetro.">
+<div class="m-text">
+<p class="crumbs"><a href="#esempio">Luoghi</a> » L'Alveare</p>
 <div class="title-row">
-<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+<span class="tile"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></span>
 <h3>L'Alveare</h3>
-<a class="btn icon-btn" href="#segreti" aria-label="Modifica la pagina"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></a>
+<a class="btn icon-btn" href="#segreti" aria-label="Modifica la pagina"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></a>
 </div>
 <p class="tags"><span class="tag"><i style="background: #2a9d9a"></i>Vespera</span><span class="tag"><i style="background: #8a55c9"></i>Lethe Neurodinamica</span></p>
 <h4>Descrizione</h4>
@@ -128,12 +127,12 @@ Crooked Shelf</a>
 <li><a href="#plugin">Livia Sander</a> passa ogni tanto, senza preavviso.</li>
 </ul>
 <div class="secret">
-<p class="secret-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="4" y="11" width="16" height="10"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Segreto del Master</p>
+<p class="secret-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Segreto del Master</p>
 <p>Il piano zero non è un deposito: è una centralina che spedisce alla Torre, ogni notte, quello che i dormienti elaborano. Chi la tocca con un deck sente una voce d'uomo anziano chiedere, gentile: «Chi è?»</p>
 </div>
+</div>
 </article>
-<aside class="mock-side" aria-label="Scheda della pagina (esempio)">
-<div class="box">
+<aside class="m-side" aria-label="Scheda della pagina (esempio)">
 <h4>Scheda</h4>
 <dl class="facts">
 <dt>Tipo</dt><dd>Dormitorio a capsule</dd>
@@ -141,8 +140,6 @@ Crooked Shelf</a>
 <dt>Gestore</dt><dd>Lethe Neurodinamica</dd>
 <dt>Capienza</dt><dd>Quattromila culle</dd>
 </dl>
-</div>
-<div class="box">
 <h4>Citata in</h4>
 <ul class="plain">
 <li><a href="#segreti">Guida del Master</a></li>
@@ -150,9 +147,7 @@ Crooked Shelf</a>
 <li><a href="#segreti">Mara Iezzi</a></li>
 <li><a href="#plugin">Livia Sander</a></li>
 </ul>
-</div>
 </aside>
-</div>
 </div>
 </div>
 </section>
@@ -387,14 +382,16 @@ Crooked Shelf</a>
 <div class="wrap">
 <p class="eyebrow">Temi e accessibilità</p>
 <h2 class="h2">Un vestito per ogni campagna. Leggibile per tutti.</h2>
-<p class="lead">Chiaro, scuro, Lago, Neon, o quello che crei tu. Anche il marchio e l'icona della scheda prendono i colori del tema. Questa pagina usa Chiaro.</p>
+<p class="lead">Chiaro, scuro, Lago, Neon, Aria, o quello che crei tu. Anche il marchio e l'icona della scheda prendono i colori del tema. Questa pagina ha lo stile di Aria.</p>
 <div class="themes-scroll">
 <ul class="themes">
-<li class="theme is-current"><figure><div class="theme-shot"><img src="../assets/img/themes/it-chiaro.jpg" width="780" height="1440" loading="lazy" alt="La pagina L'Alveare su un telefono, con il tema Chiaro"></div><figcaption><strong>Chiaro</strong><span>questa pagina</span></figcaption></figure></li>
+<li class="theme"><figure><div class="theme-shot"><img src="../assets/img/themes/it-chiaro.jpg" width="780" height="1440" loading="lazy" alt="La pagina L'Alveare su un telefono, con il tema Chiaro"></div><figcaption><strong>Chiaro</strong></figcaption></figure></li>
 <li class="theme"><figure><div class="theme-shot"><img src="../assets/img/themes/it-scuro.jpg" width="780" height="1440" loading="lazy" alt="La pagina L'Alveare su un telefono, con il tema Scuro"></div><figcaption><strong>Scuro</strong></figcaption></figure></li>
 <li class="theme"><figure><div class="theme-shot"><img src="../assets/img/themes/it-lago.jpg" width="780" height="1440" loading="lazy" alt="La pagina L'Alveare su un telefono, con il tema Lago"></div><figcaption><strong>Lago</strong></figcaption></figure></li>
 <li class="theme"><figure><div class="theme-shot"><img src="../assets/img/themes/it-lago-di-notte.jpg" width="780" height="1440" loading="lazy" alt="La pagina L'Alveare su un telefono, con il tema Lago di notte"></div><figcaption><strong>Lago di notte</strong></figcaption></figure></li>
 <li class="theme"><figure><div class="theme-shot"><img src="../assets/img/themes/it-neon.jpg" width="780" height="1440" loading="lazy" alt="La pagina L'Alveare su un telefono, con il tema Neon"></div><figcaption><strong>Neon</strong></figcaption></figure></li>
+<li class="theme is-current"><figure><div class="theme-shot"><img src="../assets/img/themes/it-aria.jpg" width="780" height="1440" loading="lazy" alt="La pagina L'Alveare su un telefono, con il tema Aria"></div><figcaption><strong>Aria</strong><span>questa pagina</span></figcaption></figure></li>
+<li class="theme"><figure><div class="theme-shot"><img src="../assets/img/themes/it-aria-di-notte.jpg" width="780" height="1440" loading="lazy" alt="La pagina L'Alveare su un telefono, con il tema Aria di notte"></div><figcaption><strong>Aria di notte</strong></figcaption></figure></li>
 <li class="theme"><figure><div class="theme-shot"><img src="../assets/img/themes/it-gotico.jpg" width="780" height="1440" loading="lazy" alt="La pagina L'Alveare su un telefono, con il tema Gotico"></div><figcaption><strong>Il tuo</strong><span>Dell'Admin o di un plugin: qui il Gotico</span></figcaption></figure></li>
 </ul>
 </div>
@@ -414,7 +411,7 @@ Crooked Shelf</a>
 <h2 class="h2">Lo scaffale è tuo. Anche quello che c'è sopra.</h2>
 <div class="data">
 <div class="box"><h3>Ospitata da te</h3><p>Docker su un computer di casa, un Raspberry Pi o un server in rete, con HTTPS.</p></div>
-<div class="box"><h3>Backup completo</h3><p>Pagine, immagini e impostazioni in un file solo, da ripristinare quando vuoi.</p></div>
+<div class="box"><h3>Backup automatico</h3><p>Ogni giorno in una cartella a tua scelta (anche sincronizzata con OneDrive, Google Drive o Dropbox), cifrato se vuoi.</p></div>
 <div class="box"><h3>Markdown</h3><p>Esporta tutta la wiki in file di testo, che Obsidian apre così come sono.</p></div>
 <div class="box"><h3>Pacchetto mondo</h3><p>Un file <code>.shelf</code> porta mappe e regole della casa in un'altra campagna.</p></div>
 </div>
@@ -445,7 +442,7 @@ Crooked Shelf</a>
 <div class="wrap top">
 <div class="about">
 <a class="brand" href="./">
-<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" fill="#7a2e1c"/><g fill="#fff"><rect x="6" y="7" width="4" height="18"/><rect x="11" y="9" width="4" height="16"/><rect x="16.5" y="8" width="4" height="17" transform="rotate(12 18.5 16.5)"/><rect x="5" y="25" width="22" height="2.5" transform="rotate(-4 16 26)"/></g></svg>
+<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#3b4fd8"/><g fill="#fff"><rect x="6" y="7" width="4" height="18"/><rect x="11" y="9" width="4" height="16"/><rect x="16.5" y="8" width="4" height="17" transform="rotate(12 18.5 16.5)"/><rect x="5" y="25" width="22" height="2.5" transform="rotate(-4 16 26)"/></g></svg>
 Crooked Shelf</a>
 <p>Wiki self-hosted per creare, curare e raccontare campagne di giochi di ruolo da tavolo.</p>
 </div>
