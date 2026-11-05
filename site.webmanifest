@@ -1,0 +1,14 @@
+{
+	"name": "Crooked Shelf",
+	"short_name": "Crooked Shelf",
+	"description": "The self-hosted wiki for your tabletop role-playing campaigns.",
+	"start_url": "./",
+	"display": "browser",
+	"background_color": "#ffffff",
+	"theme_color": "#3b4fd8",
+	"icons": [
+		{ "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+		{ "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+		{ "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+	]
+}

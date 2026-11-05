@@ -11,6 +11,7 @@ Static files only: HTML, one stylesheet (`assets/style.css`) and a small script 
 - Colours, type and shapes follow the wiki's Aria theme: cool greys, one indigo accent, Inter, soft corners, a full-height bar on the left on large screens.
 - The theme screenshots in `assets/img/themes/` come from the wiki 0.18 on a phone, with the example adventure «La Notte in Affitto» (`en-*` with the English interface, `it-*` with the Italian one).
 - The adventure's illustrations are in `assets/img/`; the flags of the language switch are `assets/img/flag-*.svg`.
+- Icons: `favicon.svg`, `favicon.ico`, `favicon-32.png` and `apple-touch-icon.png` at the root, `assets/icons/icon-*.png` for `site.webmanifest`. They are the wiki's mark in the Aria colours.
 - `en/index.html` only sends the old `/en/` address to the root.
 - Visitors whose browser prefers Italian are sent from the root to `it/` until they pick a language with the switch; the choice is kept in `localStorage` (`cs-lang`).
 
