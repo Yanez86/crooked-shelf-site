@@ -6,7 +6,7 @@ import { Marked } from 'marked';
 
 const REPO = 'https://github.com/yanez86/crooked-shelf';
 const SITE_REPO = 'https://github.com/yanez86/crooked-shelf-site';
-const VERSION = '2026-11-05c'; // per stile e script: cambiarla quando cambiano, così il browser li riscarica
+const VERSION = '2026-11-05d'; // per stile e script: cambiarla quando cambiano, così il browser li riscarica
 
 // Le guide, nello stesso ordine nelle due lingue: il nome del file è anche quello della pagina.
 const GUIDES = [

@@ -1519,8 +1519,9 @@ code {
 	padding: 0;
 	list-style: none;
 	display: grid;
-	grid-template-columns: repeat(8, minmax(118px, 1fr));
-	min-width: 944px;
+	/* Tre temi: Aria, Aria di notte e Neon, attaccati come libri su uno scaffale. */
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	max-width: 720px;
 }
 .theme figure {
 	margin: 0;
