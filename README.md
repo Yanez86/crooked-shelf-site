@@ -9,6 +9,7 @@ The presentation site of [Crooked Shelf](https://github.com/yanez86/crooked-shel
 Static files only: HTML, one stylesheet (`assets/style.css`) and a small script (`assets/site.js`) for the Master's secrets demo, the language menu and the current section in the side bar. No dependencies and no build step; the font (Inter) comes from Google Fonts.
 
 - Colours, type and shapes follow the wiki's Aria theme: cool greys, one indigo accent, Inter, soft corners, a full-height bar on the left on large screens.
+- Dark theme with the colours of «Aria at night»: it follows the system, and the moon button in the header switches it by hand (kept in `localStorage`, `cs-theme`). The logo and the favicon take the theme's colours.
 - The theme screenshots in `assets/img/themes/` come from the wiki 0.18 on a phone, with the example adventure «La Notte in Affitto» (`en-*` with the English interface, `it-*` with the Italian one).
 - The adventure's illustrations are in `assets/img/`; the flags of the language switch are `assets/img/flag-*.svg`.
 - Icons: `favicon.svg`, `favicon.ico`, `favicon-32.png` and `apple-touch-icon.png` at the root, `assets/icons/icon-*.png` for `site.webmanifest`. They are the wiki's mark in the Aria colours.

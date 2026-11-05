@@ -1,3 +1,27 @@
+// Il tema: di base segue il sistema; il pulsante passa al chiaro o allo scuro e se lo ricorda (lo script in testa
+// alla pagina lo rimette prima che si disegni). Senza JavaScript il pulsante resta nascosto e vale il sistema.
+(() => {
+	const button = document.querySelector('.theme-toggle');
+	if (!button) return;
+	const root = document.documentElement;
+	const system = window.matchMedia('(prefers-color-scheme: dark)');
+	const dark = () => (root.dataset.theme ? root.dataset.theme === 'dark' : system.matches);
+	const sync = () => button.setAttribute('aria-pressed', String(dark()));
+	button.addEventListener('click', () => {
+		const next = dark() ? 'light' : 'dark';
+		root.dataset.theme = next;
+		try {
+			localStorage.setItem('cs-theme', next);
+		} catch {
+			// Senza localStorage il tema vale fino alla prossima pagina.
+		}
+		sync();
+	});
+	system.addEventListener('change', sync);
+	button.hidden = false;
+	sync();
+})();
+
 // Nella barra a sinistra è evidenziata la sezione che si sta leggendo, come la pagina aperta nell'albero della wiki.
 (() => {
 	const links = new Map();

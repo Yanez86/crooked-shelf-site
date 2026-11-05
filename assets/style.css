@@ -19,6 +19,10 @@
 	--secret-text: #3d1a5c;
 	--secret-border: #8a4fbf;
 	--code: #f1f2f5;
+	/* Il tasto scelto di un selettore (le linguette, le viste) e il terminale dell'installazione. */
+	--selected: #ffffff;
+	--term: #16181d;
+	color-scheme: light;
 	/* Lo sfondo di una riga sotto il puntatore, nelle barre; la riga attiva, tinta del colore principale. */
 	--hover: color-mix(in srgb, var(--text) 7%, var(--surface2));
 	--active: color-mix(in srgb, var(--primary) 12%, var(--surface2));
@@ -31,6 +35,62 @@
 	--gutter: clamp(16px, 4vw, 48px);
 	--section: clamp(64px, 8vw, 104px);
 	accent-color: var(--primary);
+}
+
+/* Tema scuro: i colori di «Aria di notte». Segue il sistema, a meno che si sia scelto il chiaro col pulsante
+   (data-theme sull'html, scritto dallo script in testa alla pagina); data-theme="dark" lo accende sempre.
+   I colori sono ripetuti nei due blocchi perché una regola sola non può essere insieme media query e attributo. */
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme='light']) {
+		--bg: #121317;
+		--surface: #1c1d23;
+		--surface2: #18191e;
+		--text: #eceef2;
+		--muted: #a3a9b6;
+		--border: #2c2f37;
+		--control: #80879a;
+		--primary: #9aa6ff;
+		--on-primary: #10153f;
+		--link: #a5b0ff;
+		--focus: #ffb454;
+		--success: #7dd59f;
+		--secret-bg: #251b31;
+		--secret-text: #ecdcff;
+		--secret-border: #b98ae0;
+		--code: #23252c;
+		--selected: color-mix(in srgb, #eceef2 15%, #18191e);
+		--term: #0b0c0f;
+		color-scheme: dark;
+	}
+}
+:root[data-theme='dark'] {
+	--bg: #121317;
+	--surface: #1c1d23;
+	--surface2: #18191e;
+	--text: #eceef2;
+	--muted: #a3a9b6;
+	--border: #2c2f37;
+	--control: #80879a;
+	--primary: #9aa6ff;
+	--on-primary: #10153f;
+	--link: #a5b0ff;
+	--focus: #ffb454;
+	--success: #7dd59f;
+	--secret-bg: #251b31;
+	--secret-text: #ecdcff;
+	--secret-border: #b98ae0;
+	--code: #23252c;
+	--selected: color-mix(in srgb, #eceef2 15%, #18191e);
+	--term: #0b0c0f;
+	color-scheme: dark;
+}
+
+/* Il marchio prende i colori del tema, come nella wiki: fondo nel colore principale, libri nel colore che ci sta sopra. */
+.logo-bg {
+	fill: var(--primary);
+}
+.logo-books {
+	fill: var(--on-primary);
 }
 
 *,
@@ -309,12 +369,22 @@ code {
 		border-top: 1px solid var(--border);
 	}
 	.tools {
+		flex-wrap: wrap;
 		margin: 12px 0 0;
 		padding-top: 12px;
 		border-top: 1px solid var(--border);
 	}
 	.tools .lang-menu {
 		flex: 1;
+	}
+	/* Lingua e tema in una riga; GitHub sotto, una riga intera come le voci della barra. */
+	.tools .btn-github {
+		flex: 1 0 100%;
+		justify-content: flex-start;
+		min-height: 40px;
+		padding: 0 10px;
+		border-radius: 8px;
+		font-weight: 500;
 	}
 	.tools .lang-menu summary {
 		width: 100%;
@@ -332,6 +402,35 @@ code {
 	}
 	html {
 		scroll-padding-top: 0;
+	}
+}
+
+/* --- Il pulsante del tema: la luna accende lo scuro, il sole torna al chiaro --- */
+
+.theme-toggle {
+	flex: none;
+	width: 44px;
+	min-width: 44px;
+	padding: 0;
+	border-color: var(--border);
+	color: var(--muted);
+}
+.theme-toggle:hover {
+	border-color: var(--control);
+	background: var(--surface);
+	color: var(--text);
+}
+.theme-toggle .sun,
+.theme-toggle[aria-pressed='true'] .moon {
+	display: none;
+}
+.theme-toggle[aria-pressed='true'] .sun {
+	display: block;
+}
+/* Sul telefono stanno in fila marchio, lingua, tema e GitHub: un po' meno spazio tra uno e l'altro. */
+@media (max-width: 420px) {
+	.tools {
+		gap: 4px;
 	}
 }
 
@@ -610,7 +709,7 @@ code {
 	color: var(--muted);
 }
 .m-tabs .on {
-	background: var(--surface);
+	background: var(--selected);
 	box-shadow: 0 1px 2px rgb(0 0 0 / 0.1);
 	color: var(--text);
 }
@@ -900,7 +999,7 @@ code {
 	color: var(--text);
 }
 .views .btn[aria-pressed='true'] {
-	background: var(--surface);
+	background: var(--selected);
 	box-shadow: 0 1px 2px rgb(0 0 0 / 0.12);
 	color: var(--text);
 }
@@ -1116,7 +1215,7 @@ code {
 	aspect-ratio: 1376 / 768;
 	overflow: hidden;
 	border-radius: var(--radius-lg);
-	background: var(--text);
+	background: #000000;
 }
 .map > img {
 	display: block;
@@ -1449,11 +1548,44 @@ code {
 	position: absolute;
 	inset: 0;
 	border-radius: inherit;
-	box-shadow: inset 0 0 0 1px rgb(22 24 29 / 0.08);
+	box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text) 10%, transparent);
 	pointer-events: none;
 }
-.theme.is-current .theme-shot::after {
+/* «Questa pagina»: Aria col tema chiaro, Aria di notte con lo scuro. */
+.theme .now {
+	display: none;
+}
+.theme.is-current-light .theme-shot::after {
 	box-shadow: inset 0 0 0 3px var(--primary);
+}
+.theme.is-current-light .now {
+	display: block;
+}
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme='light']) .theme.is-current-light .theme-shot::after {
+		box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text) 10%, transparent);
+	}
+	:root:not([data-theme='light']) .theme.is-current-light .now {
+		display: none;
+	}
+	:root:not([data-theme='light']) .theme.is-current-dark .theme-shot::after {
+		box-shadow: inset 0 0 0 3px var(--primary);
+	}
+	:root:not([data-theme='light']) .theme.is-current-dark .now {
+		display: block;
+	}
+}
+:root[data-theme='dark'] .theme.is-current-light .theme-shot::after {
+	box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text) 10%, transparent);
+}
+:root[data-theme='dark'] .theme.is-current-light .now {
+	display: none;
+}
+:root[data-theme='dark'] .theme.is-current-dark .theme-shot::after {
+	box-shadow: inset 0 0 0 3px var(--primary);
+}
+:root[data-theme='dark'] .theme.is-current-dark .now {
+	display: block;
 }
 .theme figcaption {
 	display: flex;
@@ -1469,7 +1601,7 @@ code {
 	line-height: 1.4;
 	color: var(--muted);
 }
-.theme.is-current figcaption span {
+.theme figcaption .now {
 	color: var(--primary);
 	font-weight: 600;
 }
@@ -1552,8 +1684,9 @@ code {
 	flex: 1 1 460px;
 	min-width: 0;
 	overflow: hidden;
+	border: 1px solid color-mix(in srgb, var(--text) 8%, transparent);
 	border-radius: var(--radius-lg);
-	background: var(--text);
+	background: var(--term);
 	color: #eceef2;
 	box-shadow: 0 24px 48px -28px rgb(22 24 29 / 0.5);
 }
