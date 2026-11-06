@@ -63,7 +63,7 @@ Page text, the side column, tags and the order of the left sidebar:
 
 It **can't** delete pages or folders, change visibility or permissions, touch templates, maps, timelines and boards, upload files, or reach settings, users, plugins, themes or backups: there's no tool for any of these. Moving a page to another folder doesn't change who sees it.
 
-The text goes through a converter that recognizes a fixed set of elements (headings, bold, italic, lists, quotes, links): HTML and code stay as text and are never run. The site's rules apply: a player edits only the pages they can edit on the site.
+The text goes through a converter that recognizes a fixed set of elements (headings, bold, italic, lists, quotes, tables, links): HTML and code stay as text and are never run. The site's rules apply: a player edits only the pages they can edit on the site.
 
 Every change leaves a version in the page's history, in your name: you can go back from there.
 
