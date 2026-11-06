@@ -139,7 +139,7 @@ It's fine for trying it out, not for playing.
 | `CS_PLUGINS_BUNDLED` | folder of the bundled plugins | `./plugins` |
 | `CS_UPDATE_CHECK` | `0` = don't check GitHub for a new version | — |
 | `CS_SETUP_TOKEN` | the code for the first setup; without it, the wiki generates one and writes it in the logs | — |
-| `CS_UPLOAD_QUOTA_MB` | image space for each player account (Game Masters and Admins have no limit) | `512` |
+| `CS_UPLOAD_QUOTA_MB` | image space for each account that runs no campaign (whoever is Game Master of at least one, and the Admin, have no limit) | `512` |
 | `CS_PACK_MAX_MB` | maximum size, uncompressed, of a world package to import | `200` |
 | `CS_BACKUP_DIR` | folder for automatic backups, e.g. your OneDrive folder (see [Automatic backup](#automatic-backup)); it must already exist | `<CS_DATA_DIR>/backups` |
 | `TZ` | the table's time zone, e.g. `Europe/Rome`: it decides “today” and when an appointment is called off | the system's (`docker-compose.yml`: `Europe/Rome`) |
@@ -230,9 +230,9 @@ Other ways to take your data with you (Administration):
 
 ## Security: what to know
 
-- **The Admin owns the data.** In campaigns they don't run they don't see the secrets, but they can download the backup, create other Admins and appoint Game Masters: it's a courtesy between people who trust each other, not a barrier. Give the Admin role only to someone you would trust with the server.
+- **The Admin owns the data.** In campaigns they don't run they don't see the secrets, but they can download the backup and appoint Game Masters: it's a courtesy between people who trust each other, not a barrier. There is only one Admin: if someone else will run the server, hand administration over to them from Administration › Users.
 - **Who gets in** is decided by invites: without one, nobody can sign up. Visitors without an account are turned on in Administration › Settings.
-- **Limits**: 20 failed sign-in attempts every 10 minutes per address (and 5 per username), a cap on how many password hashes run at the same time, 60 image uploads every 10 minutes, and a storage quota for players. Images can be downloaded only by people who can see the page (or resource) that uses them; images that nobody has used for a day are deleted automatically.
+- **Limits**: 20 failed sign-in attempts every 10 minutes per address (and 5 per username), a cap on how many password hashes run at the same time, 60 image uploads every 10 minutes, and a storage quota for those who run no campaign. Images can be downloaded only by people who can see the page (or resource) that uses them; images that nobody has used for a day are deleted automatically.
 - **Sessions**: they expire after 30 days without visits, and in any case 90 days after you sign in; from your Profile you can close the ones on other devices. A Claude token that has gone unused for 90 days stops working.
 - **Forgotten password**: the Admin creates a reset link from Administration › Users, which is valid for two days and works only once.
 - **Log**: Administration › Log lists sign-ins, role and password changes, invites, Claude tokens and backups from the last six months.

@@ -249,7 +249,7 @@ CS_TRUST_PROXY: &quot;1&quot;
 </tr>
 <tr>
 <td><code>CS_UPLOAD_QUOTA_MB</code></td>
-<td>spazio per le immagini di ogni account giocatore (Master e Admin non hanno limite)</td>
+<td>spazio per le immagini di ogni account che non tiene campagne (chi è Master di almeno una e l&#39;Admin non hanno limite)</td>
 <td><code>512</code></td>
 </tr>
 <tr>
@@ -327,9 +327,9 @@ docker compose start
 </ul>
 <h2 id="sicurezza-cosa-sapere">Sicurezza: cosa sapere</h2>
 <ul>
-<li><strong>L&#39;Admin possiede i dati.</strong> Nelle campagne che non tiene non vede i segreti, ma può scaricare il backup, creare altri Admin e nominare Master: è una cortesia tra persone che si fidano, non una barriera. Dai il ruolo Admin solo a chi affideresti il server.</li>
+<li><strong>L&#39;Admin possiede i dati.</strong> Nelle campagne che non tiene non vede i segreti, ma può scaricare il backup e nominare Master: è una cortesia tra persone che si fidano, non una barriera. L&#39;Admin è uno solo: se a gestire il server sarà un altro, passagli l&#39;amministrazione da Amministrazione › Utenti.</li>
 <li><strong>Chi accede</strong> lo decidono gli inviti: senza invito non ci si registra. I visitatori senza account si accendono in Amministrazione › Impostazioni.</li>
-<li><strong>Limiti</strong>: 20 accessi falliti ogni 10 minuti per indirizzo (e 5 per nome utente), un tetto agli hash delle password in corso, 60 caricamenti di immagini ogni 10 minuti, una quota di spazio per i giocatori. Le immagini si scaricano solo da chi può vedere la pagina (o la risorsa) che le usa; quelle che nessuno usa da un giorno si eliminano da sole.</li>
+<li><strong>Limiti</strong>: 20 accessi falliti ogni 10 minuti per indirizzo (e 5 per nome utente), un tetto agli hash delle password in corso, 60 caricamenti di immagini ogni 10 minuti, una quota di spazio per chi non tiene campagne. Le immagini si scaricano solo da chi può vedere la pagina (o la risorsa) che le usa; quelle che nessuno usa da un giorno si eliminano da sole.</li>
 <li><strong>Sessioni</strong>: scadono dopo 30 giorni senza visite e comunque dopo 90 dall&#39;accesso; dal Profilo si chiudono quelle sugli altri dispositivi. Un token di Claude fermo da 90 giorni smette di valere.</li>
 <li><strong>Password dimenticata</strong>: l&#39;Admin crea un link di reimpostazione da Amministrazione › Utenti, che vale due giorni e una volta sola.</li>
 <li><strong>Registro</strong>: Amministrazione › Registro elenca accessi, cambi di ruolo e password, inviti, token di Claude e backup degli ultimi sei mesi.</li>

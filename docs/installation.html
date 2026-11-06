@@ -249,7 +249,7 @@ CS_TRUST_PROXY: &quot;1&quot;
 </tr>
 <tr>
 <td><code>CS_UPLOAD_QUOTA_MB</code></td>
-<td>image space for each player account (Game Masters and Admins have no limit)</td>
+<td>image space for each account that runs no campaign (whoever is Game Master of at least one, and the Admin, have no limit)</td>
 <td><code>512</code></td>
 </tr>
 <tr>
@@ -327,9 +327,9 @@ docker compose start
 </ul>
 <h2 id="security-what-to-know">Security: what to know</h2>
 <ul>
-<li><strong>The Admin owns the data.</strong> In campaigns they don&#39;t run they don&#39;t see the secrets, but they can download the backup, create other Admins and appoint Game Masters: it&#39;s a courtesy between people who trust each other, not a barrier. Give the Admin role only to someone you would trust with the server.</li>
+<li><strong>The Admin owns the data.</strong> In campaigns they don&#39;t run they don&#39;t see the secrets, but they can download the backup and appoint Game Masters: it&#39;s a courtesy between people who trust each other, not a barrier. There is only one Admin: if someone else will run the server, hand administration over to them from Administration › Users.</li>
 <li><strong>Who gets in</strong> is decided by invites: without one, nobody can sign up. Visitors without an account are turned on in Administration › Settings.</li>
-<li><strong>Limits</strong>: 20 failed sign-in attempts every 10 minutes per address (and 5 per username), a cap on how many password hashes run at the same time, 60 image uploads every 10 minutes, and a storage quota for players. Images can be downloaded only by people who can see the page (or resource) that uses them; images that nobody has used for a day are deleted automatically.</li>
+<li><strong>Limits</strong>: 20 failed sign-in attempts every 10 minutes per address (and 5 per username), a cap on how many password hashes run at the same time, 60 image uploads every 10 minutes, and a storage quota for those who run no campaign. Images can be downloaded only by people who can see the page (or resource) that uses them; images that nobody has used for a day are deleted automatically.</li>
 <li><strong>Sessions</strong>: they expire after 30 days without visits, and in any case 90 days after you sign in; from your Profile you can close the ones on other devices. A Claude token that has gone unused for 90 days stops working.</li>
 <li><strong>Forgotten password</strong>: the Admin creates a reset link from Administration › Users, which is valid for two days and works only once.</li>
 <li><strong>Log</strong>: Administration › Log lists sign-ins, role and password changes, invites, Claude tokens and backups from the last six months.</li>

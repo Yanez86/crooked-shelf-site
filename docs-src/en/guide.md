@@ -4,12 +4,14 @@
 
 | Role | What they can do |
 |---|---|
-| **Admin** | Runs the site: campaigns (for anyone, choosing their Master), settings, users and how many campaigns each one can create, invites, themes, plugins, backups, world packages. In campaigns they have no extra powers: they are Master in the ones they run and a player in the ones they're invited to |
+| **Admin** | There is only one, and they run the site: campaigns (for anyone, choosing their Master), settings, users and how many campaigns each one can create, invites, themes, plugins, backups, world packages. In campaigns they have no extra powers: they are Master in the ones they run and a player in the ones they're invited to |
 | **Game Master** | In their campaign creates and edits all pages, writes and sees secrets, manages categories, tags, maps, resources, calendar, world timeline and players |
 | **Player** | Reads, creates pages, edits their own and those open to players, has their own sheet, adds events to the campaign timeline, uses boards |
 | **Visitor** | Public pages only, if the Admin has turned on visitor access |
 
-People join with an **invite**: the Master creates it in Campaign settings › Players, the Admin in Administration › Invites. Each link works only once.
+Game Master and Player aren't account roles: the campaign decides them. You're the Game Master of the campaigns you run and a player in those you're invited to, so the same person can run one campaign and play in another. There is only one Admin, usually whoever installed the wiki.
+
+People join with an **invite**: the Master creates it in Campaign settings › Players, the Admin in Administration › Invites (for the campaign they're in, or for none). Each link works only once.
 
 Anyone with an account, a player too, can **create their own campaigns** and be their Master.
 
@@ -23,7 +25,7 @@ An installation can hold several campaigns. Each one is a wiki of its own: pages
 - **Inviting players**: in Campaign settings › Players the Master creates a link. People without an account create one; people who have one join with it.
 - **Switching campaigns**: from the top of the profile menu, or from the Campaigns panel. The choice is kept on the device. A link to a page opens in the campaign you're in.
 - **Deleting one**: the Master deletes their own from Campaign settings › General, the Admin any of them from Administration › Campaigns (the red button next to Save), even the last one. The popup says what disappears and asks you to type the name again; Cancel, Esc or the X close it. Pages, maps, timelines, boards, resources and images disappear for everyone, and come back only by restoring a backup. Anyone left without campaigns can still sign in, and waits for an invite or creates one.
-- You're Master only in your own campaigns; in the others you're a player, if invited. This applies to the Admin too: they only enter campaigns they run or are invited to, and see secrets only in their own. They manage the others from Administration › Campaigns without entering them, and can't appoint themselves Master of a campaign that already exists (another Admin does that); of a new one they can.
+- You're Master only in your own campaigns; in the others you're a player, if invited. This applies to the Admin too: they only enter campaigns they run or are invited to, and see secrets only in their own. They manage the others from Administration › Campaigns without entering them, and can't appoint themselves Master of a campaign that already exists (they would see its secrets); of a new one they can.
 - Export and world packages concern the campaign you're in; the backup the whole installation.
 
 ## Player sheets
@@ -225,9 +227,9 @@ The whole wiki can be used from the keyboard and with screen readers; the colors
 ## Administration
 
 - **Settings**: site name, default language, visitors. Below, the installed **version** compared with the latest on GitHub (“Up to date” or “Not up to date”), with links to what's new and to how to update.
-- **Campaigns**: create them for anyone (even beyond the limit), choose their Master, delete them.
-- **Users**: roles, how many campaigns each one can create (and how many they run), disabling and, for people who've forgotten their password, a reset link (valid for two days, once only).
-- **Invites**: links to join the site, one per person.
+- **Campaigns**: create them for anyone (even beyond the limit), choose their Master among all accounts, delete them.
+- **Users**: how many campaigns each one can create (and how many they run), disabling and, for people who've forgotten their password, a reset link (valid for two days, once only). No roles are chosen here. At the bottom, **Hand over administration**: the Admin gives it to another active account and becomes a regular account, keeping their campaigns.
+- **Invites**: links to join the site, one per person: they join as a player in the campaign you're in, or in none.
 - **Themes**: copy a theme and change its colors; it saves only if the text stays readable. It can have a background image, behind the boxes, shown on wide screens. It's exported and imported as a file (colors only: the background travels with the world package).
 - **Plugins**: turn installed plugins on and off; clicking one shows its purpose, instructions, author and contents (to create one: [plugins.md](plugins.md)).
 - **Backup**: the full backup to download and the daily **automatic** one into a folder (even OneDrive, Google Drive or Dropbox), with the time, the copies to keep and an optional **password** that encrypts it and can't be recovered. See [installation.md](installation.md#automatic-backup).
