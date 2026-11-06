@@ -46,13 +46,13 @@ Plugins stay off until the Admin turns them on. An installed plugin with the sam
 ```
 
 - `id`: lowercase letters, numbers and hyphens.
-- `description` and `instructions`: every plugin must say what it's for and how to use it. In `instructions`, `\n` starts a new line. You read them by clicking the plugin, along with the author, license and contents; if they're missing, the Plugins page points it out.
+- `description` and `instructions`: what it's for and how to use it (in `instructions`, `\n` starts a new line). You read them by clicking the plugin; if they're missing, the Plugins page points it out.
 - Paths are relative to the plugin folder and can't go outside it.
 - An invalid file is ignored and reported on the Plugins page; the rest of the plugin works.
 
 ## Theme
 
-The same colors as the theme editor, in `#rrggbb` format. The theme is **rejected** if any text isn't readable (WCAG AA contrast). The easiest way: create it in the theme editor and use “Export”. The editor's background image doesn't apply to plugin themes.
+The same colors as the theme editor, in `#rrggbb` format. The theme is **rejected** if any text isn't readable (WCAG AA contrast). It's best to create it in the theme editor and use “Export”. Plugin themes don't have the background image.
 
 ```json
 { "name": "Gotico", "scheme": "dark", "colors": { "bg": "#14111a", "text": "#efe9f5", "…": "…" } }
@@ -70,9 +70,9 @@ The same colors as the theme editor, in `#rrggbb` format. The theme is **rejecte
 }
 ```
 
-`content` is the editor's format: the easiest way to get it is to create the template in the wiki (New page › New template) and copy it from an exported world package (in `pages.json`, the page with `"kind": "template"`). A block with `"attrs": { "visibility": "master" }` is a Master's secret: copies get it only if the Master makes them. The old box `{ "type": "secret", "content": [...] }` still works and turns into the blocks it contains, hidden.
+`content` is the editor's format: create the template in the wiki (New page › New template) and copy it from an exported world package (in `pages.json`, the page with `"kind": "template"`). A block with `"attrs": { "visibility": "master" }` is a Master's secret: only copies made by the Master get it. The old box `{ "type": "secret", "content": [...] }` still works: it turns into its blocks, hidden.
 
-When you turn the plugin on, its templates become wiki pages, in the Templates tab of the left sidebar (only once): from there you edit them like any other page, and they stay even if the plugin is turned off.
+When you turn the plugin on, its templates become wiki pages, only once: you edit them like the others, and they stay even when it's turned off.
 
 ## Calendar
 
@@ -104,4 +104,4 @@ Sends `@rule` references to an external site. `{name}` becomes the rule's name:
 { "site": "D&D Beyond", "url": "https://www.dndbeyond.com/search?q={name}" }
 ```
 
-`url` must start with `https://` and contain `{name}`. The reference in the page uses the first link from the plugins that are on; the preview and the rule's page show them all, with the “Open on `site`” button. Without links, the reference leads to the rule's page, or stays plain text if the entry doesn't exist.
+`url` starts with `https://` and contains `{name}`. The reference uses the first link from the plugins that are on; the preview and the rule's page show them all, with the “Open on `site`” button. Without links it leads to the rule's page, or stays plain text if the entry doesn't exist.

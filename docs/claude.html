@@ -76,11 +76,11 @@ Crooked Shelf</a>
 <p class="crumbs"><a href="index.html">Documentation</a> › Claude</p>
 <h1>Claude</h1>
 <article class="prose">
-<p>The Claude Code plugin brings a campaign into the conversation: who that character is, what happened in the last session, which pages talk about a place. Claude searches and reads the pages on its own and, if you allow it, writes them: a session recap, a new character, a correction.</p>
-<p>Claude works on a campaign <strong>only with its Master</strong>: players can&#39;t connect it. It sees what the Master sees, secrets included, and does only what the Master can do.</p>
+<p>The Claude Code plugin brings a campaign into the conversation: who a character is, what happened in the last session, which pages talk about a place. Claude searches and reads the pages and, if you allow it, writes them: a recap, a new character, a correction.</p>
+<p><strong>Only the campaign&#39;s Master</strong> connects it, not the players. Claude sees what the Master sees, secrets included, and does only what the Master can do.</p>
 <h2 id="installing">Installing</h2>
 <ol>
-<li><p>In the wiki, go into the campaign you&#39;re the Master of and open Campaign › Claude. Check “Claude can also write” only if you need it, then press “Create a token”. Copy the address and the token: the token is shown only once.</p>
+<li><p>In the wiki, go into the campaign you&#39;re the Master of and open Campaign settings › Claude. Check “Claude can also write” only if needed, then “Create a token”. Copy the address and the token: the token is shown only once.</p>
 </li>
 <li><p>In Claude Code:</p>
 <pre tabindex="0" aria-label="Code"><code class="language-bash">claude plugin marketplace add Yanez86/crooked-shelf
@@ -92,28 +92,28 @@ claude plugin install crooked-shelf@crooked-shelf
 </ol>
 <p>The wiki must be reachable from the computer Claude Code runs on.</p>
 <h2 id="as-a-connector-on-claudeai">As a connector, on claude.ai</h2>
-<p>From claude.ai (and the Claude apps) you add the wiki as a custom connector, without copying tokens:</p>
+<p>On claude.ai and in the Claude apps you add the wiki as a custom connector, without copying tokens:</p>
 <ol>
-<li>In the wiki, go into the campaign you&#39;re the Master of and, from Campaign › Claude, copy the “Connector address for claude.ai”, for example <code>https://wiki.esempio.it/mcp/2</code>.</li>
+<li>In the wiki, go into the campaign you&#39;re the Master of and copy the “Connector address for claude.ai” from Campaign settings › Claude, for example <code>https://wiki.esempio.it/mcp/2</code>.</li>
 <li>In Claude open Settings › Connectors › Add custom connector, name it after the campaign and paste the address. Leave the client ID and secret empty.</li>
-<li>Claude opens the wiki: sign in, choose whether Claude can also write, then press “Allow”.</li>
+<li>Claude opens the wiki: sign in, choose whether Claude can also write, then “Allow”.</li>
 </ol>
-<p><strong>One connector per campaign</strong>, each with its own address: the token for one doesn&#39;t open the others. In each chat, turn on only the one for the campaign you&#39;re working on, so Claude doesn&#39;t carry a secret from one campaign into the pages of another.</p>
+<p><strong>One connector per campaign</strong>, each with its own address and a token that doesn&#39;t open the others. In each chat turn on only the one for the campaign you&#39;re working on, so Claude doesn&#39;t carry one campaign&#39;s secrets into another.</p>
 <p>The wiki must be reachable from the internet over HTTPS (see <a href="installation.html">Installation</a>): Anthropic&#39;s servers connect to it, not your computer.</p>
-<p>The connector has its own token, which doesn&#39;t replace the plugin&#39;s. Campaign › Claude shows which sites the campaign is connected from; “Revoke” closes them all, and to come back you just connect again from Claude.</p>
+<p>The connector has its own token, separate from the plugin&#39;s. Campaign settings › Claude shows which sites the campaign is connected from; “Revoke” disconnects them all, and you connect again from Claude.</p>
 <h2 id="the-token">The token</h2>
 <ul>
-<li>It works for one campaign only, and only as long as you&#39;re its Master. There&#39;s one plugin token per campaign: creating another one replaces the previous one.</li>
-<li>You revoke it from Campaign › Claude. It also stops working when you change your password, if the account is disabled, or if you&#39;re no longer the campaign&#39;s Master.</li>
-<li>By default it only reads: for it to write, it must be created with the box checked, and tokens created earlier stay read-only.</li>
+<li>It works for one campaign only, while you&#39;re its Master. There&#39;s one plugin token per campaign: creating another replaces the previous one.</li>
+<li>You revoke it from Campaign settings › Claude. It also stops working if you change your password, if the account is disabled or if you&#39;re no longer the Master.</li>
+<li>By default it only reads: to write it must be created with the box checked, and tokens created earlier stay read-only.</li>
 <li>It opens only the <code>/mcp</code> address: it can&#39;t be used to access the rest of the wiki.</li>
-<li>Unused for 90 days, it stops working by itself. Campaign › Claude shows when it was created and when it was last used.</li>
+<li>Unused for 90 days, it stops working. Campaign settings › Claude shows when it was created and when it was last used.</li>
 </ul>
-<p>Page text reaches Claude, and so Anthropic, like any content in a conversation. Create the token only if your group is fine with that.</p>
+<p>Page text reaches Claude, and so Anthropic, like everything that goes into a conversation. Create the token only if your group agrees.</p>
 <h2 id="what-it-reads">What it reads</h2>
-<p>Pages, with the side column and the list of pages that mention them. It doesn&#39;t read map pins, timeline events or board cards yet.</p>
+<p>Pages, with the side column and the list of pages that cite them, and the left sidebar tree (<code>wiki_tree</code>). It doesn&#39;t read map pins, timeline events or board cards yet.</p>
 <h2 id="what-it-writes">What it writes</h2>
-<p>Only page text, in three ways:</p>
+<p>Page text, the side column, tags and the order of the left sidebar:</p>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Table"><table>
 <thead>
 <tr>
@@ -123,7 +123,7 @@ claude plugin install crooked-shelf@crooked-shelf
 </thead>
 <tbody><tr>
 <td><code>create_page</code></td>
-<td>creates a page; unless you ask otherwise, only you can see it</td>
+<td>creates a page; unless you ask otherwise, only you see it</td>
 </tr>
 <tr>
 <td><code>append_to_page</code></td>
@@ -133,14 +133,34 @@ claude plugin install crooked-shelf@crooked-shelf
 <td><code>replace_text</code></td>
 <td>replaces a piece of text that appears only once</td>
 </tr>
+<tr>
+<td><code>set_sidebar</code></td>
+<td>rewrites the text rows of the side column; images stay</td>
+</tr>
+<tr>
+<td><code>set_tags</code></td>
+<td>replaces a page&#39;s tags</td>
+</tr>
+<tr>
+<td><code>create_folder</code></td>
+<td>creates a folder (Master only)</td>
+</tr>
+<tr>
+<td><code>move</code></td>
+<td>moves pages, folders and dividers in the tree, as if dragging them (Master only)</td>
+</tr>
+<tr>
+<td><code>rename</code></td>
+<td>renames a page (the address stays) or a folder (Master only)</td>
+</tr>
 </tbody></table></div>
-<p>It <strong>can&#39;t</strong> delete pages, change the title, visibility, permissions or folder of an existing page, touch templates, maps, timelines and boards, upload files, or reach settings, users, plugins, themes or backups: there&#39;s no tool for any of these.</p>
+<p>It <strong>can&#39;t</strong> delete pages or folders, change visibility or permissions, touch templates, maps, timelines and boards, upload files, or reach settings, users, plugins, themes or backups: there&#39;s no tool for any of these. Moving a page to another folder doesn&#39;t change who sees it.</p>
 <p>The text goes through a converter that recognizes a fixed set of elements (headings, bold, italic, lists, quotes, links): HTML and code stay as text and are never run. The site&#39;s rules apply: a player edits only the pages they can edit on the site.</p>
 <p>Every change leaves a version in the page&#39;s history, in your name: you can go back from there.</p>
 <h3 id="mind-claude-codes-permissions">Mind Claude Code&#39;s permissions</h3>
-<p>Claude Code asks for confirmation before every write, showing the text: it&#39;s best to leave it on, especially with the Master&#39;s token. Page text is written by all the participants, and a page could contain instructions meant to trick Claude, for example into copying a secret into a page the players can see. Claude is instructed not to follow them, but the confirmation is the check that stays in your hands.</p>
+<p>Claude Code asks for confirmation before every write, showing the text: leave it on. Pages are written by all the participants, and one could contain instructions meant to trick Claude, for example into copying a secret into a players&#39; page. Claude is instructed not to follow them, but the confirmation remains your check.</p>
 <h2 id="for-developers">For developers</h2>
-<p><code>src/routes/mcp/[[id=id]]/+server.ts</code> speaks MCP over HTTP, one message per request and with no session; the tools are in <code>src/lib/server/mcp.ts</code> and go through the same functions as the site. Anyone who adds a write tool must stick to page text: Claude never sends editor JSON, only Markdown that goes through <code>fromMarkdown</code>. The plugin is in <code>claude-plugin/</code>. To try it without installing it: <code>claude --plugin-dir claude-plugin</code>.</p>
+<p><code>src/routes/mcp/[[id=id]]/+server.ts</code> speaks MCP over HTTP, one message per request and with no session; the tools are in <code>src/lib/server/mcp.ts</code> and go through the same functions as the site. Anyone who adds a write tool must not touch visibility and permissions or delete: Claude never sends editor JSON, only Markdown that goes through <code>fromMarkdown</code> (side column values included) and plain text for tags. The plugin is in <code>claude-plugin/</code>. To try it without installing it: <code>claude --plugin-dir claude-plugin</code>.</p>
 <p>The connector is OAuth 2.1 with PKCE: <code>/.well-known/oauth-protected-resource/mcp/&lt;id&gt;</code> and <code>/.well-known/oauth-authorization-server</code> for discovery, <code>/oauth/register</code>, consent at <code>/oauth/authorize</code>, and <code>/oauth/token</code>, which issues an <code>api_tokens</code> token with the return site in <code>client</code>. The campaign comes from the <code>/mcp/&lt;id&gt;</code> address (the <code>resource</code> parameter), and <code>/mcp/&lt;id&gt;</code> accepts only tokens for that campaign. Registration is open to anyone, so it stores nothing and gives everyone the same client: what protects it is the consent page, which shows the site the token goes to (<code>src/lib/server/oauth.ts</code>); for a site that isn&#39;t Claude&#39;s (<code>claude.ai</code>, <code>claude.com</code>, <code>anthropic.com</code> or the local computer) it asks for an extra confirmation. Tokens have no refresh, like the plugin&#39;s, but they stop working after 90 days without use. <code>/oauth/token</code> is called by Claude&#39;s servers without an <code>Origin</code>: that&#39;s why the check on forms from other sites is in <code>hooks.server.ts</code> and not in SvelteKit.</p>
 </article>
 <div class="doc-foot">

@@ -76,15 +76,15 @@ Crooked Shelf</a>
 <p class="crumbs"><a href="index.html">Documentazione</a> › Installazione</p>
 <h1>Installare Crooked Shelf</h1>
 <article class="prose">
-<p>Crooked Shelf è un programma che resta acceso su un computer (il &quot;server&quot;) e si usa dal browser, anche dal telefono. Il computer può essere il tuo PC, un Raspberry Pi in casa o un server affittato su internet.</p>
-<p>Tutti i dati (database, immagini, plugin installati) stanno in <strong>una sola cartella</strong>: per il backup basta quella.</p>
+<p>Crooked Shelf resta acceso su un computer (il &quot;server&quot;) e si usa dal browser, anche dal telefono. Il server può essere il tuo PC, un Raspberry Pi o un server affittato su internet.</p>
+<p>Tutti i dati (database, immagini, plugin) stanno in <strong>una sola cartella</strong>: per il backup basta quella.</p>
 <h2 id="1-con-docker-consigliato">1. Con Docker (consigliato)</h2>
 <p>Serve <a href="https://docs.docker.com/get-docker/">Docker</a> (su Windows e Mac: Docker Desktop).</p>
 <pre tabindex="0" aria-label="Codice"><code class="language-bash">git clone https://github.com/yanez86/crooked-shelf.git
 cd crooked-shelf
 docker compose up -d
 </code></pre>
-<p>Apri <strong><a href="http://localhost:3000">http://localhost:3000</a></strong>. La prima volta si crea la wiki e l&#39;account amministratore: la pagina chiede il <strong>codice di configurazione</strong>, che trovi in <code>docker compose logs</code> (serve perché la wiki la configuri tu, non chi arriva prima all&#39;indirizzo). In alternativa scegli tu il codice con la variabile <code>CS_SETUP_TOKEN</code>.</p>
+<p>Apri <strong><a href="http://localhost:3000">http://localhost:3000</a></strong> e crea la wiki e l&#39;account amministratore. La pagina chiede il <strong>codice di configurazione</strong>, che trovi in <code>docker compose logs</code>: così la configuri tu, e non chi arriva prima all&#39;indirizzo. Il codice puoi sceglierlo tu con <code>CS_SETUP_TOKEN</code>.</p>
 <p>Dagli altri dispositivi di casa usa l&#39;indirizzo del computer, per esempio <code>http://192.168.1.20:3000</code>.</p>
 <p>Comandi utili:</p>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Tabella"><table>
@@ -117,7 +117,7 @@ docker compose up -d
 docker compose up -d
 </code></pre>
 <h3 id="raspberry-pi">Raspberry Pi</h3>
-<p>Funziona su Raspberry Pi 4 o 5 con sistema a 64 bit (Raspberry Pi OS 64-bit): i passi sono gli stessi. La prima costruzione richiede qualche minuto.</p>
+<p>Su Raspberry Pi 4 o 5 con sistema a 64 bit (Raspberry Pi OS 64-bit) i passi sono gli stessi. La prima costruzione richiede qualche minuto.</p>
 <h2 id="2-senza-docker">2. Senza Docker</h2>
 <p>Serve <a href="https://nodejs.org/">Node.js</a> 22.17 o più recente.</p>
 <pre tabindex="0" aria-label="Codice"><code class="language-bash">git clone https://github.com/yanez86/crooked-shelf.git
@@ -127,12 +127,12 @@ npm run build
 npm start
 </code></pre>
 <p>I dati vanno nella cartella <code>data</code> accanto al programma (si cambia con <code>CS_DATA_DIR</code>).</p>
-<p>Per farlo ripartire da solo all&#39;accensione del computer si può usare <code>systemd</code> (Linux), <code>pm2</code> o il Task Scheduler di Windows.</p>
+<p>Per farlo partire all&#39;accensione: <code>systemd</code> (Linux), <code>pm2</code> o il Task Scheduler di Windows.</p>
 <h2 id="3-su-internet-con-https">3. Su internet, con HTTPS</h2>
-<p>Per rendere la wiki raggiungibile da fuori casa servono un server sempre acceso con un IP pubblico (per esempio un piccolo VPS da pochi euro al mese) e un dominio (es. <code>wiki.esempio.it</code>). Nel repository c&#39;è già tutto il necessario: <code>docker-compose.prod.yml</code> avvia la wiki insieme a <a href="https://caddyserver.com/">Caddy</a>, che gestisce HTTPS e ottiene e rinnova da solo il certificato.</p>
-<p>Il server deve avere almeno 2 GB di RAM (per costruire l&#39;immagine) e le porte <strong>80</strong> e <strong>443</strong> aperte, sia nel firewall del fornitore sia in quello del sistema.</p>
+<p>Da fuori casa servono un server sempre acceso con un IP pubblico (un piccolo VPS da pochi euro al mese) e un dominio (es. <code>wiki.esempio.it</code>). <code>docker-compose.prod.yml</code> avvia la wiki con <a href="https://caddyserver.com/">Caddy</a>, che gestisce HTTPS e rinnova da solo il certificato.</p>
+<p>Il server deve avere almeno 2 GB di RAM (per costruire l&#39;immagine) e le porte <strong>80</strong> e <strong>443</strong> aperte, nel firewall del fornitore e in quello del sistema.</p>
 <ol>
-<li><p>Dal sito dove hai comprato il dominio, crea un record <strong>A</strong> (es. <code>wiki</code>) che punta all&#39;IP del server.</p>
+<li><p>Dove hai comprato il dominio, crea un record <strong>A</strong> (es. <code>wiki</code>) verso l&#39;IP del server.</p>
 </li>
 <li><p>Sul server installa Docker e scarica Crooked Shelf:</p>
 <pre tabindex="0" aria-label="Codice"><code class="language-bash">curl -fsSL https://get.docker.com | sh
@@ -173,31 +173,31 @@ nano .env          # CS_DOMAIN=wiki.esempio.it
 <td><code>docker compose -f docker-compose.prod.yml stop</code></td>
 </tr>
 </tbody></table></div>
-<p>Consigli per una wiki affidabile:</p>
+<p>Consigli:</p>
 <ul>
-<li>attiva i <strong>backup automatici del server</strong> offerti dal fornitore e il <a href="#backup-automatico">backup automatico</a> della wiki, magari cifrato e copiato altrove con rclone; ogni tanto scarica anche il backup su un disco tuo;</li>
-<li>accedi al server con una chiave SSH e lascia che il sistema installi da solo gli aggiornamenti di sicurezza (su Ubuntu: <code>apt install unattended-upgrades</code>).</li>
+<li>attiva i <strong>backup del server</strong> del fornitore e il <a href="#backup-automatico">backup automatico</a> della wiki, magari cifrato e copiato altrove con rclone; ogni tanto scarica un backup su un disco tuo;</li>
+<li>accedi al server con una chiave SSH e fai installare al sistema gli aggiornamenti di sicurezza (su Ubuntu: <code>apt install unattended-upgrades</code>).</li>
 </ul>
 <p>Se usi già un altro proxy (nginx, Caddy installato a mano…), resta valido <code>docker-compose.yml</code>: punta il proxy a <code>localhost:3000</code> e togli il <code>#</code> da queste righe:</p>
 <pre tabindex="0" aria-label="Codice"><code class="language-yaml">CS_ORIGIN: &quot;https://wiki.esempio.it&quot;
 CS_TRUST_PROXY: &quot;1&quot;
 </code></pre>
-<p>In quel caso cambia anche <code>&quot;3000:3000&quot;</code> in <code>&quot;127.0.0.1:3000:3000&quot;</code>: così la wiki risponde solo al proxy, e nessuno la raggiunge in <code>http</code> saltando l&#39;HTTPS. Con <code>CS_ORIGIN</code> in <code>https</code> la wiki manda da sola l&#39;intestazione <code>Strict-Transport-Security</code>; il proxy deve passare <code>X-Forwarded-For</code> (e <code>X-Forwarded-Proto</code>), altrimenti i limiti ai tentativi di accesso valgono per tutti i visitatori insieme: la wiki lo segnala nei log se le intestazioni non tornano.</p>
-<p>L&#39;accesso dei visitatori senza account è <strong>spento</strong> di default: finché non lo accendi, sulla wiki entra solo chi ha ricevuto un invito.</p>
+<p>Cambia anche <code>&quot;3000:3000&quot;</code> in <code>&quot;127.0.0.1:3000:3000&quot;</code>, così la wiki risponde solo al proxy e nessuno salta l&#39;HTTPS. Con <code>CS_ORIGIN</code> in <code>https</code> la wiki manda da sola <code>Strict-Transport-Security</code>. Il proxy deve passare <code>X-Forwarded-For</code> (e <code>X-Forwarded-Proto</code>), altrimenti i limiti ai tentativi di accesso valgono per tutti i visitatori insieme; se le intestazioni non tornano, la wiki lo scrive nei log.</p>
+<p>L&#39;accesso dei visitatori senza account è <strong>spento</strong>: finché non lo accendi, entra solo chi ha un invito.</p>
 <h2 id="4-provarla-online-gratis-con-render">4. Provarla online gratis, con Render</h2>
-<p>Per dare un&#39;occhiata alla wiki da fuori casa senza un server tuo c&#39;è <a href="https://render.com/">Render</a>: il file <code>render.yaml</code> è già pronto.</p>
+<p>Per provarla senza un server tuo c&#39;è <a href="https://render.com/">Render</a>, con <code>render.yaml</code> già pronto.</p>
 <ol>
 <li>Accedi a Render con GitHub.</li>
 <li><strong>New › Blueprint</strong>, scegli il repository e conferma.</li>
 <li>Finita la costruzione, apri l&#39;indirizzo <code>https://crooked-shelf-….onrender.com</code> e crea la wiki e l&#39;account amministratore col codice di configurazione che leggi nei log di Render (o che imposti tu in <code>CS_SETUP_TOKEN</code> tra le variabili del servizio).</li>
 </ol>
-<p>A ogni modifica su <code>main</code> Render costruisce e pubblica da solo la nuova versione.</p>
+<p>A ogni modifica su <code>main</code> Render pubblica da solo la nuova versione.</p>
 <p>Sul piano gratuito:</p>
 <ul>
-<li>dopo 15 minuti senza visite la wiki si spegne, e alla visita successiva ci mette fino a un minuto a ripartire;</li>
+<li>dopo 15 minuti senza visite la wiki si spegne, e ci mette fino a un minuto a ripartire;</li>
 <li><strong>i dati non restano</strong>: a ogni spegnimento, riavvio o nuova versione si riparte da una wiki vuota.</li>
 </ul>
-<p>Va bene per provarla, non per giocarci una campagna: per quello usa uno dei modi qui sopra.</p>
+<p>Va bene per provarla, non per giocarci.</p>
 <h2 id="impostazioni">Impostazioni</h2>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Tabella"><table>
 <thead>
@@ -269,13 +269,13 @@ CS_TRUST_PROXY: &quot;1&quot;
 </tr>
 </tbody></table></div>
 <p>Senza <code>CS_ORIGIN</code> la wiki usa l&#39;indirizzo con cui viene raggiunta, in <code>http</code>: così funziona subito in rete locale.</p>
-<p>In Amministrazione › Impostazioni la wiki confronta la sua versione con quella del <code>package.json</code> sul ramo <code>main</code> di GitHub. Il server lo legge solo quando un Admin apre la pagina, al massimo una volta all&#39;ora, e non manda nulla della wiki; con <code>CS_UPDATE_CHECK=0</code> non contatta GitHub.</p>
+<p>In Amministrazione › Impostazioni la wiki confronta la sua versione con il <code>package.json</code> di <code>main</code> su GitHub: lo legge quando un Admin apre la pagina, al massimo una volta all&#39;ora, senza mandare niente della wiki. Con <code>CS_UPDATE_CHECK=0</code> non contatta GitHub.</p>
 <h2 id="backup-e-ripristino">Backup e ripristino</h2>
-<p><strong>Backup</strong>: Amministrazione › Backup › «Scarica il backup». Il file contiene database, immagini e plugin installati, in chiaro: contiene tutto, segreti di ogni campagna e password cifrate comprese. Conservalo su un altro disco, al sicuro.</p>
+<p><strong>Backup</strong>: Amministrazione › Backup › «Scarica il backup». Il file contiene in chiaro database, immagini e plugin: tutto, segreti di ogni campagna e password cifrate comprese. Conservalo al sicuro, su un altro disco.</p>
 <h3 id="backup-automatico">Backup automatico</h3>
-<p>In Amministrazione › Backup l&#39;Admin accende il <strong>backup automatico</strong>: una volta al giorno, all&#39;ora scelta (quella del server), la wiki salva un backup completo in una cartella e tiene solo gli ultimi (7, se non scegli altro). Se il computer è spento a quell&#39;ora, il backup parte appena si riaccende; se non riesce, la wiki riprova ogni ora e lo scrive nella pagina e nel Registro. C&#39;è anche il pulsante «Fai un backup adesso».</p>
-<p>I file si chiamano <code>crooked-shelf-backup-2026-11-05-030000.zip</code> (o <code>.zip.enc</code>, se cifrati). La wiki cancella solo i suoi backup automatici più vecchi, riconosciuti dal nome: gli altri file della cartella restano dove sono. Ogni file nasce con un nome provvisorio (<code>~crooked-shelf-backup-….tmp</code>) e prende il nome vero solo a lavoro finito.</p>
-<p><strong>Portarli in cloud.</strong> La wiki non si collega a OneDrive, Google Drive o Dropbox: scrive i backup in una cartella, e se è quella del loro programma ci pensa lui a caricarli. La cartella la sceglie chi installa la wiki, con la variabile <code>CS_BACKUP_DIR</code>; senza, i backup vanno in <code>backups</code> dentro la cartella dei dati, che protegge da un errore ma non da un disco rotto. La cartella deve esistere già: se manca (disco staccato, cartella non collegata a Docker) il backup non riesce e la pagina lo dice.</p>
+<p>In Amministrazione › Backup l&#39;Admin accende il <strong>backup automatico</strong>: ogni giorno, all&#39;ora scelta (del server), la wiki salva un backup completo in una cartella e tiene gli ultimi 7 (o quanti scegli). Se a quell&#39;ora il computer è spento, parte alla riaccensione; se non riesce, la wiki riprova ogni ora e lo scrive nella pagina e nel Registro. C&#39;è anche «Fai un backup adesso».</p>
+<p>I file si chiamano <code>crooked-shelf-backup-2026-11-05-030000.zip</code> (<code>.zip.enc</code> se cifrati). La wiki cancella solo i suoi backup più vecchi, riconoscendoli dal nome, e non tocca gli altri file. Finché il file è a metà ha un nome provvisorio (<code>~crooked-shelf-backup-….tmp</code>).</p>
+<p><strong>Portarli in cloud.</strong> La wiki non si collega a OneDrive, Google Drive o Dropbox: scrive in una cartella, e se è quella del loro programma ci pensa lui a caricarli. La cartella si sceglie con <code>CS_BACKUP_DIR</code>; senza, i backup vanno in <code>backups</code> nella cartella dei dati, che protegge da un errore ma non da un disco rotto. La cartella deve esistere: se manca (disco staccato, cartella non collegata a Docker) il backup non riesce e la pagina lo dice.</p>
 <ul>
 <li><p><strong>Windows, senza Docker</strong> (PowerShell, dalla cartella di Crooked Shelf):</p>
 <pre tabindex="0" aria-label="Codice"><code class="language-powershell">mkdir &quot;$env:USERPROFILE\OneDrive\Crooked Shelf&quot;
@@ -291,19 +291,19 @@ npm start
 environment:
   CS_BACKUP_DIR: &quot;/backups&quot;
 </code></pre>
-<p>Su Linux la cartella deve essere scrivibile dall&#39;utente del container: <code>sudo chown 1000:1000 /percorso/della/cartella</code>. I backup sono leggibili solo da quell&#39;utente (e da root), perché contengono tutto.</p>
+<p>Su Linux la cartella deve essere scrivibile dall&#39;utente del container: <code>sudo chown 1000:1000 /percorso/della/cartella</code>. I backup li legge solo quell&#39;utente (e root).</p>
 </li>
-<li><p><strong>Su un server (VPS)</strong> non c&#39;è il programma di OneDrive: collega una cartella del server come sopra (es. <code>/opt/crooked-shelf-backup:/backups</code>) e caricala con <a href="https://rclone.org/">rclone</a>, che sa parlare con Google Drive, OneDrive e molti altri. Dopo averlo configurato (<code>rclone config</code>), una riga in <code>crontab -e</code> la copia ogni mattina, senza i file ancora a metà:</p>
+<li><p><strong>Su un server (VPS)</strong> collega una cartella come sopra (es. <code>/opt/crooked-shelf-backup:/backups</code>) e caricala con <a href="https://rclone.org/">rclone</a>, che funziona con Google Drive, OneDrive e molti altri. Dopo <code>rclone config</code>, una riga in <code>crontab -e</code> la copia ogni mattina, senza i file a metà:</p>
 <pre tabindex="0" aria-label="Codice"><code class="language-bash">30 4 * * * rclone copy /opt/crooked-shelf-backup drive:CrookedShelf --exclude &quot;~*&quot;
 </code></pre>
 </li>
 </ul>
 <p>Le copie vecchie che la wiki cancella spariscono anche dal cloud (di solito finiscono nel cestino di OneDrive o Drive); <code>rclone copy</code> invece non cancella niente.</p>
-<p><strong>Cifrare i backup automatici.</strong> Un backup contiene tutto, in chiaro: chi arriva al file, o al tuo account cloud, legge pagine e segreti di ogni campagna, account, registro con gli indirizzi IP. Per questo l&#39;Admin può scegliere una <strong>password dei backup</strong> (almeno 12 caratteri; meglio una frase di quattro o cinque parole): da quel momento i backup automatici sono file <code>.zip.enc</code> che si aprono solo con quella.</p>
+<p><strong>Cifrare i backup automatici.</strong> In chiaro, chi arriva al file o al tuo account cloud legge pagine e segreti di ogni campagna, account e registro con gli indirizzi IP. Per questo l&#39;Admin può scegliere una <strong>password dei backup</strong> (almeno 12 caratteri; meglio una frase di quattro o cinque parole): da allora i backup automatici sono file <code>.zip.enc</code> che si aprono solo con quella.</p>
 <ul>
-<li>La password <strong>non viene salvata da nessuna parte</strong>: la wiki tiene solo una chiave che serve a chiudere i file, non ad aprirli. Chi entra nella wiki, o legge un backup in chiaro, non trova niente che apra quelli cifrati.</li>
-<li><strong>Se la perdi, i backup cifrati non si aprono più</strong>, da nessuno. Scrivila in un gestore di password o su un foglio in un posto sicuro. In Amministrazione › Backup puoi controllare di ricordarla senza cambiare niente.</li>
-<li>Cambiando password, i backup già fatti restano con quella di prima. Togliendo la cifratura, i prossimi backup tornano in chiaro.</li>
+<li>La password <strong>non è salvata da nessuna parte</strong>: la wiki tiene solo una chiave che chiude i file e non li apre. Né la wiki né un backup in chiaro contengono qualcosa che apra quelli cifrati.</li>
+<li><strong>Se la perdi, i backup cifrati non li apre più nessuno.</strong> Tienila in un gestore di password o su un foglio al sicuro. In Amministrazione › Backup puoi verificare di ricordarla.</li>
+<li>Cambiando password, i backup già fatti restano con la vecchia. Togliendo la cifratura, i prossimi sono in chiaro.</li>
 <li>Il backup scaricato con «Scarica il backup» resta sempre in chiaro.</li>
 </ul>
 <p>Tecnicamente: dalla password nasce con scrypt una coppia di chiavi X25519, di cui la wiki tiene la metà pubblica; ogni backup ha una sua chiave usa e getta ed è cifrato con AES-256-GCM, che si accorge se il file è stato cambiato o è incompleto. Il formato è descritto in <code>tools/backup-crypto.mjs</code>.</p>
@@ -316,19 +316,19 @@ docker compose run --rm -v &quot;$PWD:/backup&quot; crooked-shelf node tools/res
 docker compose start
 </code></pre>
 <p>In PowerShell scrivi <code>&quot;${PWD}:/backup&quot;</code> al posto di <code>&quot;$PWD:/backup&quot;</code>.</p>
-<p>Un backup cifrato (<code>.zip.enc</code>) si ripristina con gli stessi comandi: lo strumento chiede la password senza mostrarla mentre la scrivi (oppure la legge dalla variabile <code>CS_BACKUP_PASSWORD</code>). Se la password è sbagliata o il file è danneggiato, non tocca niente. Per aprire un backup cifrato senza ripristinarlo, ad esempio per guardarci dentro:</p>
+<p>Un backup cifrato (<code>.zip.enc</code>) si ripristina con gli stessi comandi: lo strumento chiede la password senza mostrarla, o la prende da <code>CS_BACKUP_PASSWORD</code>. Con la password sbagliata o il file danneggiato non tocca niente. Per aprirlo senza ripristinarlo:</p>
 <pre tabindex="0" aria-label="Codice"><code class="language-bash">node tools/decrypt-backup.mjs crooked-shelf-backup-2026-11-05-030000.zip.enc
 </code></pre>
-<p>Il database che c&#39;era prima non viene cancellato: viene rinominato <code>crooked-shelf.db.prima-del-ripristino-…</code>.</p>
+<p>Il database di prima non si cancella: diventa <code>crooked-shelf.db.prima-del-ripristino-…</code>.</p>
 <p>Altri modi di portare via i dati (Amministrazione):</p>
 <ul>
 <li><strong>Esporta in Markdown</strong>: tutte le pagine come file di testo, apribili con Obsidian o qualsiasi editor.</li>
-<li><strong>Pacchetto mondo</strong> (<code>.shelf</code>): mappe, pagine, regole della casa, template, calendario e cronologia del mondo, da importare in un&#39;altra wiki: in una campagna che c&#39;è già oppure in una nuova, creata apposta, che riprende anche la home del pacchetto.</li>
+<li><strong>Pacchetto mondo</strong> (<code>.shelf</code>): mappe, pagine, regole della casa, template, calendario e cronologia del mondo, da importare in una campagna che c&#39;è già o in una nuova, che prende anche la home del pacchetto.</li>
 </ul>
 <h2 id="sicurezza-cosa-sapere">Sicurezza: cosa sapere</h2>
 <ul>
-<li><strong>L&#39;Admin è chi possiede i dati.</strong> Nelle campagne che non tiene l&#39;interfaccia non gli mostra i segreti del Master, ma può scaricare il backup, creare altri account Admin e nominare Master: è una cortesia tra persone che si fidano, non una barriera. Dai il ruolo Admin solo a chi affideresti il server.</li>
-<li><strong>Chi può accedere</strong> lo decidono gli inviti: senza invito non ci si registra. I visitatori senza account sono spenti finché non li accendi in Amministrazione › Impostazioni.</li>
+<li><strong>L&#39;Admin possiede i dati.</strong> Nelle campagne che non tiene non vede i segreti, ma può scaricare il backup, creare altri Admin e nominare Master: è una cortesia tra persone che si fidano, non una barriera. Dai il ruolo Admin solo a chi affideresti il server.</li>
+<li><strong>Chi accede</strong> lo decidono gli inviti: senza invito non ci si registra. I visitatori senza account si accendono in Amministrazione › Impostazioni.</li>
 <li><strong>Limiti</strong>: 20 accessi falliti ogni 10 minuti per indirizzo (e 5 per nome utente), un tetto agli hash delle password in corso, 60 caricamenti di immagini ogni 10 minuti, una quota di spazio per i giocatori. Le immagini si scaricano solo da chi può vedere la pagina (o la risorsa) che le usa; quelle che nessuno usa da un giorno si eliminano da sole.</li>
 <li><strong>Sessioni</strong>: scadono dopo 30 giorni senza visite e comunque dopo 90 dall&#39;accesso; dal Profilo si chiudono quelle sugli altri dispositivi. Un token di Claude fermo da 90 giorni smette di valere.</li>
 <li><strong>Password dimenticata</strong>: l&#39;Admin crea un link di reimpostazione da Amministrazione › Utenti, che vale due giorni e una volta sola.</li>

@@ -139,12 +139,12 @@ Crooked Shelf</a>
 </code></pre>
 <ul>
 <li><code>id</code>: lowercase letters, numbers and hyphens.</li>
-<li><code>description</code> and <code>instructions</code>: every plugin must say what it&#39;s for and how to use it. In <code>instructions</code>, <code>\n</code> starts a new line. You read them by clicking the plugin, along with the author, license and contents; if they&#39;re missing, the Plugins page points it out.</li>
+<li><code>description</code> and <code>instructions</code>: what it&#39;s for and how to use it (in <code>instructions</code>, <code>\n</code> starts a new line). You read them by clicking the plugin; if they&#39;re missing, the Plugins page points it out.</li>
 <li>Paths are relative to the plugin folder and can&#39;t go outside it.</li>
 <li>An invalid file is ignored and reported on the Plugins page; the rest of the plugin works.</li>
 </ul>
 <h2 id="theme">Theme</h2>
-<p>The same colors as the theme editor, in <code>#rrggbb</code> format. The theme is <strong>rejected</strong> if any text isn&#39;t readable (WCAG AA contrast). The easiest way: create it in the theme editor and use “Export”. The editor&#39;s background image doesn&#39;t apply to plugin themes.</p>
+<p>The same colors as the theme editor, in <code>#rrggbb</code> format. The theme is <strong>rejected</strong> if any text isn&#39;t readable (WCAG AA contrast). It&#39;s best to create it in the theme editor and use “Export”. Plugin themes don&#39;t have the background image.</p>
 <pre tabindex="0" aria-label="Code"><code class="language-json">{ &quot;name&quot;: &quot;Gotico&quot;, &quot;scheme&quot;: &quot;dark&quot;, &quot;colors&quot;: { &quot;bg&quot;: &quot;#14111a&quot;, &quot;text&quot;: &quot;#efe9f5&quot;, &quot;…&quot;: &quot;…&quot; } }
 </code></pre>
 <h2 id="template">Template</h2>
@@ -156,8 +156,8 @@ Crooked Shelf</a>
 	&quot;content&quot;: { &quot;type&quot;: &quot;doc&quot;, &quot;content&quot;: [ { &quot;type&quot;: &quot;heading&quot;, &quot;attrs&quot;: { &quot;level&quot;: 2 }, &quot;content&quot;: [ { &quot;type&quot;: &quot;text&quot;, &quot;text&quot;: &quot;Equipaggio&quot; } ] }, { &quot;type&quot;: &quot;paragraph&quot; } ] }
 }
 </code></pre>
-<p><code>content</code> is the editor&#39;s format: the easiest way to get it is to create the template in the wiki (New page › New template) and copy it from an exported world package (in <code>pages.json</code>, the page with <code>&quot;kind&quot;: &quot;template&quot;</code>). A block with <code>&quot;attrs&quot;: { &quot;visibility&quot;: &quot;master&quot; }</code> is a Master&#39;s secret: copies get it only if the Master makes them. The old box <code>{ &quot;type&quot;: &quot;secret&quot;, &quot;content&quot;: [...] }</code> still works and turns into the blocks it contains, hidden.</p>
-<p>When you turn the plugin on, its templates become wiki pages, in the Templates tab of the left sidebar (only once): from there you edit them like any other page, and they stay even if the plugin is turned off.</p>
+<p><code>content</code> is the editor&#39;s format: create the template in the wiki (New page › New template) and copy it from an exported world package (in <code>pages.json</code>, the page with <code>&quot;kind&quot;: &quot;template&quot;</code>). A block with <code>&quot;attrs&quot;: { &quot;visibility&quot;: &quot;master&quot; }</code> is a Master&#39;s secret: only copies made by the Master get it. The old box <code>{ &quot;type&quot;: &quot;secret&quot;, &quot;content&quot;: [...] }</code> still works: it turns into its blocks, hidden.</p>
+<p>When you turn the plugin on, its templates become wiki pages, only once: you edit them like the others, and they stay even when it&#39;s turned off.</p>
 <h2 id="calendar">Calendar</h2>
 <p>As in the example&#39;s <code>calendars/lunargento.json</code>: <code>months</code> (name, days, <code>festival</code> for holidays outside the months), <code>weekdays</code>, <code>eras</code> (name, abbreviation, starting year), <code>leap</code> (or <code>null</code>), <code>today</code> (or <code>null</code>).</p>
 <h2 id="language">Language</h2>
@@ -174,7 +174,7 @@ Crooked Shelf</a>
 <p>Sends <code>@rule</code> references to an external site. <code>{name}</code> becomes the rule&#39;s name:</p>
 <pre tabindex="0" aria-label="Code"><code class="language-json">{ &quot;site&quot;: &quot;D&amp;D Beyond&quot;, &quot;url&quot;: &quot;https://www.dndbeyond.com/search?q={name}&quot; }
 </code></pre>
-<p><code>url</code> must start with <code>https://</code> and contain <code>{name}</code>. The reference in the page uses the first link from the plugins that are on; the preview and the rule&#39;s page show them all, with the “Open on <code>site</code>” button. Without links, the reference leads to the rule&#39;s page, or stays plain text if the entry doesn&#39;t exist.</p>
+<p><code>url</code> starts with <code>https://</code> and contains <code>{name}</code>. The reference uses the first link from the plugins that are on; the preview and the rule&#39;s page show them all, with the “Open on <code>site</code>” button. Without links it leads to the rule&#39;s page, or stays plain text if the entry doesn&#39;t exist.</p>
 </article>
 <div class="doc-foot">
 <p><a href="https://github.com/yanez86/crooked-shelf-site/blob/main/docs-src/en/plugins.md">Edit this page on GitHub</a></p>

@@ -139,12 +139,12 @@ Crooked Shelf</a>
 </code></pre>
 <ul>
 <li><code>id</code>: lettere minuscole, numeri e trattini.</li>
-<li><code>description</code> e <code>instructions</code>: ogni plugin deve dire a cosa serve e come si usa. In <code>instructions</code>, <code>\n</code> va a capo. Si leggono cliccando sul plugin, insieme ad autore, licenza e contenuto; se mancano, la pagina Plugin lo segnala.</li>
+<li><code>description</code> e <code>instructions</code>: a cosa serve e come si usa (in <code>instructions</code>, <code>\n</code> va a capo). Si leggono cliccando sul plugin; se mancano, la pagina Plugin lo segnala.</li>
 <li>I percorsi sono relativi alla cartella del plugin e non possono uscirne.</li>
 <li>Un file non valido viene ignorato e segnalato nella pagina Plugin; il resto del plugin funziona.</li>
 </ul>
 <h2 id="tema">Tema</h2>
-<p>Gli stessi colori dell&#39;editor dei temi, in formato <code>#rrggbb</code>. Il tema viene <strong>rifiutato</strong> se qualche testo non è leggibile (contrasto WCAG AA). Il modo più semplice: crealo nell&#39;editor dei temi e usa «Esporta». L&#39;immagine di sfondo dell&#39;editor non vale per i temi dei plugin.</p>
+<p>Gli stessi colori dell&#39;editor dei temi, in formato <code>#rrggbb</code>. Il tema è <strong>rifiutato</strong> se un testo non è leggibile (contrasto WCAG AA). Conviene crearlo nell&#39;editor dei temi e usare «Esporta». I temi dei plugin non hanno l&#39;immagine di sfondo.</p>
 <pre tabindex="0" aria-label="Codice"><code class="language-json">{ &quot;name&quot;: &quot;Gotico&quot;, &quot;scheme&quot;: &quot;dark&quot;, &quot;colors&quot;: { &quot;bg&quot;: &quot;#14111a&quot;, &quot;text&quot;: &quot;#efe9f5&quot;, &quot;…&quot;: &quot;…&quot; } }
 </code></pre>
 <h2 id="template">Template</h2>
@@ -156,8 +156,8 @@ Crooked Shelf</a>
 	&quot;content&quot;: { &quot;type&quot;: &quot;doc&quot;, &quot;content&quot;: [ { &quot;type&quot;: &quot;heading&quot;, &quot;attrs&quot;: { &quot;level&quot;: 2 }, &quot;content&quot;: [ { &quot;type&quot;: &quot;text&quot;, &quot;text&quot;: &quot;Equipaggio&quot; } ] }, { &quot;type&quot;: &quot;paragraph&quot; } ] }
 }
 </code></pre>
-<p><code>content</code> è il formato dell&#39;editor: il modo più semplice per ottenerlo è creare il template nella wiki (Nuova pagina › Nuovo template) e copiarlo da un pacchetto mondo esportato (in <code>pages.json</code>, la pagina con <code>&quot;kind&quot;: &quot;template&quot;</code>). Un blocco con <code>&quot;attrs&quot;: { &quot;visibility&quot;: &quot;master&quot; }</code> è un segreto del Master: le copie lo hanno solo se le fa il Master. Il vecchio riquadro <code>{ &quot;type&quot;: &quot;secret&quot;, &quot;content&quot;: [...] }</code> funziona ancora e diventa i blocchi che contiene, oscurati.</p>
-<p>Accendendo il plugin, i suoi template diventano pagine della wiki, nella linguetta Template della barra a sinistra (una volta sola): da lì si modificano come ogni pagina, e restano anche se il plugin si spegne.</p>
+<p><code>content</code> è il formato dell&#39;editor: crea il template nella wiki (Nuova pagina › Nuovo template) e copialo da un pacchetto mondo esportato (in <code>pages.json</code>, la pagina con <code>&quot;kind&quot;: &quot;template&quot;</code>). Un blocco con <code>&quot;attrs&quot;: { &quot;visibility&quot;: &quot;master&quot; }</code> è un segreto del Master: lo hanno solo le copie fatte dal Master. Il vecchio riquadro <code>{ &quot;type&quot;: &quot;secret&quot;, &quot;content&quot;: [...] }</code> funziona ancora: diventa i suoi blocchi, oscurati.</p>
+<p>Accendendo il plugin, i suoi template diventano pagine della wiki, una volta sola: si modificano come le altre e restano anche spegnendolo.</p>
 <h2 id="calendario">Calendario</h2>
 <p>Come in <code>calendars/lunargento.json</code> dell&#39;esempio: <code>months</code> (nome, giorni, <code>festival</code> per i giorni di festa fuori dai mesi), <code>weekdays</code>, <code>eras</code> (nome, sigla, anno di inizio), <code>leap</code> (o <code>null</code>), <code>today</code> (o <code>null</code>).</p>
 <h2 id="lingua">Lingua</h2>
@@ -174,7 +174,7 @@ Crooked Shelf</a>
 <p>Porta i riferimenti <code>@regola</code> a un sito esterno. <code>{name}</code> diventa il nome della regola:</p>
 <pre tabindex="0" aria-label="Codice"><code class="language-json">{ &quot;site&quot;: &quot;D&amp;D Beyond&quot;, &quot;url&quot;: &quot;https://www.dndbeyond.com/search?q={name}&quot; }
 </code></pre>
-<p><code>url</code> deve iniziare con <code>https://</code> e contenere <code>{name}</code>. Il riferimento nella pagina usa il primo link dei plugin accesi; l&#39;anteprima e la scheda della regola li mostrano tutti, con il pulsante «Apri su <code>site</code>». Senza link, il riferimento porta alla scheda della regola, o resta testo se la voce non esiste.</p>
+<p><code>url</code> inizia con <code>https://</code> e contiene <code>{name}</code>. Il riferimento usa il primo link dei plugin accesi; anteprima e scheda della regola li mostrano tutti, col pulsante «Apri su <code>site</code>». Senza link porta alla scheda della regola, o resta testo se la voce non esiste.</p>
 </article>
 <div class="doc-foot">
 <p><a href="https://github.com/yanez86/crooked-shelf/blob/main/docs/plugin.md">Modifica questa pagina su GitHub</a></p>
